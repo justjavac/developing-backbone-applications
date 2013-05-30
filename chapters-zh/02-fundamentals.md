@@ -70,24 +70,24 @@ web严重依赖于HTTP协议，它是无状态的。意思就是说在浏览器�
 
 当用户浏览到一个新的view时，view的附加内容需要通过XHR (XMLHttpRequest)去请求，通常与服务器端的REST API或端点通讯。[Ajax](https://en.wikipedia.org/wiki/Ajax_(programming))(Asynchronous JavaScript and XML) 可以异步与服务端通讯，所以数据可以在背后传输和处理，可以让用户不间断的与页面的其它部分交互。它提高了可用性和响应能力。
 
-SPAs can also take advantage of browser features like the [History API](http://diveintohtml5.info/history.html) to update the address seen in the location bar when moving from one view to another. These URLs also make it possible to bookmark and share a particular application state, without the need to navigate to completely new pages.
+SPAs同样也可以使用浏览器的高级特性，比如当用户从一个view跳转到另一个view的时候可以使用[History API](http://diveintohtml5.info/history.html) 来更新地址栏的地址。这些URLs同样可以添加到书签和分享应用的状态，无需跳转到完整的新的页面。
 
-The typical SPA consists of smaller pieces of interface representing logical entities, all of which have their own UI, business logic and data. A good example is a basket in a shopping web application which can have items added to it. This basket might be presented to the user in a box in the top right corner of the page (see the picture below): 
+典型的SPA由小块的逻辑实体接口组成，每个部分都有他们自己的UI，业务逻辑和数据。一个很好的例子就是购物应用中的购物篮，可以往里面添加元素， 购物篮可能是在页面右上角呈现给用户的一个盒子：
 
 ![](img/wireframe_e_commerce.png)
 
-The basket and its data are presented in HTML. The data and its associated View in HTML changes over time. There was a time when we used jQuery (or a similar DOM manipulation library) and a bunch of Ajax calls and callbacks to keep the two in sync. That often produced code that was not well-structured or easy to maintain. Bugs were frequent and perhaps even unavoidable.
+购物篮和它的数据呈现在HTML中。数据和它在HTML中关联的View会随着一起变化。曾经我们使用jQuery (或者类似的DOM操作库),一堆的Ajax调用和回调来保持他们两者的同步。那样经常产生结构不好，不易维护的代码。Bug频繁出现或不可避免。
 
-The need for fast, complex, and responsive Ajax-powered web applications demands replication of a lot of this logic on the client side, dramatically increasing the size and complexity of the code residing there. Eventually this has brought us to the point where we need MVC (or a similar architecture) implemented on the client side to better structure the code and make it easier to maintain and further extend during the application life-cycle.
+对于需要快速，复杂和响应的Ajax支持的web应用复制了很多这样的逻辑在客户端上，极大的提高了代码的规模和复杂性。最终，把我们带向需要在客户端上实现MVC(或类似的架构)，以便更好的构建代码，在应用生命周期里更容易维护和扩展。
 
-Through evolution and trial and error, JavaScript developers have harnessed the power of the traditional MVC pattern, leading to the development of several MVC-inspired JavaScript frameworks, such as Backbone.js.
+经过反复的尝试也演变，JavaScript开发者利用传统MVC模式的力量，开发出一些受MVC启发的JavaScript框架，比如Backbone.js。
 
 
-### Client-Side MVC - Backbone Style
+### 客户端MVC - Backbone风格
 
-Let's take our first look at how Backbone.js brings the benefits of MVC to client-side development using a Todo application as our example. We will build on this example in the coming chapters when we explore Backbone's features but for now we will just focus on the core components' relationships to MVC.
+我们通过一Todo应用示例来看下Backbone.js如何带来客户端MVC开发的好处。后面的章节我们会基于这个例子来探索Backbone的特性，不过目前我们只需要关心核心组件与MVC之间的联系。
 
-Our example will need a div element to which we can attach a list of Todo's. It will also need an HTML template containing a placeholder for a Todo item title and a completion checkbox which can be instantiated for Todo item instances. These are provided by the following HTML:
+示例中需要div元素来展现一个Todo列表。同时需要一个HTML模板，包含Todo标题，完成复选框的占位符，用于实例化一个Todo项实例。下面是相关的HTML：
 
 ```html
 <!doctype html>
@@ -114,8 +114,7 @@ Our example will need a div element to which we can attach a list of Todo's. It 
 </html>
 ```
 
-In our Todo application (demo.js), Backbone Model instances are used to hold the data for each Todo item:
-
+在Todo application (demo.js)中, Backbone Model 实例用于持有每个Todo项的数据：
 ```javascript
 // Define a Todo Model
 var Todo = Backbone.Model.extend({
@@ -133,9 +132,9 @@ var myTodo = new Todo({
 });
 ```
 
-Our Todo Model extends Backbone.Model and simply defines default values for two data attributes. As you will discover in the upcoming chapters, Backbone Models provide many more features but this simple Model illustrates that first and foremost a Model is a data container.
+Todo Model扩展自Backbone.Model，简单的定义了默认的两个数据属性。接下来的章节中你会发现Backbone Model提供了很多特性，不过这个简单的Model只是为了说明， 首先最重要的是Model是一个数据容器。
 
-Each Todo instance will be rendered on the page by a TodoView:
+每个Todo实例都会通过TodoView渲染到页面上：
 
 ```javascript
 var TodoView = Backbone.View.extend({
@@ -192,7 +191,7 @@ var TodoView = Backbone.View.extend({
 var todoView = new TodoView({model: myTodo});
 ```
 
-TodoView is defined by extending Backbone.View and is instantiated with an associated Model. In our example, the ```render()``` method uses a template to construct the HTML for the Todo item which is placed inside a li element. Each call to ```render()``` will replace the content of the li element using the current Model data. Thus, a View instance renders the content of a DOM element using the attributes of an associated Model. Later we will see how a View can bind its ```render()``` method to Model change events, causing the View to re-render whenever the Model changes.
+TodoView通过扩展自Backbone.View来定义并且使用一个对应的Model进行初始化。In our example, the ```render()``` method uses a template to construct the HTML for the Todo item which is placed inside a li element. Each call to ```render()``` will replace the content of the li element using the current Model data. Thus, a View instance renders the content of a DOM element using the attributes of an associated Model. Later we will see how a View can bind its ```render()``` method to Model change events, causing the View to re-render whenever the Model changes.
 
 So far, we have seen that Backbone.Model implements the Model aspect of MVC and Backbone.View implements the View. However, as we noted earlier, Backbone departs from traditional MVC when it comes to Controllers - there is no Backbone.Controller!
 

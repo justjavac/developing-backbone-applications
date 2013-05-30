@@ -249,9 +249,9 @@ web严重依赖于HTTP协议，它是无状态的。意思就是说在浏览器�
 
 当用户浏览到一个新的view时，view的附加内容需要通过XHR (XMLHttpRequest)去请求，通常与服务器端的REST API或端点通讯。[Ajax](https://en.wikipedia.org/wiki/Ajax_(programming))(Asynchronous JavaScript and XML) 可以异步与服务端通讯，所以数据可以在背后传输和处理，可以让用户不间断的与页面的其它部分交互。它提高了可用性和响应能力。
 
-SPAs can also take advantage of browser features like the [History API](http://diveintohtml5.info/history.html) to update the address seen in the location bar when moving from one view to another. These URLs also make it possible to bookmark and share a particular application state, without the need to navigate to completely new pages.
+SPAs同样也可以使用浏览器的高级特性，比如当用户从一个view跳转到另一个view的时候可以使用[History API](http://diveintohtml5.info/history.html) 来更新地址栏的地址。这些URLs同样可以添加到书签和分享应用的状态，无需跳转到完整的新的页面。
 
-The typical SPA consists of smaller pieces of interface representing logical entities, all of which have their own UI, business logic and data. A good example is a basket in a shopping web application which can have items added to it. This basket might be presented to the user in a box in the top right corner of the page (see the picture below): 
+典型的SPA由小块的逻辑实体接口组成，每个部分都有他们自己的UI，业务逻辑和数据。一个很好的例子就是购物应用中的购物篮，可以往里面添加元素， 购物篮可能是在页面右上角呈现给用户的一个盒子：
 
 ![](img/wireframe_e_commerce.png)
 

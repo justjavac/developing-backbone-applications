@@ -433,8 +433,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>一些<a href="http://radar.oreilly.com/2009/07/velocity-making-your-site-fast.html">研究</a>表明改善延迟对于网站和app的使用有非常积极的影响。这与传统的以服务器为中心，从一个页面跳转到另一个页面需要全部重新载入的web app开发方式是相违背的。即便是有到位的缓存，浏览器仍然需要解析CSS，JavaScript, HTML并且渲染界面。</p>
 <p>除了会返回给用户较多重复内容之外，这种方法也会影响延迟和一般的响应性的用户体验。在过去几年中改善这种延迟的趋势都朝着构建单页应(Single Page Applications——SPAs)的方向走——应用在载入一个初始化页面之后能够处理后续哦导航和数据请求，而不需要整个页面的重新载入。</p>
 <p>当用户浏览到一个新的view时，view的附加内容需要通过XHR (XMLHttpRequest)去请求，通常与服务器端的REST API或端点通讯。<a href="https://en.wikipedia.org/wiki/Ajax_programming">Ajax</a>(Asynchronous JavaScript and XML) 可以异步与服务端通讯，所以数据可以在背后传输和处理，可以让用户不间断的与页面的其它部分交互。它提高了可用性和响应能力。</p>
-<p>SPAs can also take advantage of browser features like the <a href="http://diveintohtml5.info/history.html">History API</a> to update the address seen in the location bar when moving from one view to another. These URLs also make it possible to bookmark and share a particular application state, without the need to navigate to completely new pages.</p>
-<p>The typical SPA consists of smaller pieces of interface representing logical entities, all of which have their own UI, business logic and data. A good example is a basket in a shopping web application which can have items added to it. This basket might be presented to the user in a box in the top right corner of the page (see the picture below):</p>
+<p>SPAs同样也可以使用浏览器的高级特性，比如当用户从一个view跳转到另一个view的时候可以使用<a href="http://diveintohtml5.info/history.html">History API</a> 来更新地址栏的地址。这些URLs同样可以添加到书签和分享应用的状态，无需跳转到完整的新的页面。</p>
+<p>典型的SPA由小块的逻辑实体接口组成，每个部分都有他们自己的UI，业务逻辑和数据。一个很好的例子就是购物应用中的购物篮，可以往里面添加元素， 购物篮可能是在页面右上角呈现给用户的一个盒子：</p>
 <figure>
 <img src="img/wireframe_e_commerce.png" />
 </figure>
