@@ -1,16 +1,16 @@
 # 前言
 
-Frank Lloyd Wright once said “You can’t make an architect. You can however open the doors and windows toward the light as you see it.” In this book, I hope to shed some light on how to improve the structure of your web applications, opening doors to what will hopefully be more maintainable, readable applications in your future.
+弗兰克·劳埃德·赖特(Frank Lloyd Wright)曾说“你不能成为一个建筑师，但是你可以打开门和窗户，走向你所看到的光明。” 在这本书中，我希望分享一些如何改进web应用架构的光明，打开通往更有可维护性，可阅读性应用之门。
 
-The goal of all architecture is to build something well; in our case, to craft code that is enduring and delights both ourselves and the developers who will maintain our code long after we are gone. We all want our architecture to be simple, yet beautiful.
+所有架构的目的都是把东西构建得更好；在我们的例子中，创建持久的，能使自己和将来我们离开之后维护我们代码的开发者都非常愉悦的代码。希望我们的架构简单而漂亮。
 
-Modern JavaScript frameworks and libraries can bring structure and organization to your projects, establishing a maintainable foundation right from the start. They build on the trials and tribulations of developers who have had to work around callback chaos similar to that which you are facing now or may in the near future.
+当代的JavaScript框架和库可以给我们的项目提供架构和组织结构，从一开始就建立起可维护的基础。它们构建在开发者不得不解决混乱的回调的考验和痛苦之上，类似于你现在或者可能将来不久会面临的问题。
 
-When developing applications using just jQuery, the piece missing is a way to structure and organize your code. It's very easy to create a JavaScript app that ends up a tangled mess of jQuery selectors and callbacks, all desperately trying to keep data in sync between the HTML for your UI, the logic in your JavaScript, and calls to your API for data.
+当使用jQuery开发应用时，缺失块就是一种构建和组织代码的方式。使用一团糟的jQuery选择器和回调来创建JavaScript应用非常容易，所有地方都拼命让数据在UI的HTML，JavaScript逻辑，数据调用的API之间保持同步。
 
-Without something to help tame the mess, you're likely to string together a set of independant plugins and libraries to make up the functionality or build everything yourself from scratch and have to maintain it yourself. Backbone solves this problem for you, providing a way to cleanly organize code, separating responsibilities into recognizable pieces that are easy to maintain.
+没有什么帮助驯服这些乱起八糟的东西的话，你可能会串起一个独立的插件或者库来实现这些功能或者一切从头开始，并需要自己维护。Backbone就为你解决了这一问题，它提供一种清晰的方式组织代码，把职责分隔到可辨认的容易维护的块中。
 
-In "Developing Backbone.js Applications," I and a number of other experienced authors will show you how to improve your web application structure using the popular JavaScript library, Backbone.js
+在"Developing Backbone.js Applications"这一书中我和一些其他经验丰富的作者将给你展示如何通过流行的JavaScript库，Backbone.js来改进你的web应用架构。
 
 ### 什么是MVC?
 
@@ -53,59 +53,60 @@ Backbone.js是一个构建client端代码的轻量级JavaScript框架。它可�
 一个软件(框架)发展的成熟度不是简单的因其存在了多长时间。而是这个框架的可靠程度和它扮演的角色的重要程度。它在解决通用问题上是否有效？随着开发人员使用它构建更大、更复杂的应用框架是否持续改进？
 
 
-### Why Consider Backbone.js?
+### 为什么考虑Backbone.js?
 
-Backbone provides a minimal set of data-structuring (Models, Collections) and user interface (Views, URLs) primitives that are helpful when building dynamic applications using JavaScript. It's not opinionated, meaning you have the freedom and flexibility to build the best experience for your web application how you see fit. You can either use the prescribed architecture it offers out of the box or extend it to meet your requirements.
+Backbone提供了一个最小集的数据结构(Models, Collections)和用户接口(Views, URLs)这些对于构建动态的JavaScript应用非常有用的基本实体。它并不是武断的，意思就是说你可以自由和灵活的以你自己认为舒服的方式来构建web应用。你也可以使用它规定的体系结构，或者扩展它以适合你的需求。
 
-The library doesn't focus on widgets or replacing the way you structure objects - it just supplies you with utilities for manipulating and querying data in your application. It also doesn't prescribe a specific template engine - while you are free to use the Micro-templating offered by Underscore.js (one of it's dependencies), views can bind to HTML constructed using your templating solution of choice.
-
-Looking at the [large](http://backbonejs.org/#examples) number of applications built with Backbone, it's clear that it scales well. Backbone also works quite well with other libraries, meaning you can embed Backbone widgets in an application written with AngularJS, use it with TypeScript, or just use an individual class (like Models) as a data backer for simpler apps.
-
-There are no performance drawbacks to using Backbone to structure your application. It avoids run loops, two-way binding, and constant polling of your data structures for updates and tries to keep things simple where possible. That said, should you wish to go against the grain, you can of course implement such things on top of it. Backbone won't stop you.
-
-With a vibrant community of plugin and extension authors, there's a liklihood that if you're looking to achieve some behavior Backbone is lacking, a complementary project exists that works well with it. This is made simpler by Backbone offering literate documentation of it's source code, allowing anyone an opportunity to easily understand what is going on behind the scenes.
-
-Having been refined over two and a half years of development, Backbone is a mature library that will continue to offer a minimalist solution for building better web applications. I regularly use it and hope that you find it as useful an addition to your toolbelt as I have.
+这个框架不关注widgets或者是另一种构建对象的方式——它只提供在应用中处理和查询数据的一套工具。它也不规定使用某个特定的模板引擎——不过你可以自由的使用由Underscore.js(其依赖项之一)提供的Micro-templating，views(视图)也可以使用你自己选择的模板方案绑定到HTML结构。
 
 
-### Setting Expectations
+这里有[大量的](http://backbonejs.org/#examples)应用使用Backbone构建，很显然它扩张的很好。Backbone同样也可以跟其它框架很好的一起工作。 意味着你可以嵌入同AngularJS编写的Backbone widgets到你的应用中，把它跟TypeScript一起使用，或者仅仅使用它里面个别class(比如Models)作为简单apps里的数据支撑。
 
-The goal of this book is to create an authoritative and centralized repository of information that can help those developing real-world apps with Backbone. If you come across a section or topic which you think could be improved or expanded on, please feel free to submit an issue (or better yet, a pull-request) on the book's [GitHub site](https://github.com/addyosmani/backbone-fundamentals). It won't take long and you'll be helping other developers avoid the problems you ran into.
+使用Backbone来构建应用不会有什么性能上的缺陷。它避免了循环调用，双向绑定，恒定轮询数据结构检查更新，并且劲量保持简单。不过，你想反其道而行之，你可以在它之上来实现这些东西。Backbone不会阻止你的。
 
-Topics will include MVC theory and how to build applications using Backbone's Models, Views, Collections, and Routers. I'll also be taking you through advanced topics like modular development with Backbone.js and AMD (via RequireJS), solutions to common problems like nested views, how to solve routing problems with Backbone and jQuery Mobile, and much more.
+有了充满生气的插件社区和扩展作者，如果你想实现一些Backbone缺失的行为，可以通过一个补充的项目来做。Backbone对其源代码提供非常有阅读性的文档，任何人都可以容易的理解其幕后发生了些什么。
 
-Here is a peek at what you will be learning in each chapter:
+经过超过2年半的发展，Backbone已是一个成熟的库，并将继续提供构建更好web应用的极简方案。我会定期的使用它，希望你也会像我一样发现它是一个有用的工具库。
 
-<i>Chapter 2, Fundamentals</i> traces the history of the MVC design pattern and introduces how it is implemented by Backbone.js and other JavaScript frameworks.
 
-<i>Chapter 3, Backbone Basics</i> covers the major features of the core Backbone.js framework and technologies and techniques you will need to know in order to apply it.
+### 设置期望
 
-<i>Chapter 4, Exercise 1: Todos - Your First Backbone.js App</i> takes you step-by-step through development of a simple client-side Todo List application.
+这本书的目的是能创建一个权威和集中的信息库，帮助那些在实际应用中使用Backbone的开发者。如果你有认为需要改进或者扩展的话题，请自由的提交问题(或更好一个pull请求)到这本书的[GitHub页面](https://github.com/addyosmani/backbone-fundamentals)。不久你将会帮助到其它开发者避免你曾经遇到的问题。
 
-<i>Chapter 5, Exercise 2: Book Library - Your First RESTful Backbone.js App</i> walks you through development of a Book Library application which persists its model to a server using a REST API.
+这本书的话题包括MVC理论，如何使用Backbone的Models, Views, Collections,以及Routers构建应用。同样也会有更高级的话题比如使用Backbone.js时的模块开发和AMD(使用RequireJS)，常见问题的处理比如嵌套views，使用Backbone和jQuery Mobile如何解决路由问题，等等。
 
-<i>Chapter 6, Backbone Extensions</i> describes Backbone.Marionette and Thorax, two extension frameworks which add features to Backbone.js that are useful for developing large-scale applications.
+每个章节里你分别可以学到：
 
-<i>Chapter 7, Common Problems and Solutions</i> reviews common issues you may encounter when using Backbone.js and ways of addressing them.
+<i>第2章, 基本原理</i> 追溯MVC设计模式的历史，介绍在Backbone.js和其它JavaScript框架中它是如何实现的。
 
-<i>Chapter 8, Modular Development</i> looks at how AMD modules and RequireJS can be used to modularize your code.
+<i>第3章, Backbone基本要素</i> 包括Backbone.js framework框架的核心和主要特性，以及使用它时需要知道的一些技术和技巧。
 
-<i>Chapter 9, Exercise 3: Todos - Your First Modular Backbone + RequireJS App</i> takes you through rewriting the app created in Exercise 1 to be more modular with the help of RequireJS.
+<i>第4章, 练习1: Todos - 第一个Backbone.js App</i>step-by-step带你开发一个简单的客户端Todo List应用。
 
-<i>Chapter 10, Paginating Backbone Requests & Collections</i> walks through how to use the Backbone.Paginator plugin to paginate data for your Collections.
+<i>第5章, 练习2: Book Library - 第一个RESTful Backbone.js App</i> 指导你完成开发开发一个图书馆应用，通过服务器端的REST API把model持久化保存。
 
-<i>Chapter 11, Backbone Boilerplate And Grunt BBB</i> introduces powerful tools you can use to bootstrap a new Backbone.js application with boilerplate code.
+<i>第6章, Backbone扩展</i> 讲述了Backbone.Marionette和Thorax，给Backbone.js添加有利于开发大型应用特性的两个扩展框架。
 
-<i>Chapter 12, Mobile Applications</i> addresses the issues that arise when using Backbone with jQuery Mobile.
+<i>第7章, 常见问题和解决方案</i> 回顾了一些使用Backbone.js时可能会遇到的问题及解决方式。
 
-<i>Chapter 13, Jasmine</i> covers how to unit test Backbone code using the Jasmine test framework.
+<i>第8章, 模块化开发</i> 看看AMD模块和RequireJS可以如何用于模块你的代码。
 
-<i>Chapter 14, QUnit</i> discusses how to use the QUnit for unit testing.
+<i>第9章, 练习3: Todos - 第一个模块化Backbone + RequireJS App</i>带你使用RequireJS重写练习1中创建的app ，使它模块化。
 
-<i>Chapter 15, SinonJS</i> discusses how to use SinonJS for unit testing your Backbone apps.
+<i>第10章, 分页Backbone请求&集合</i> 教你如何使用Backbone.Paginator插件来分页Collections的数据。
 
-<i>Chapter 16, Resources</i> provides references to additional Backbone-related resources.
+<i>第11章, Backbone Boilerplate和Grunt BBB</i> 介绍通过样板代码构建一个新的Backbone.js应用的强大工具。
 
-<i>Chapter 17, Conclusions</i> wraps up the our tour through the world of Backbone.js development.
+<i>第12章, 移动应用</i> 解决使用Backbone和jQuery Mobile时会引发的问题。
 
-<i>Chapter 18, Appendix</i> returns to our design pattern discussion by contrasting MVC with the Model-View-Presenter (MVP) pattern and examines how Backbone.js relates to both. A walkthrough of writing a Backbone-like library from scratch and other topics are also covered.
+<i>第13章, Jasmine</i> 如何使用Jasmine测试框架对Backbone代码进行单元测试。
+
+<i>第14章, QUnit</i> 讨论如何使用QUnit做单元测试。
+
+<i>第15章, SinonJS</i> 讨论如何使用SinonJS对Backbone apps进行单元测试。
+
+<i>第16章, 资源</i> 提供附加的Backbone相关的资源参考。
+
+<i>第17章, 总结</i>对Backbone.js开发的世界做一个概括。
+
+<i>第18章, 附录</i> 回到设计模式的讨论，通过MVC与Model-View-Presenter (MVP)模式的对比pattern以及探讨Backbone.js如何与这两者想关联。同时也包含演练如何从头写一个Backbone类似的框架和一些其它话题。

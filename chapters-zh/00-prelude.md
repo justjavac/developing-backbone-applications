@@ -36,11 +36,11 @@
 * [Dusan Gledovic](https://github.com/g6scheme)
 * [Sindre Sorhus](https://github.com/sindresorhus)
 
-I would also like to thank my loving family for their patience and support while I worked on this book, as well as my brilliant editor Mary Treseler.
+我要感谢我亲爱的家人，感谢他们的耐心和支持我在这本书上的工作，我还有我杰出的编辑Mary Treseler。
 
 ## 相关人员
 
-None of this work would have been possible without the time and effort invested by the other developers and authors in the community who helped contribute to it. I would like to extend my thanks to: 
+没有其它社区的开发者和作者的时间和精力的投入我是不可能完成这项工作的，我也要感谢他们：
 
 * Derick and Marc (once again)
 * [Ryan Eastridge](https://github.com/eastridge)
@@ -50,11 +50,11 @@ None of this work would have been possible without the time and effort invested 
 * [Uģis Ozols](https://github.com/ugisozols)
 * [Björn Ekengren](https://github.com/Ekengren)
 
-as well as our other excellent [contributors](https://github.com/addyosmani/backbone-fundamentals/graphs/contributors) that made this project possible.
+同时还有其它的杰出[贡献者](https://github.com/addyosmani/backbone-fundamentals/graphs/contributors)帮助使这个项目成为可能。
 
 ## 阅读
 
-I assume your level of knowledge about JavaScript goes beyond the basics and as such certain topics such as object literals are skipped. If you need to learn more about the language, I am happy to suggest:
+在阅读这本书前假定你已经有基本的JavaScript知识，并且一些很明确的话题将会被略过，比如对象字面量。如果你想学习关于语言的更多知识，建议你阅读下面这些资料：
 
 * [Eloquent JavaScript](http://eloquentjavascript.net/)
 * [JavaScript: The Definitive Guide](http://shop.oreilly.com/product/9780596805531.do) by David Flanagan (O’Reilly)

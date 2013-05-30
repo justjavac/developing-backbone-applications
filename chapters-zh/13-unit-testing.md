@@ -1,55 +1,55 @@
 # Unit Testing
 
-µ¥Ôª²âÊÔµÄ¶¨Òå¾ÍÊÇ°ÑÕû¸öÓ¦ÓÃÖÐÐ¡Æ¬¿É²âÊÔµÄ´úÂë´Ó´úÂë¿âÖÐ¸ôÀë£¬È»ºó¼ìÑéËüµÄÐÐÎªÊÇ·ñ¸úÆÚÍûµÄÒ»ÖÂ¡£
+å•å…ƒæµ‹è¯•çš„å®šä¹‰å°±æ˜¯æŠŠæ•´ä¸ªåº”ç”¨ä¸­å°ç‰‡å¯æµ‹è¯•çš„ä»£ç ä»Žä»£ç åº“ä¸­éš”ç¦»ï¼Œç„¶åŽæ£€éªŒå®ƒçš„è¡Œä¸ºæ˜¯å¦è·ŸæœŸæœ›çš„ä¸€è‡´ã€‚
 
-Ò»¸ö±»³ÆÎª'ºÃ'²âÊÔµÄÓ¦ÓÃ£¬ºÜÃ÷ÏÔ¹¦ÄÜÉÏÓ¦¸ÃÓÐ·Ö¿ªµÄµ¥Ôª²âÊÔ£¬ÒÔÑéÖ¤²»Í¬Çé¿öÏÂËüµÄÕýÈ·ÐÔ¡£ËùÓÐ²âÊÔÓ¦¸ÃÔÚ¹¦ÄÜÍê³ÉÖ®Ç°½éÈë¡£Õâ¿ÉÒÔÈÃ¿ª·¢ÕßÐÞ¸ÄÒ»¿é´úÂëµÄÊ±ºòÍ¨¹ýµ¥Ôª²âÊÔÈ·ÈÏËûµÄÐÞ¸ÄÊÇ·ñ»áÒý·¢ÎÊÌâ£¬½¨Á¢´úÂëÖÊÁ¿µÄÐÅÐÄ¡£
+ä¸€ä¸ªè¢«ç§°ä¸º'å¥½'æµ‹è¯•çš„åº”ç”¨ï¼Œå¾ˆæ˜Žæ˜¾åŠŸèƒ½ä¸Šåº”è¯¥æœ‰åˆ†å¼€çš„å•å…ƒæµ‹è¯•ï¼Œä»¥éªŒè¯ä¸åŒæƒ…å†µä¸‹å®ƒçš„æ­£ç¡®æ€§ã€‚æ‰€æœ‰æµ‹è¯•åº”è¯¥åœ¨åŠŸèƒ½å®Œæˆä¹‹å‰ä»‹å…¥ã€‚è¿™å¯ä»¥è®©å¼€å‘è€…ä¿®æ”¹ä¸€å—ä»£ç çš„æ—¶å€™é€šè¿‡å•å…ƒæµ‹è¯•ç¡®è®¤ä»–çš„ä¿®æ”¹æ˜¯å¦ä¼šå¼•å‘é—®é¢˜ï¼Œå»ºç«‹ä»£ç è´¨é‡çš„ä¿¡å¿ƒã€‚
 
-Ò»¸ö×î»ù±¾µÄµ¥Ôª²âÊÔÀý×Ó£¬¿ª·¢ÕßÏëÒª¶ÏÑÔ´«ÈëÖ¸¶¨µÄvalue½oÒ»¸ösumº¯ÊýÆä·µ»Ø½á¹ûÊÇ·ñÕýÈ·¡£ÓëÎÒÃÇÕâ±¾ÊéÓÐ¹ØµÄÀý×Ó¾ÍÊÇ£¬ÎÒÃÇÏëÒª¶ÏÑÔÒ»¸öÓÃ»§Ìí¼ÓÒ»¸öÐÂµÄTodoÏîµ½ÁÐ±íÖÐ£¬ÊÇ·ñÌí¼ÓÁËÒ»¸öÖ¸¶¨ÀàÐÍµÄModelµ½Todos Collection¡£
+ä¸€ä¸ªæœ€åŸºæœ¬çš„å•å…ƒæµ‹è¯•ä¾‹å­ï¼Œå¼€å‘è€…æƒ³è¦æ–­è¨€ä¼ å…¥æŒ‡å®šçš„valueçµ¦ä¸€ä¸ªsumå‡½æ•°å…¶è¿”å›žç»“æžœæ˜¯å¦æ­£ç¡®ã€‚ä¸Žæˆ‘ä»¬è¿™æœ¬ä¹¦æœ‰å…³çš„ä¾‹å­å°±æ˜¯ï¼Œæˆ‘ä»¬æƒ³è¦æ–­è¨€ä¸€ä¸ªç”¨æˆ·æ·»åŠ ä¸€ä¸ªæ–°çš„Todoé¡¹åˆ°åˆ—è¡¨ä¸­ï¼Œæ˜¯å¦æ·»åŠ äº†ä¸€ä¸ªæŒ‡å®šç±»åž‹çš„Modelåˆ°Todos Collectionã€‚
 
-¹¹½¨ÏÖ´úµÄwebÓ¦ÓÃÊ±£¬Í¨³£ÈÏÎª×îºÃµÄÊµ¼ù·½Ê½ÊÇÔÚ¿ª·¢¹ý³ÌÖÐÒýÈë×Ô¶¯µÄµ¥Ôª²âÊÔ¡£ÕâÀïÎÒÃÇ¹Ø×¢ÏÂÊ¹ÓÃJasmineµÄ·½°¸£¬µ±È»Ò²ÓÐºÜ¶àÆäËüÑ¡ÔñÖµµÃ¿¼ÂÇ£¬°üÀ¨QUnit¡£
+æž„å»ºçŽ°ä»£çš„webåº”ç”¨æ—¶ï¼Œé€šå¸¸è®¤ä¸ºæœ€å¥½çš„å®žè·µæ–¹å¼æ˜¯åœ¨å¼€å‘è¿‡ç¨‹ä¸­å¼•å…¥è‡ªåŠ¨çš„å•å…ƒæµ‹è¯•ã€‚è¿™é‡Œæˆ‘ä»¬å…³æ³¨ä¸‹ä½¿ç”¨Jasmineçš„æ–¹æ¡ˆï¼Œå½“ç„¶ä¹Ÿæœ‰å¾ˆå¤šå…¶å®ƒé€‰æ‹©å€¼å¾—è€ƒè™‘ï¼ŒåŒ…æ‹¬QUnitã€‚
 
 # Jasmine
 
-## ÐÐÎª-Çý¶¯¿ª·¢
+## è¡Œä¸º-é©±åŠ¨å¼€å‘
 
-ÕâÒ»½Ú£¬ÎÒÃÇ»á½²ÊöÈçºÎÊ¹ÓÃÒ»¸öÁ÷ÐÐµÄ²âÊÔ¿ò¼Ü[Jasmine](http://pivotal.github.com/jasmine/)À´²âÊÔBackboneÓ¦ÓÃ£¬Õâ¸ö¿ò¼ÜÀ´×ÔPivotal Labs¡£
+è¿™ä¸€èŠ‚ï¼Œæˆ‘ä»¬ä¼šè®²è¿°å¦‚ä½•ä½¿ç”¨ä¸€ä¸ªæµè¡Œçš„æµ‹è¯•æ¡†æž¶[Jasmine](http://pivotal.github.com/jasmine/)æ¥æµ‹è¯•Backboneåº”ç”¨ï¼Œè¿™ä¸ªæ¡†æž¶æ¥è‡ªPivotal Labsã€‚
 
-Jasmine×Ô³ÆÊÇÒ»¸öÓÃÓÚ²âÊÔJavaScript´úÂëµÄÐÐÎª-Çý¶¯¿ª·¢(Behavior-Driven Development£¬BDD)µÄ¿ò¼Ü¡£ÔÚ¿ªÊ¼Ê¹ÓÃÕâ¸ö¿ò¼ÜÖ®Ç°£¬ÎÒÃÇÏÈÀ´ÅªÇå³þÏÂÊ²Ã´ÊÇ[BDD](http://en.wikipedia.org/wiki/Behavior_Driven_Development)¡£
+Jasmineè‡ªç§°æ˜¯ä¸€ä¸ªç”¨äºŽæµ‹è¯•JavaScriptä»£ç çš„è¡Œä¸º-é©±åŠ¨å¼€å‘(Behavior-Driven Developmentï¼ŒBDD)çš„æ¡†æž¶ã€‚åœ¨å¼€å§‹ä½¿ç”¨è¿™ä¸ªæ¡†æž¶ä¹‹å‰ï¼Œæˆ‘ä»¬å…ˆæ¥å¼„æ¸…æ¥šä¸‹ä»€ä¹ˆæ˜¯[BDD](http://en.wikipedia.org/wiki/Behavior_Driven_Development)ã€‚
 
-BDDÊÇÒ»ÖÖµÚ¶þ´ú²âÊÔ·½·¨£¬ÓÉ[Dan North](http://dannorth.net/introducing-bdd/) (BDD·½ÃæµÄÈ¨Íþ)Ê×´Î¶¨Òå£¬ËüÊÇÊÔÍ¼²âÊÔÈí¼þµÄÐÐÎª¡£³ÆÖ®ÎªµÚ¶þ´úÊÇÒòÎªÆäÏë·¨À´×ÔÓÚÁìÓòÇý¶¯Éè¼Æ(Domain driven design£¬DDD)ºÍ¾«ÒæÈí¼þ¿ª·¢£¬Í¨¹ýÔÚÃô½Ý¹ý³ÌÖÐ»Ø´ðÐí¶àÁîÈËÀ§»óµÄÎÊÌâÀ´°ïÖúÍÅ¶Ó²ú³ö¸ßÖÊÁ¿Èí¼þ¡£ÕâÀàÎÊÌâÍ¨³£°üº¬Ïà¹ØÎÄµµºÍ²âÊÔ¡£
+BDDæ˜¯ä¸€ç§ç¬¬äºŒä»£æµ‹è¯•æ–¹æ³•ï¼Œç”±[Dan North](http://dannorth.net/introducing-bdd/) (BDDæ–¹é¢çš„æƒå¨)é¦–æ¬¡å®šä¹‰ï¼Œå®ƒæ˜¯è¯•å›¾æµ‹è¯•è½¯ä»¶çš„è¡Œä¸ºã€‚ç§°ä¹‹ä¸ºç¬¬äºŒä»£æ˜¯å› ä¸ºå…¶æƒ³æ³•æ¥è‡ªäºŽé¢†åŸŸé©±åŠ¨è®¾è®¡(Domain driven designï¼ŒDDD)å’Œç²¾ç›Šè½¯ä»¶å¼€å‘ï¼Œé€šè¿‡åœ¨æ•æ·è¿‡ç¨‹ä¸­å›žç­”è®¸å¤šä»¤äººå›°æƒ‘çš„é—®é¢˜æ¥å¸®åŠ©å›¢é˜Ÿäº§å‡ºé«˜è´¨é‡è½¯ä»¶ã€‚è¿™ç±»é—®é¢˜é€šå¸¸åŒ…å«ç›¸å…³æ–‡æ¡£å’Œæµ‹è¯•ã€‚
 
-Èç¹ûÔÄ¶Á¹ýÒ»±¾¹ØÓÚBDDµÄÊé¼®£¬ÓÐ¿ÉÄÜËü»á±»ÃèÊö³É'ÓÉÍâ¼°ÄÚµÄ¡¢»ùÓÚÀ­(pull)µÄ(outside-in and pull-based)'¡£Ô­Òò¾ÍÊÇËü´Ó¾«ÒæÉú²ú½è¼øÁËpullÌØÐÔ£¬ Í¨¹ýa) ×¢ÖØÏµÍ³µÄÔ¤ÆÚÊä³ö(outputs),b) È·±£ÕâÐ©Êä³ö±»´ïµ½£¬Õâ2Á½µãÓÐÐ§µÄÈ·±£¿ª·¢³öÕýÈ·µÄÈí¼þ·½°¸¡£
+å¦‚æžœé˜…è¯»è¿‡ä¸€æœ¬å…³äºŽBDDçš„ä¹¦ç±ï¼Œæœ‰å¯èƒ½å®ƒä¼šè¢«æè¿°æˆ'ç”±å¤–åŠå†…çš„ã€åŸºäºŽæ‹‰(pull)çš„(outside-in and pull-based)'ã€‚åŽŸå› å°±æ˜¯å®ƒä»Žç²¾ç›Šç”Ÿäº§å€Ÿé‰´äº†pullç‰¹æ€§ï¼Œ é€šè¿‡a) æ³¨é‡ç³»ç»Ÿçš„é¢„æœŸè¾“å‡º(outputs),b) ç¡®ä¿è¿™äº›è¾“å‡ºè¢«è¾¾åˆ°ï¼Œè¿™2ä¸¤ç‚¹æœ‰æ•ˆçš„ç¡®ä¿å¼€å‘å‡ºæ­£ç¡®çš„è½¯ä»¶æ–¹æ¡ˆã€‚
 
-BDDÌá³öÔÚÒ»¸öÏîÄ¿ÖÐÍ¨³£ÓÐ¶àÔªÀûÒæÌå²¢ÇÒÏµÍ³²»ÊÇÖ»ÓÐÒ»¸öµ¥Ò»µÄÎÞÐÎÓÃ»§¡£ÕâÐ©²»Í¬µÄÈºÌå£¬½«»áÒÔ²»Í¬µÄÐÎÊ½Ó°ÏìËù±àÐ´µÄÈí¼þ£¬¶øÇÒÈí¼þÏµÍ³µÄÖÊÁ¿¶ÔÓÚËûÃÇµÄÒâÒåËûÃÇÓÐ²»Í¬µÄÀí½â¡£ËùÒÔ£¬ÒªÃ÷°×¶ÔÓÚÕâ¸öÈí¼þË­»á¸øÄã´øÀ´¼ÛÖµÒÔ¼°Èí¼þ»á¸øËûÃÇ´øÀ´Ê²Ã´¼ÛÖµ£¬Õâµã·Ç³£ÖØÒª¡£
+BDDæå‡ºåœ¨ä¸€ä¸ªé¡¹ç›®ä¸­é€šå¸¸æœ‰å¤šå…ƒåˆ©ç›Šä½“å¹¶ä¸”ç³»ç»Ÿä¸æ˜¯åªæœ‰ä¸€ä¸ªå•ä¸€çš„æ— å½¢ç”¨æˆ·ã€‚è¿™äº›ä¸åŒçš„ç¾¤ä½“ï¼Œå°†ä¼šä»¥ä¸åŒçš„å½¢å¼å½±å“æ‰€ç¼–å†™çš„è½¯ä»¶ï¼Œè€Œä¸”è½¯ä»¶ç³»ç»Ÿçš„è´¨é‡å¯¹äºŽä»–ä»¬çš„æ„ä¹‰ä»–ä»¬æœ‰ä¸åŒçš„ç†è§£ã€‚æ‰€ä»¥ï¼Œè¦æ˜Žç™½å¯¹äºŽè¿™ä¸ªè½¯ä»¶è°ä¼šç»™ä½ å¸¦æ¥ä»·å€¼ä»¥åŠè½¯ä»¶ä¼šç»™ä»–ä»¬å¸¦æ¥ä»€ä¹ˆä»·å€¼ï¼Œè¿™ç‚¹éžå¸¸é‡è¦ã€‚
 
-×îºó£¬BDDÒÀÀµÓÚ×Ô¶¯»¯¡£Ò»µ©¶¨ÒåºÃÄãÆÚÍûµÄÖÊÁ¿£¬ÄãµÄÍÅ¶Ó¿ÉÄÜ¾Í»á¶¨ÆÚµÄ¼ì²éÕýÔÚ×öµÄ¹¦ÄÜÊÇ·ñÓëËûÃÇÆÚÍûµÄÒ»ÖÂ¡£ÎªÁË´Ù½øÐ§ÂÊ£¬Õâ¸ö¹ý³ÌÐèÒª×Ô¶¯Íê³É¡£BDDIn order to facilitate this efficiently, the process has to be automated. BDDÑÏÖØÒÀÀµÓÚ×Ô¶¯¹æ¸ñ²âÊÔ£¬¶øJasmineÕýºÃÊÇÒ»¸ö×öÕâ¼þÊÂµÄ¹¤¾ß¡£
+æœ€åŽï¼ŒBDDä¾èµ–äºŽè‡ªåŠ¨åŒ–ã€‚ä¸€æ—¦å®šä¹‰å¥½ä½ æœŸæœ›çš„è´¨é‡ï¼Œä½ çš„å›¢é˜Ÿå¯èƒ½å°±ä¼šå®šæœŸçš„æ£€æŸ¥æ­£åœ¨åšçš„åŠŸèƒ½æ˜¯å¦ä¸Žä»–ä»¬æœŸæœ›çš„ä¸€è‡´ã€‚ä¸ºäº†ä¿ƒè¿›æ•ˆçŽ‡ï¼Œè¿™ä¸ªè¿‡ç¨‹éœ€è¦è‡ªåŠ¨å®Œæˆã€‚BDDIn order to facilitate this efficiently, the process has to be automated. BDDä¸¥é‡ä¾èµ–äºŽè‡ªåŠ¨è§„æ ¼æµ‹è¯•ï¼Œè€ŒJasmineæ­£å¥½æ˜¯ä¸€ä¸ªåšè¿™ä»¶äº‹çš„å·¥å…·ã€‚
 
-BDD¿ÉÒÔ°ïÖú¿ª·¢ÕßºÍ·Ç¼¼ÊõµÄÀûÒæÏà¹ØÕß×öµ½£º
+BDDå¯ä»¥å¸®åŠ©å¼€å‘è€…å’ŒéžæŠ€æœ¯çš„åˆ©ç›Šç›¸å…³è€…åšåˆ°ï¼š
 
 
-* ¸üºÃµÄÀí½âºÍÌá³ö½â¾öÎÊÌâµÄÄ£Ê½
-* °Ñ²âÊÔÓÃÀýÒÔ·Ç¿ª·¢ÈËÔ±Ò²ÄÜ¶Á¶®µÄ·½Ê½½âÊÍÇå³þ
-* ×ÅÑÛÓÚ×îÐ¡»¯±àÐ´µÄ¼¼Êõ´úÂëµ½ÒµÎñ±í´ïÓïÑÔÖ®¼äµÄ×ª»»¡£
+* æ›´å¥½çš„ç†è§£å’Œæå‡ºè§£å†³é—®é¢˜çš„æ¨¡å¼
+* æŠŠæµ‹è¯•ç”¨ä¾‹ä»¥éžå¼€å‘äººå‘˜ä¹Ÿèƒ½è¯»æ‡‚çš„æ–¹å¼è§£é‡Šæ¸…æ¥š
+* ç€çœ¼äºŽæœ€å°åŒ–ç¼–å†™çš„æŠ€æœ¯ä»£ç åˆ°ä¸šåŠ¡è¡¨è¾¾è¯­è¨€ä¹‹é—´çš„è½¬æ¢ã€‚
 
-Õâ¾ÍÒâÎ¶×Å¿ª·¢ÕßÒª°ÑJasmineµ¥Ôª²âÊÔ¸øÏîÄ¿µÄÀûÒæÏà¹ØÕß×öÕ¹Ê¾£¬È»ºóËûÃÇÔÚ¹ÛÄîÉÏÒªÀí½â´úÂëµÄÓÃÍ¾¡£
+è¿™å°±æ„å‘³ç€å¼€å‘è€…è¦æŠŠJasmineå•å…ƒæµ‹è¯•ç»™é¡¹ç›®çš„åˆ©ç›Šç›¸å…³è€…åšå±•ç¤ºï¼Œç„¶åŽä»–ä»¬åœ¨è§‚å¿µä¸Šè¦ç†è§£ä»£ç çš„ç”¨é€”ã€‚
 
-¿ª·¢Õß¾­³£¸úÁíÍâÒ»ÖÖ²âÊÔ·½·¨[TDD](http://en.wikipedia.org/wiki/Test-driven_development) (test-driven development)Ò»ÑùÀ´ÊµÊ©BDD¡£TDD±³ºóµÄÖ÷Òª¹Ûµã£º
+å¼€å‘è€…ç»å¸¸è·Ÿå¦å¤–ä¸€ç§æµ‹è¯•æ–¹æ³•[TDD](http://en.wikipedia.org/wiki/Test-driven_development) (test-driven development)ä¸€æ ·æ¥å®žæ–½BDDã€‚TDDèƒŒåŽçš„ä¸»è¦è§‚ç‚¹ï¼š
 
-* ±àÐ´µ¥Ôª²âÊÔÃèÊöÄãµÄ´úÂëÏëÒªÖ§³ÖµÄ¹¦ÄÜ
-* ¿´×ÅÕâÐ©²âÊÔÊ§°Ü(ÒòÎªÒªÖ§³ÖÕâÐ©¹¦ÄÜµÄ´úÂëÐ´ºÃ)
-* ±àÐ´´úÂëÈÃ²âÊÔÍ¨¹ý
-* ÇåÀí£¬ÖØ¸´ºÍÖØ¹¹
+* ç¼–å†™å•å…ƒæµ‹è¯•æè¿°ä½ çš„ä»£ç æƒ³è¦æ”¯æŒçš„åŠŸèƒ½
+* çœ‹ç€è¿™äº›æµ‹è¯•å¤±è´¥(å› ä¸ºè¦æ”¯æŒè¿™äº›åŠŸèƒ½çš„ä»£ç å†™å¥½)
+* ç¼–å†™ä»£ç è®©æµ‹è¯•é€šè¿‡
+* æ¸…ç†ï¼Œé‡å¤å’Œé‡æž„
 
-ÕâÒ»ÕÂÎÒÃÇ½«»áÓÃÕâÁ½ÖÖ·½Ê½(BDDºÍTDD)À´ÎªBackboneÓ¦ÓÃ±àÐ´µ¥Ôª²âÊÔ¡£
+è¿™ä¸€ç« æˆ‘ä»¬å°†ä¼šç”¨è¿™ä¸¤ç§æ–¹å¼(BDDå’ŒTDD)æ¥ä¸ºBackboneåº”ç”¨ç¼–å†™å•å…ƒæµ‹è¯•ã€‚
 
-***ÌáÊ¾*** ÎÒ¿´µ½ºÜ¶à¿ª·¢ÕßÈÔÈ»ÊÇÔÚÍê³É±àÂëÖ®ºó²Å±àÐ´²âÊÔÀ´×öÑéÖ¤¡£ËäÈ»ÕâÒ²»¹²»´í£¬²»¹ýÈÝÒ×µ÷ÈëÏÝÈë£¬ËüÖ»ÄÜ²âÊÔµ½ÄãÏÖÔÚ´úÂëËùÖ§³ÖµÄÐÐÎª£¬¶ø²»Ò»¶¨ÍêÕû°üº¬ÎÒÃÇÔ­±¾Éè¼ÆÐèÒªÖ§³ÖµÄ¹¦ÄÜ¡£
+***æç¤º*** æˆ‘çœ‹åˆ°å¾ˆå¤šå¼€å‘è€…ä»ç„¶æ˜¯åœ¨å®Œæˆç¼–ç ä¹‹åŽæ‰ç¼–å†™æµ‹è¯•æ¥åšéªŒè¯ã€‚è™½ç„¶è¿™ä¹Ÿè¿˜ä¸é”™ï¼Œä¸è¿‡å®¹æ˜“è°ƒå…¥é™·å…¥ï¼Œå®ƒåªèƒ½æµ‹è¯•åˆ°ä½ çŽ°åœ¨ä»£ç æ‰€æ”¯æŒçš„è¡Œä¸ºï¼Œè€Œä¸ä¸€å®šå®Œæ•´åŒ…å«æˆ‘ä»¬åŽŸæœ¬è®¾è®¡éœ€è¦æ”¯æŒçš„åŠŸèƒ½ã€‚
 
 
 ##Suites, Specs & Spies
 
-Ê¹ÓÃJasmineÊ±£¬Òª±àÐ´suites(Ì×¼þ)ºÍspecs(specifications£¬¹æ¸ñËµÃ÷)¡£SuitesÖ÷ÒªÃèÊö³¡¾°£¬specsÃèÊöÔÚÕâÐ©³¡¾°lÀïÒª×öÐ©Ê²Ã´¡£
+ä½¿ç”¨Jasmineæ—¶ï¼Œè¦ç¼–å†™suites(å¥—ä»¶)å’Œspecs(specificationsï¼Œè§„æ ¼è¯´æ˜Ž)ã€‚Suitesä¸»è¦æè¿°åœºæ™¯ï¼Œspecsæè¿°åœ¨è¿™äº›åœºæ™¯lé‡Œè¦åšäº›ä»€ä¹ˆã€‚
 
-Ã¿¸öspec¾ÍÊÇÒ»¸öÒ»¸öJavaScriptº¯Êý£¬µ÷ÓÃ```it()```À´ÃèÊö£¬´«ÈëÒ»¸öÃèÊö×Ö·û´®ºÍÒ»¸öfunction¡£ÃèÊöÓïÒªÃèÊö³öÖ¸¶¨µ¥Ôª´úÂëµÄÕ¹ÏÖ½á¹û£¬ÀÎ¼ÇBDDµÄ¹ÛÄî£¬±íÊöÓ¦¸ÃÓÐÒâÒå¡£ÏÂÃæÊÇÒ»¸ö¼òµ¥µÄÀý×Ó£º
+æ¯ä¸ªspecå°±æ˜¯ä¸€ä¸ªä¸€ä¸ªJavaScriptå‡½æ•°ï¼Œè°ƒç”¨```it()```æ¥æè¿°ï¼Œä¼ å…¥ä¸€ä¸ªæè¿°å­—ç¬¦ä¸²å’Œä¸€ä¸ªfunctionã€‚æè¿°è¯­è¦æè¿°å‡ºæŒ‡å®šå•å…ƒä»£ç çš„å±•çŽ°ç»“æžœï¼Œç‰¢è®°BDDçš„è§‚å¿µï¼Œè¡¨è¿°åº”è¯¥æœ‰æ„ä¹‰ã€‚ä¸‹é¢æ˜¯ä¸€ä¸ªç®€å•çš„ä¾‹å­ï¼š
 
 ```javascript
 it('should be incrementing in value', function(){
@@ -58,7 +58,7 @@ it('should be incrementing in value', function(){
 });
 ```
 
-¾ÍÆä±¾Éí¶øÑÔ£¬Ò»¸öspecÈç¹ûÃ»ÓÐÉèÖÃÐÐÎª´úÂëµÄÆÚÍû½á¹û¾ÍÃ»ÓÐÊ²Ã´ÓÃ´¦ÁË¡£Ê¹ÓÃ```expect()```º¯ÊýºÍ[expectation matcher](https://github.com/pivotal/jasmine/wiki/Matchers) (±ÈÈç```toEqual()```, ```toBeTruthy()```, ```toContain()```)À´¶¨ÒåÆÚÍû½á¹û¡£Ê¾Àý£º
+å°±å…¶æœ¬èº«è€Œè¨€ï¼Œä¸€ä¸ªspecå¦‚æžœæ²¡æœ‰è®¾ç½®è¡Œä¸ºä»£ç çš„æœŸæœ›ç»“æžœå°±æ²¡æœ‰ä»€ä¹ˆç”¨å¤„äº†ã€‚ä½¿ç”¨```expect()```å‡½æ•°å’Œ[expectation matcher](https://github.com/pivotal/jasmine/wiki/Matchers) (æ¯”å¦‚```toEqual()```, ```toBeTruthy()```, ```toContain()```)æ¥å®šä¹‰æœŸæœ›ç»“æžœã€‚ç¤ºä¾‹ï¼š
 
 ```javascript
 it('should be incrementing in value', function(){
@@ -68,11 +68,11 @@ it('should be incrementing in value', function(){
 });
 ```
 
-ÉÏÃæ´úÂëÖÐ¶Ô```counter```µÄÆÚÍûÖµÒªµÈÓÚ1¡£ÕâÖÖ´úÂë¶ÁÆðÀ´·Ç³£¼òµ¥(Æ¾Ö±¾õ¾Í¿ÉÒÔÀí½âÁË£¬ÎÞÐèÈÎºÎ½âÊÍ)¡£
+ä¸Šé¢ä»£ç ä¸­å¯¹```counter```çš„æœŸæœ›å€¼è¦ç­‰äºŽ1ã€‚è¿™ç§ä»£ç è¯»èµ·æ¥éžå¸¸ç®€å•(å‡­ç›´è§‰å°±å¯ä»¥ç†è§£äº†ï¼Œæ— éœ€ä»»ä½•è§£é‡Š)ã€‚
 
-Ò»×éSpecs¾Í¹¹³ÉÁËsuites£¬Í¨¹ýJasmineµÄ```describe()```º¯Êý¶¨Òå£¬´«ÈëÒ»¸öÃèÊö×Ö·û´®ºÍÒ»¸öº¯Êý¡£suiteµÄÃû³Æ»òÕßÃèÊöÍ¨³£ÊÇÐèÒª²âÊÔµÄ×é¼þ»òÕßÄ£¿é¡£
+ä¸€ç»„Specså°±æž„æˆäº†suitesï¼Œé€šè¿‡Jasmineçš„```describe()```å‡½æ•°å®šä¹‰ï¼Œä¼ å…¥ä¸€ä¸ªæè¿°å­—ç¬¦ä¸²å’Œä¸€ä¸ªå‡½æ•°ã€‚suiteçš„åç§°æˆ–è€…æè¿°é€šå¸¸æ˜¯éœ€è¦æµ‹è¯•çš„ç»„ä»¶æˆ–è€…æ¨¡å—ã€‚
 
-Jasmine»á°ÑËü×÷Îª¸ø³ö±¨¸æÊ±ÔËÐÐspecsµÄ·Ö×éÃû³Æ¡£ÏÂÃæÊÇÒ»¸ö¼òµ¥µÄÊ¾Àý£º
+Jasmineä¼šæŠŠå®ƒä½œä¸ºç»™å‡ºæŠ¥å‘Šæ—¶è¿è¡Œspecsçš„åˆ†ç»„åç§°ã€‚ä¸‹é¢æ˜¯ä¸€ä¸ªç®€å•çš„ç¤ºä¾‹ï¼š
 
 ```javascript
 describe('Stats', function(){
@@ -86,7 +86,7 @@ describe('Stats', function(){
 });
 ```
 
-Suites¹²ÏíÒ»¸öº¯ÊýÓò£¬ËùÒÔ¿ÉÒÔÔÚdescribeº¯ÊýÄÚÉùÃ÷±äÁ¿£¬ specsÀïµÄº¯ÊýÒ²¿ÉÒÔ·ÃÎÊµ½£º
+Suiteså…±äº«ä¸€ä¸ªå‡½æ•°åŸŸï¼Œæ‰€ä»¥å¯ä»¥åœ¨describeå‡½æ•°å†…å£°æ˜Žå˜é‡ï¼Œ specsé‡Œçš„å‡½æ•°ä¹Ÿå¯ä»¥è®¿é—®åˆ°ï¼š
 
 ```javascript
 describe('Stats', function(){
@@ -106,11 +106,11 @@ describe('Stats', function(){
 });
 ```
 
-***ÌáÊ¾£º*** SuitesÊÇ°´Æä¶¨ÒåµÄË³ÐòÖ´ÐÐ£¬Èç¹ûÄãÒª¿´Õû¸öÓ¦ÓÃ²âÊÔ±¨¸æµÄÄ³¸öÌØ¶¨²¿·ÖµÄ²âÊÔ½á¹û£¬Õâ¿ÉÄÜ·Ç³£ÓÐÓÃ¡£
+***æç¤ºï¼š*** Suitesæ˜¯æŒ‰å…¶å®šä¹‰çš„é¡ºåºæ‰§è¡Œï¼Œå¦‚æžœä½ è¦çœ‹æ•´ä¸ªåº”ç”¨æµ‹è¯•æŠ¥å‘Šçš„æŸä¸ªç‰¹å®šéƒ¨åˆ†çš„æµ‹è¯•ç»“æžœï¼Œè¿™å¯èƒ½éžå¸¸æœ‰ç”¨ã€‚
 
-JasmineÍ¬ÑùÖ§³Ö**spies(¼àÊÓ)** ¡ª¡ªÔÚµ¥Ôª²âÊÔÖÐÒ»ÖÖÄ£·Â£¬¼àÊÓ£¬ºÍÎ±ÔìÐÐÎªµÄ·½·¨¡£Spies»áÌæ»»ËüÃÇ¼àÊÓµÄº¯Êý£¬¿ÉÒÔÄ£·ÂÎÒÃÇÏëÒªÎ±ÔìµÄÐÐÎª¡£
+JasmineåŒæ ·æ”¯æŒ**spies(ç›‘è§†)** â€”â€”åœ¨å•å…ƒæµ‹è¯•ä¸­ä¸€ç§æ¨¡ä»¿ï¼Œç›‘è§†ï¼Œå’Œä¼ªé€ è¡Œä¸ºçš„æ–¹æ³•ã€‚Spiesä¼šæ›¿æ¢å®ƒä»¬ç›‘è§†çš„å‡½æ•°ï¼Œå¯ä»¥æ¨¡ä»¿æˆ‘ä»¬æƒ³è¦ä¼ªé€ çš„è¡Œä¸ºã€‚
 
-ÔÚÏÂÃæÕâ¸öÀý×ÓÖÐ£¬ÎÒÃÇÓÃÒ»¸öÐéÄâµÄTodo function¼àÊÓ```setComplete```·½·¨£¬²âÊÔ´«ÈëµÄ²ÎÊýÊÇ·ñ·ûºÏÆÚÍû¡£
+åœ¨ä¸‹é¢è¿™ä¸ªä¾‹å­ä¸­ï¼Œæˆ‘ä»¬ç”¨ä¸€ä¸ªè™šæ‹Ÿçš„Todo functionç›‘è§†```setComplete```æ–¹æ³•ï¼Œæµ‹è¯•ä¼ å…¥çš„å‚æ•°æ˜¯å¦ç¬¦åˆæœŸæœ›ã€‚
 
 ```javascript
 var Todo = function(){
@@ -137,12 +137,12 @@ describe('a simple spy', function(){
 });
 ```
 
-¸üÓÐ¿ÉÄÜ»áÓÃµ½spiesµÄµØ·½ÊÇ²âÊÔ[asynchronous(Òì²½)](http://en.wikipedia.org/wiki/Asynchronous_communication)ÐÐÎª£¬±ÈÈçAJAXÇëÇó¡£JasmineÖ§³Ö£º
+æ›´æœ‰å¯èƒ½ä¼šç”¨åˆ°spiesçš„åœ°æ–¹æ˜¯æµ‹è¯•[asynchronous(å¼‚æ­¥)](http://en.wikipedia.org/wiki/Asynchronous_communication)è¡Œä¸ºï¼Œæ¯”å¦‚AJAXè¯·æ±‚ã€‚Jasmineæ”¯æŒï¼š
 
-* Ê¹ÓÃspiesÄ£·ÂAJAXÇëÇóÀ´±àÐ´²âÊÔ¡£¿ÉÒÔÔÚAJAXÇëÇóÖ®Ç°ºÍÇëÇóÖ®ºóÔËÐÐ²âÊÔ´úÂë¡£Ò²¿ÉÒÔÎ±Ôì·þÎñÆ÷¶ËµÄÏìÓ¦£¬ÕâÖÖÀàÐÍµÄ²âÊÔºÃ´¦¾ÍÊÇ¸ü¿ì£¬²»ÐèÒªµÈ´ýÊµ¼ÊµÄ·þÎñÆ÷µ÷ÓÃ¡£
-* Òì²½²âÊÔ²¿ÐèÒªÒÀÀµspies
+* ä½¿ç”¨spiesæ¨¡ä»¿AJAXè¯·æ±‚æ¥ç¼–å†™æµ‹è¯•ã€‚å¯ä»¥åœ¨AJAXè¯·æ±‚ä¹‹å‰å’Œè¯·æ±‚ä¹‹åŽè¿è¡Œæµ‹è¯•ä»£ç ã€‚ä¹Ÿå¯ä»¥ä¼ªé€ æœåŠ¡å™¨ç«¯çš„å“åº”ï¼Œè¿™ç§ç±»åž‹çš„æµ‹è¯•å¥½å¤„å°±æ˜¯æ›´å¿«ï¼Œä¸éœ€è¦ç­‰å¾…å®žé™…çš„æœåŠ¡å™¨è°ƒç”¨ã€‚
+* å¼‚æ­¥æµ‹è¯•éƒ¨éœ€è¦ä¾èµ–spies
 
-µÚÒ»ÖÖ²âÊÔ£¬¿ÉÒÔÎ±ÔìAJAXÇëÇó£¬ÑéÖ¤ÇëÇóµÄURLÊÇ·ñÕýÈ·ÒÔ¼°Ö´ÐÐ»Øµ÷£¬Èç¹ûÓÐµÄ»°¡£
+ç¬¬ä¸€ç§æµ‹è¯•ï¼Œå¯ä»¥ä¼ªé€ AJAXè¯·æ±‚ï¼ŒéªŒè¯è¯·æ±‚çš„URLæ˜¯å¦æ­£ç¡®ä»¥åŠæ‰§è¡Œå›žè°ƒï¼Œå¦‚æžœæœ‰çš„è¯ã€‚
 
 ```javascript
 it("the callback should be executed on success", function () {
@@ -167,13 +167,13 @@ function getTodo(id, callback) {
 }
 ```
 
-```andCallFake()```£¬```toHaveBeenCalled()```ÊÇÆ¥Åä·½·¨£¬ËùÓÐSpy¿ÉÓÃµÄÆ¥Åä·½·¨¿ÉÒÔ¿´Jasmine [wiki](https://github.com/pivotal/jasmine/wiki/Spies)¡£
+```andCallFake()```ï¼Œ```toHaveBeenCalled()```æ˜¯åŒ¹é…æ–¹æ³•ï¼Œæ‰€æœ‰Spyå¯ç”¨çš„åŒ¹é…æ–¹æ³•å¯ä»¥çœ‹Jasmine [wiki](https://github.com/pivotal/jasmine/wiki/Spies)ã€‚
 
-µÚ¶þÖÖ²âÊÔ(Òì²½²âÊÔ)£¬ÎÒÃÇ¿ÉÒÔÓÃJasmineÖ§³ÖµÄÏÂÃæÕâÈý¸ö·½·¨¶ÔÇ°ÃæµÄÀý×Ó×öÐ©¸Ä½ø£º
+ç¬¬äºŒç§æµ‹è¯•(å¼‚æ­¥æµ‹è¯•)ï¼Œæˆ‘ä»¬å¯ä»¥ç”¨Jasmineæ”¯æŒçš„ä¸‹é¢è¿™ä¸‰ä¸ªæ–¹æ³•å¯¹å‰é¢çš„ä¾‹å­åšäº›æ”¹è¿›ï¼š
 
-* runs(function) - Á¢¼´ÔËÐÐÒ»¸ö´úÂë¿é
-* waits(timeout) - ÏÂÒ»¸ö´úÂë¿éÖ´ÐÐÇ°µÈ´ýÒ»¶ÎÊ±¼ä
-* waitsFor(function, optional message, optional timeout)¡ª¡ªÔÝÍ£specsÖªµÀÄ³Ð©¹¤×÷Íê³É¡£Jasmine»áµÈ´ýÕâÀïÌá¹©µÄº¯Êý·µ»ØtrueÈ»ºóÔÙ¼ÌÐøÖ´ÐÐÏÂÒ»¿é´úÂë¡£
+* runs(function) - ç«‹å³è¿è¡Œä¸€ä¸ªä»£ç å—
+* waits(timeout) - ä¸‹ä¸€ä¸ªä»£ç å—æ‰§è¡Œå‰ç­‰å¾…ä¸€æ®µæ—¶é—´
+* waitsFor(function, optional message, optional timeout)â€”â€”æš‚åœspecsçŸ¥é“æŸäº›å·¥ä½œå®Œæˆã€‚Jasmineä¼šç­‰å¾…è¿™é‡Œæä¾›çš„å‡½æ•°è¿”å›žtrueç„¶åŽå†ç»§ç»­æ‰§è¡Œä¸‹ä¸€å—ä»£ç ã€‚
 
 
 ```javascript
@@ -201,11 +201,11 @@ function getTodo(id, callback) {
 }
 ```
 
-***ÌáÊ¾£º*** µ±ÔÚµ¥Ôª²âÊÔÖÐ´´½¨ÕæÊµµÄ·þÎñÆ÷¶ËÇëÇóÊ±£¬»á¼«´óµÄÍÏÂý²âÊÔÔËÐÐµÄËÙ¶È(ÓÐºÜ¶àÒòËØ£¬°üÀ¨·þÎñÆ÷ÑÓ³Ù)¡£Í¬Ê±Ò²ÒýÈëÁËÍâ²¿ÒÀÀµ£¬Ô­±¾¿ÉÒÔ(Ò²Ó¦¸ÃÒª)×îÐ¡»¯ÄãµÄµ¥Ôª²âÊÔ£¬ËùÒÔÇ¿ÁÒÍÆ¼öÄãÑ¡Ôñspies£¬±ÜÃâÊ¹ÓÃÕæÊµµÄ·þÎñÆ÷¶Ëµ÷ÓÃ¡£
+***æç¤ºï¼š*** å½“åœ¨å•å…ƒæµ‹è¯•ä¸­åˆ›å»ºçœŸå®žçš„æœåŠ¡å™¨ç«¯è¯·æ±‚æ—¶ï¼Œä¼šæžå¤§çš„æ‹–æ…¢æµ‹è¯•è¿è¡Œçš„é€Ÿåº¦(æœ‰å¾ˆå¤šå› ç´ ï¼ŒåŒ…æ‹¬æœåŠ¡å™¨å»¶è¿Ÿ)ã€‚åŒæ—¶ä¹Ÿå¼•å…¥äº†å¤–éƒ¨ä¾èµ–ï¼ŒåŽŸæœ¬å¯ä»¥(ä¹Ÿåº”è¯¥è¦)æœ€å°åŒ–ä½ çš„å•å…ƒæµ‹è¯•ï¼Œæ‰€ä»¥å¼ºçƒˆæŽ¨èä½ é€‰æ‹©spiesï¼Œé¿å…ä½¿ç”¨çœŸå®žçš„æœåŠ¡å™¨ç«¯è°ƒç”¨ã€‚
 
 ## beforeEach() and afterEach()
 
-JasmineÍ¬ÑùÖ§³ÖÔÚÃ¿¸ö²âÊÔÖ®Ç°(```beforeEach()```)»òÕßÖ®ºó(```afterEach```)Ö´ÐÐÌØ¶¨µÄ´úÂë¡£Õâ¶ÔÇ¿ÖÆÎªÒ»ÖÂµÄÌõ¼þ·Ç³£ÓÐÓÃ(±ÈÈçÖØÖÃspecsÒýÈëµÄ±äÁ¿)¡£ÏÂÃæÕâ¸öÀý×ÓÖÐ£¬```beforeEach()```ÖÐ´´½¨Ò»¸öspecsÓÃÓÚ²âÊÔÊôÐÔµÄTodo model¡£
+JasmineåŒæ ·æ”¯æŒåœ¨æ¯ä¸ªæµ‹è¯•ä¹‹å‰(```beforeEach()```)æˆ–è€…ä¹‹åŽ(```afterEach```)æ‰§è¡Œç‰¹å®šçš„ä»£ç ã€‚è¿™å¯¹å¼ºåˆ¶ä¸ºä¸€è‡´çš„æ¡ä»¶éžå¸¸æœ‰ç”¨(æ¯”å¦‚é‡ç½®specså¼•å…¥çš„å˜é‡)ã€‚ä¸‹é¢è¿™ä¸ªä¾‹å­ä¸­ï¼Œ```beforeEach()```ä¸­åˆ›å»ºä¸€ä¸ªspecsç”¨äºŽæµ‹è¯•å±žæ€§çš„Todo modelã€‚
 
 ```javascript
 beforeEach(function(){
@@ -220,7 +220,7 @@ it('should contain a text value if not the default value', function(){
 });
 ```
 
-Ã¿¸ö```describe()```ÖÐ¶¼¿ÉÇ¶Ì××Ô¼ºµÄ```beforeEach()```ºÍ```afterEach()```·½·¨£¬Ö§³Ö¶ÔÓ¦suiteÏà¹ØµÄsetupºÍteardown·½·¨¡£
+æ¯ä¸ª```describe()```ä¸­éƒ½å¯åµŒå¥—è‡ªå·±çš„```beforeEach()```å’Œ```afterEach()```æ–¹æ³•ï¼Œæ”¯æŒå¯¹åº”suiteç›¸å…³çš„setupå’Œteardownæ–¹æ³•ã€‚
 
 
 
@@ -337,19 +337,19 @@ describe("Todo tests", function(){
 });
 ```
 
-Ç°ÃæÄã¿ÉÄÜ×¢Òâµ½```beforeEach()```µ÷ÓÃÖÐÎÒÃÇ¶¨ÒåÁËÒ»¸ö±äÁ¿```this.todo```£¬È»ºóÔÚ```afterEach()```Ò²¿ÉÒÔ¼ÌÐøÊ¹ÓÃËü¡£ÕâÒª¹é¹¦ÓÚJasmineµÄ¹²Ïíº¯ÊýÓò¡£¹²ÏíÓò¿ÉÒÔÈÃËùÓÐ¿é(°üÀ¨```runs()```)·ÃÎÊµÄ```this```µÄÊôÐÔ¶¼ÊÇÏàÍ¬µÄ£¬³ýÁËÉùÃ÷µÄ±äÁ¿Ö®Íâ(```var```ÉùÃ÷µÄ±äÁ¿)¡£
+å‰é¢ä½ å¯èƒ½æ³¨æ„åˆ°```beforeEach()```è°ƒç”¨ä¸­æˆ‘ä»¬å®šä¹‰äº†ä¸€ä¸ªå˜é‡```this.todo```ï¼Œç„¶åŽåœ¨```afterEach()```ä¹Ÿå¯ä»¥ç»§ç»­ä½¿ç”¨å®ƒã€‚è¿™è¦å½’åŠŸäºŽJasmineçš„å…±äº«å‡½æ•°åŸŸã€‚å…±äº«åŸŸå¯ä»¥è®©æ‰€æœ‰å—(åŒ…æ‹¬```runs()```)è®¿é—®çš„```this```çš„å±žæ€§éƒ½æ˜¯ç›¸åŒçš„ï¼Œé™¤äº†å£°æ˜Žçš„å˜é‡ä¹‹å¤–(```var```å£°æ˜Žçš„å˜é‡)ã€‚
 
-##»ñÈ¡°²×°
+##èŽ·å–å®‰è£…
 
-ÏÖÔÚÎÒÃÇÀ´·ÖÎöÏÂ»ù±¾Ô­Àí£¬ÏÈÏÂÔØJasmine²¢ÇÒ×öºÃ±àÐ´²âÊÔÇ°µÄ×¼±¸¡£
+çŽ°åœ¨æˆ‘ä»¬æ¥åˆ†æžä¸‹åŸºæœ¬åŽŸç†ï¼Œå…ˆä¸‹è½½Jasmineå¹¶ä¸”åšå¥½ç¼–å†™æµ‹è¯•å‰çš„å‡†å¤‡ã€‚
 
-¹Ù·½¶ÀÁ¢°æ±¾¿ÉÒÔ´ÓÕâÀï[ÏÂÔØ](https://github.com/pivotal/jasmine/downloads)¡£
+å®˜æ–¹ç‹¬ç«‹ç‰ˆæœ¬å¯ä»¥ä»Žè¿™é‡Œ[ä¸‹è½½](https://github.com/pivotal/jasmine/downloads)ã€‚
 
-ÏÂÔØµ½µÄ°üÖÐ»¹ÓÐÒ»¸öSpecRunner.htmlÎÄ¼þ¡£ Jasmine´úÂë²Ö¿â¿ÉÒÔ´ÓÓÃgit´ÓÕâÀï»ñÈ¡https://github.com/pivotal/jasmine.git¡£
+ä¸‹è½½åˆ°çš„åŒ…ä¸­è¿˜æœ‰ä¸€ä¸ªSpecRunner.htmlæ–‡ä»¶ã€‚ Jasmineä»£ç ä»“åº“å¯ä»¥ä»Žç”¨gitä»Žè¿™é‡ŒèŽ·å–https://github.com/pivotal/jasmine.gitã€‚
 
-ÎÒÃÇÀ´¿´ÏÂSpecRunner.htmlÎÄ¼þ(ÏÂÃæÊ¾Àý´úÂë¿ÉÄÜÏà¶ÔÓÚÐÂ°æ±¾µÄJasmine½ÏÀÏÁË)£º
+æˆ‘ä»¬æ¥çœ‹ä¸‹SpecRunner.htmlæ–‡ä»¶(ä¸‹é¢ç¤ºä¾‹ä»£ç å¯èƒ½ç›¸å¯¹äºŽæ–°ç‰ˆæœ¬çš„Jasmineè¾ƒè€äº†)ï¼š
 
-Ê×ÏÈÒýÈëJasmineºÍ±ØÒªÓÃÓÚreportµÄcss£º
+é¦–å…ˆå¼•å…¥Jasmineå’Œå¿…è¦ç”¨äºŽreportçš„cssï¼š
 
 
 	<link rel="stylesheet" type="text/css" href="lib/jasmine-1.1.0.rc1/jasmine.css"/>
@@ -357,39 +357,39 @@ describe("Todo tests", function(){
 	<script type="text/javascript" src="lib/jasmine-1.1.0.rc1/jasmine-html.js"></script>
 
 
-È»ºó£¬ÒýÈëÒ»Ð©²âÊÔ£º
+ç„¶åŽï¼Œå¼•å…¥ä¸€äº›æµ‹è¯•ï¼š
 
 
 	<script type="text/javascript" src="spec/SpecHelper.js"></script>
 	<script type="text/javascript" src="spec/PlayerSpec.js"></script>
 
 
-×îºóÊÇÐèÒª±»²âÊÔµÄ´úÂë£º
+æœ€åŽæ˜¯éœ€è¦è¢«æµ‹è¯•çš„ä»£ç ï¼š
 
 
 	<script type="text/javascript" src="src/Player.js"></script>
 	<script type="text/javascript" src="src/Song.js"></script>
 
 
-***ÌáÊ¾£º*** SpecRunnerºóÃæµÄ´úÂëÊÇ¸ºÔðÔËÐÐ²âÊÔ¡£ ÕâÀï²»×ö·ÖÎö£¬¹ÄÀøÄã¿´¿´PlayerSpec.jsºÍSpecHelper.jsµÄ´úÂë¡£ÕâÊÇ¸öÈçºÎ×öÒ»×é²âÊÔµÄºÜºÃµÄÀý×Ó¡£
+***æç¤ºï¼š*** SpecRunneråŽé¢çš„ä»£ç æ˜¯è´Ÿè´£è¿è¡Œæµ‹è¯•ã€‚ è¿™é‡Œä¸åšåˆ†æžï¼Œé¼“åŠ±ä½ çœ‹çœ‹PlayerSpec.jså’ŒSpecHelper.jsçš„ä»£ç ã€‚è¿™æ˜¯ä¸ªå¦‚ä½•åšä¸€ç»„æµ‹è¯•çš„å¾ˆå¥½çš„ä¾‹å­ã€‚
 
 ##TDD With Backbone
 
-µ±Ê¹ÓÃBackbone¿ª·¢Ó¦ÓÃÊ±£¬ÐèÒª²âÊÔ¸ö±ðµÄÄ£¿é´úÂëÍ¬Ê±Ò²Òª²âÊÔmodels, views, collectionsºÍrouters¡£²ÉÓÃTDD²âÊÔ·½·¨£¬ÎÒÃÇÀ´¿´ÏÂ²âÊÔBackbone [Todo](https://github.com/addyosmani/todomvc/tree/gh-pages/architecture-examples/backbone)Õâ¸öÊ¾ÀýÏîÄ¿ÖÐBackbone×é¼þµÄÒ»Ð©specs¡£ÕâÒ»½ÚÎÒÃÇ½«Ê¹ÓÃÒ»¸öÓÉLarry MyersÐÞ¸Ä°æ±¾µÄBackbone KoansÏîÄ¿£¬ ÔÚ`practicals\jasmine-koans`Ä¿Â¼ÏÂ¡£
+å½“ä½¿ç”¨Backboneå¼€å‘åº”ç”¨æ—¶ï¼Œéœ€è¦æµ‹è¯•ä¸ªåˆ«çš„æ¨¡å—ä»£ç åŒæ—¶ä¹Ÿè¦æµ‹è¯•models, views, collectionså’Œroutersã€‚é‡‡ç”¨TDDæµ‹è¯•æ–¹æ³•ï¼Œæˆ‘ä»¬æ¥çœ‹ä¸‹æµ‹è¯•Backbone [Todo](https://github.com/addyosmani/todomvc/tree/gh-pages/architecture-examples/backbone)è¿™ä¸ªç¤ºä¾‹é¡¹ç›®ä¸­Backboneç»„ä»¶çš„ä¸€äº›specsã€‚è¿™ä¸€èŠ‚æˆ‘ä»¬å°†ä½¿ç”¨ä¸€ä¸ªç”±Larry Myersä¿®æ”¹ç‰ˆæœ¬çš„Backbone Koansé¡¹ç›®ï¼Œ åœ¨`practicals\jasmine-koans`ç›®å½•ä¸‹ã€‚
 
 ## Models
 
-Backbone modelsµÄ¸´ÔÓ³Ì¶ÈÍêÈ«ÒÀÀµÓÚÓ¦ÓÃÒªÊµÏÖµÄ¹¦ÄÜ¡£ÏÂÃæÀý×ÓÖÐ£¬ÎÒÃÇ½«²âÊÔÄ¬ÈÏÖµ£¬ÊôÐÔ£¬×´Ì¬¸Ä±ä£¬ºÍÑéÖ¤¹æÔò¡£
+Backbone modelsçš„å¤æ‚ç¨‹åº¦å®Œå…¨ä¾èµ–äºŽåº”ç”¨è¦å®žçŽ°çš„åŠŸèƒ½ã€‚ä¸‹é¢ä¾‹å­ä¸­ï¼Œæˆ‘ä»¬å°†æµ‹è¯•é»˜è®¤å€¼ï¼Œå±žæ€§ï¼ŒçŠ¶æ€æ”¹å˜ï¼Œå’ŒéªŒè¯è§„åˆ™ã€‚
 
-Ê×ÏÈ£¬Ê¹ÓÃ```describe()```´´½¨suite£º
+é¦–å…ˆï¼Œä½¿ç”¨```describe()```åˆ›å»ºsuiteï¼š
 
 ```javascript
 describe('Tests for Todo', function() {
 ```
 
-ModelµÄÊôÐÔÀíÏëÉÏÓ¦¸ÃÓÐÄ¬ÈÏÖµ¡£¿ÉÒÔÈ·±£´´½¨ÊµÀýÊ±Î´Ö¸¶¨ÖµµÄ»°¿ÉÒÔÊ¹ÓÃÄ¬ÈÏÖµÌæ´ú¡£ÕâÀïµÄÒâË¼Ö÷ÒªÊÇÓëmodels½»»¥ÊÇ¿ÉÒÔ±ÜÃâÒ»Ð©ÒâÍâµÄÐÐÎª¡£
+Modelçš„å±žæ€§ç†æƒ³ä¸Šåº”è¯¥æœ‰é»˜è®¤å€¼ã€‚å¯ä»¥ç¡®ä¿åˆ›å»ºå®žä¾‹æ—¶æœªæŒ‡å®šå€¼çš„è¯å¯ä»¥ä½¿ç”¨é»˜è®¤å€¼æ›¿ä»£ã€‚è¿™é‡Œçš„æ„æ€ä¸»è¦æ˜¯ä¸Žmodelsäº¤äº’æ˜¯å¯ä»¥é¿å…ä¸€äº›æ„å¤–çš„è¡Œä¸ºã€‚
 
-ÏÂÃæÕâ¸öspec£¬´´½¨Ò»¸öTodoÃ»ÓÐ´«ÈëÈÎºÎÊôÐÔ£¬È»ºó¼ì²éÏÂ```text```ÊôÐÔµÄÖµÊÇÊ²Ã´¡£ÒòÎªÃ»ÓÐÉèÖÃÈÎºÎÖµ£¬ËùÒÔÎÒÃÇÆÚÍûµÄÖµÊÇ·µ»Ø```""```¡£
+ä¸‹é¢è¿™ä¸ªspecï¼Œåˆ›å»ºä¸€ä¸ªTodoæ²¡æœ‰ä¼ å…¥ä»»ä½•å±žæ€§ï¼Œç„¶åŽæ£€æŸ¥ä¸‹```text```å±žæ€§çš„å€¼æ˜¯ä»€ä¹ˆã€‚å› ä¸ºæ²¡æœ‰è®¾ç½®ä»»ä½•å€¼ï¼Œæ‰€ä»¥æˆ‘ä»¬æœŸæœ›çš„å€¼æ˜¯è¿”å›ž```""```ã€‚
 
 ```javascript
 it('Can be created with default values for its attributes.', function() {
@@ -398,7 +398,7 @@ it('Can be created with default values for its attributes.', function() {
 });
 ```
 
-Èç¹ûÄãÔÚ±àÐ´modelÇ°²âÊÔÕâ¸öspecµÄ»°£¬»áÒý·¢Ê§°Ü¡£Õâ¸öspecÐèÒª´«ÈëÒ»¸ö```text```ÊôÐÔµÄÄ¬ÈÏÖµ¡£Ê¾Àý£º
+å¦‚æžœä½ åœ¨ç¼–å†™modelå‰æµ‹è¯•è¿™ä¸ªspecçš„è¯ï¼Œä¼šå¼•å‘å¤±è´¥ã€‚è¿™ä¸ªspecéœ€è¦ä¼ å…¥ä¸€ä¸ª```text```å±žæ€§çš„é»˜è®¤å€¼ã€‚ç¤ºä¾‹ï¼š
 
 ```javascript
 
@@ -412,7 +412,7 @@ window.Todo = Backbone.Model.extend({
 
 ```
 
-½ÓÏÂÀ´£¬ÎÒÃÇ²âÊÔÏÂmodelÔÚ³õÊ¼»¯Ö®ºó»á°ÑÊôÐÔÖµÉèÎª´«ÈëµÄÖµ¡£ÁíÍâÒ²²âÊÔÏÂÆäËü¼¸¸öÊôÐÔµÄÄ¬ÈÏÖµÊÇ·ñÊÇÎÒÃÇÆÚÍûµÄ¡£
+æŽ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬æµ‹è¯•ä¸‹modelåœ¨åˆå§‹åŒ–ä¹‹åŽä¼šæŠŠå±žæ€§å€¼è®¾ä¸ºä¼ å…¥çš„å€¼ã€‚å¦å¤–ä¹Ÿæµ‹è¯•ä¸‹å…¶å®ƒå‡ ä¸ªå±žæ€§çš„é»˜è®¤å€¼æ˜¯å¦æ˜¯æˆ‘ä»¬æœŸæœ›çš„ã€‚
 
 ```javascript
 it('Will set passed attributes on the model instance when created.', function() {
@@ -426,7 +426,7 @@ it('Will set passed attributes on the model instance when created.', function() 
     expect(todo.get('order')).toBe(0);
 });
 ```
-Backbone modelsÖ§³Ömodel.change()ÊÂ¼þ£¬µ±modelµÄ×´Ì¬¸Ä±äÊ±´¥·¢¡£ÏÂÃæÕâ¸öÀý×ÓÖÐ£¬Í¨¹ýÉèÖÃTodo modelÊôÐÔÖµÀ´¸Ä±äËüµÄ'state(×´Ì¬)'£¬×´Ì¬¸Ä±äµÄÔ­Òò·Ç³£ÖµµÃ²âÊÔ£¬ÒòÎªÓ¦ÓÃÖÐ¿ÉÄÜÓÐ×´Ì¬ÒÀÀµµÄÊÂ¼þ£¬±ÈÈçµ±model±»ÐÞ¸ÄÊ±ÏëÒªÏÔÊ¾Ò»¸öÈ·ÈÏÊÓÍ¼¡£
+Backbone modelsæ”¯æŒmodel.change()äº‹ä»¶ï¼Œå½“modelçš„çŠ¶æ€æ”¹å˜æ—¶è§¦å‘ã€‚ä¸‹é¢è¿™ä¸ªä¾‹å­ä¸­ï¼Œé€šè¿‡è®¾ç½®Todo modelå±žæ€§å€¼æ¥æ”¹å˜å®ƒçš„'state(çŠ¶æ€)'ï¼ŒçŠ¶æ€æ”¹å˜çš„åŽŸå› éžå¸¸å€¼å¾—æµ‹è¯•ï¼Œå› ä¸ºåº”ç”¨ä¸­å¯èƒ½æœ‰çŠ¶æ€ä¾èµ–çš„äº‹ä»¶ï¼Œæ¯”å¦‚å½“modelè¢«ä¿®æ”¹æ—¶æƒ³è¦æ˜¾ç¤ºä¸€ä¸ªç¡®è®¤è§†å›¾ã€‚
 
 ```javascript
 it('Fires a custom event when the state changes.', function() {
@@ -445,12 +445,12 @@ it('Fires a custom event when the state changes.', function() {
 });
 ```
 
-Í¨³£ÔÚmodelÖÐÒýÈëÑéÖ¤Âß¼­À´È·±£À´×ÔÓÃ»§µÄÊäÈë(»òÕßÆäËüÄ£¿é)ÊÇÓÐÐ§µÄ'(valid)'¡£Todo app¿ÉÄÜ»áÑéÖ¤textÊäÈë¿òÊäÈë½øÀ´µÄÄÚÈÝÃ»ÓÐ´ÖÂ³µÄµ¥´Ê¡£ Í¬ÑùµÄ£¬
-µ±±£´æTodoÏî```done```×´Ì¬Ê±£¬ÐèÒªÑéÖ¤´«ÈëµÄÖµÊÇtrue/false£¬ ¶ø²»ÊÇ×Ö·û´®¡£
+é€šå¸¸åœ¨modelä¸­å¼•å…¥éªŒè¯é€»è¾‘æ¥ç¡®ä¿æ¥è‡ªç”¨æˆ·çš„è¾“å…¥(æˆ–è€…å…¶å®ƒæ¨¡å—)æ˜¯æœ‰æ•ˆçš„'(valid)'ã€‚Todo appå¯èƒ½ä¼šéªŒè¯textè¾“å…¥æ¡†è¾“å…¥è¿›æ¥çš„å†…å®¹æ²¡æœ‰ç²—é²çš„å•è¯ã€‚ åŒæ ·çš„ï¼Œ
+å½“ä¿å­˜Todoé¡¹```done```çŠ¶æ€æ—¶ï¼Œéœ€è¦éªŒè¯ä¼ å…¥çš„å€¼æ˜¯true/falseï¼Œ è€Œä¸æ˜¯å­—ç¬¦ä¸²ã€‚
 
-ÔÚÏÂÃæµÄspecÖÐ£¬ÎÒÃÇÓÃÁËÒ»Ð©ÊÇÑéÖ¤Ê§°ÜµÄÖµ£¬ÈÃmodel.validate()´¥·¢"error"ÊÂ¼þ¡£¼ìÑéÒ»ÏÂ´«ÈëÎÞÐ§ÖµÊÇÊÇ·ñ»áÕæµÄ´¥·¢Ê§°Ü¡£
+åœ¨ä¸‹é¢çš„specä¸­ï¼Œæˆ‘ä»¬ç”¨äº†ä¸€äº›æ˜¯éªŒè¯å¤±è´¥çš„å€¼ï¼Œè®©model.validate()è§¦å‘"error"äº‹ä»¶ã€‚æ£€éªŒä¸€ä¸‹ä¼ å…¥æ— æ•ˆå€¼æ˜¯æ˜¯å¦ä¼šçœŸçš„è§¦å‘å¤±è´¥ã€‚
 
-Ê¹ÓÃJasmineÄÚÖÃ```createSpy()```·½·¨´´½¨Ò»¸öerrorCallback spy£¬¾Í¿ÉÒÔ¼ì²âerrorÊÂ¼þÁË£º
+ä½¿ç”¨Jasmineå†…ç½®```createSpy()```æ–¹æ³•åˆ›å»ºä¸€ä¸ªerrorCallback spyï¼Œå°±å¯ä»¥æ£€æµ‹erroräº‹ä»¶äº†ï¼š
 
 ```javascript
 it('Can contain custom validation rules, and will trigger an error event on failed validation.', function() {
@@ -474,7 +474,7 @@ it('Can contain custom validation rules, and will trigger an error event on fail
 });
 
 ```
-ÒªÈÃÉÏÃæÕâ¶ÎÊ§°Ü²âÊÔ´úÂëÖ§³ÖÑéÖ¤·Ç³£¼òµ¥¡£Õâ¸ömodelÖÐ£¬ÎÒÃÇÖØÐ´validate()·½·¨(ÏñBackboneÎÄµµÍÆ¼öµÄÄÇÑù)£¬¼ì²émodelÓÐ'done'ÊôÐÔ²¢ÇÒ¸øËü´«ÈëÖµÊ±ÊÇÒ»¸öºÏ·¨µÄ²¼¶ûÖµ¡£
+è¦è®©ä¸Šé¢è¿™æ®µå¤±è´¥æµ‹è¯•ä»£ç æ”¯æŒéªŒè¯éžå¸¸ç®€å•ã€‚è¿™ä¸ªmodelä¸­ï¼Œæˆ‘ä»¬é‡å†™validate()æ–¹æ³•(åƒBackboneæ–‡æ¡£æŽ¨èçš„é‚£æ ·)ï¼Œæ£€æŸ¥modelæœ‰'done'å±žæ€§å¹¶ä¸”ç»™å®ƒä¼ å…¥å€¼æ—¶æ˜¯ä¸€ä¸ªåˆæ³•çš„å¸ƒå°”å€¼ã€‚
 
 ```javascript
 validate: function(attrs) {
@@ -484,7 +484,7 @@ validate: function(attrs) {
 }
 ```
 
-Õâ¸öÍêÕûµÄTodo model´úÂëÈçÏÂ£º
+è¿™ä¸ªå®Œæ•´çš„Todo modelä»£ç å¦‚ä¸‹ï¼š
 
 ```javascript
 var NAUGHTY_WORDS = /crap|poop|hell|frogs/gi;
@@ -521,17 +521,17 @@ window.Todo = Backbone.Model.extend({
 
 ## Collections
 
-ÏÖÔÚÎÒÃÇÐèÒª¶¨ÒåspecsÀ´²âÊÔBackbone Todo modelµÄcollection(Ò»¸öTodoList)¡£Collections´¦ÀíÁÐ±íµÄÅÅÐò£¬¹ýÂËµÈ¡£
+çŽ°åœ¨æˆ‘ä»¬éœ€è¦å®šä¹‰specsæ¥æµ‹è¯•Backbone Todo modelçš„collection(ä¸€ä¸ªTodoList)ã€‚Collectionså¤„ç†åˆ—è¡¨çš„æŽ’åºï¼Œè¿‡æ»¤ç­‰ã€‚
 
-²âÊÔcollectionsÊ±¿ÉÄÜ»áÓÐÏÂÃæÕâÐ©Ã÷È·µÄspecs£º
+æµ‹è¯•collectionsæ—¶å¯èƒ½ä¼šæœ‰ä¸‹é¢è¿™äº›æ˜Žç¡®çš„specsï¼š
 
-* ¿ÉÒÔÌí¼ÓÐÂµÄTodo model¶ÔÏó»òÕß¶ÔÏóµÄÊý×é¡£
-* ÊôÐÔ²âÊÔ£¬È·±£ÀàËÆcollectionµÄbase URLÊÇÎÒÃÇÆÚÍûµÄÖµ¡£
-* ÓÐÒâµÄÌí¼Ó×´Ì¬```done:true```µÄtodoÏî£¬ È»ºó¼ì²écollectionÈÏÎªÒÑÍê³ÉÏîµÄÊýÁ¿ºÍÎ´Íê³ÉÏîµÄÊýÁ¿¡£
+* å¯ä»¥æ·»åŠ æ–°çš„Todo modelå¯¹è±¡æˆ–è€…å¯¹è±¡çš„æ•°ç»„ã€‚
+* å±žæ€§æµ‹è¯•ï¼Œç¡®ä¿ç±»ä¼¼collectionçš„base URLæ˜¯æˆ‘ä»¬æœŸæœ›çš„å€¼ã€‚
+* æœ‰æ„çš„æ·»åŠ çŠ¶æ€```done:true```çš„todoé¡¹ï¼Œ ç„¶åŽæ£€æŸ¥collectionè®¤ä¸ºå·²å®Œæˆé¡¹çš„æ•°é‡å’Œæœªå®Œæˆé¡¹çš„æ•°é‡ã€‚
 
-ÕâÒ»½ÚÎÒÃÇÖ»»á½²µ½Ç°2¸öÎÊÌâ£¬µÚÈý¸öÎÊÌâ×÷Îª¶ÁÕßµÄÀ©×ÅÁ·Ï°¡£
+è¿™ä¸€èŠ‚æˆ‘ä»¬åªä¼šè®²åˆ°å‰2ä¸ªé—®é¢˜ï¼Œç¬¬ä¸‰ä¸ªé—®é¢˜ä½œä¸ºè¯»è€…çš„æ‰©ç€ç»ƒä¹ ã€‚
 
-²âÊÔTodo models¿ÉÍ¨¹ýÒ»¸ö¶ÔÏó»òÕßÊý×éÀ´Ìí¼ÓÏà¶Ô¼òµ¥¡£Ê×ÏÈ£¬³õÊ¼»¯Ò»¸öTodoList collection£¬È·±£Æä³¤¶ÈÎª0¡£È»ºó£¬Ìí¼ÓÐÂµÄTodos£¬¶ÔÏóºÍÊý×éÁ½ÖÖÇé¿ö¶¼Ìí¼ÓÒ»´Î£¬È»ºó¼ì²écollectionµÄlengthÊôÐÔÊÇ·ñ·ûºÏÆÚÍûÖµ£º
+æµ‹è¯•Todo modelså¯é€šè¿‡ä¸€ä¸ªå¯¹è±¡æˆ–è€…æ•°ç»„æ¥æ·»åŠ ç›¸å¯¹ç®€å•ã€‚é¦–å…ˆï¼Œåˆå§‹åŒ–ä¸€ä¸ªTodoList collectionï¼Œç¡®ä¿å…¶é•¿åº¦ä¸º0ã€‚ç„¶åŽï¼Œæ·»åŠ æ–°çš„Todosï¼Œå¯¹è±¡å’Œæ•°ç»„ä¸¤ç§æƒ…å†µéƒ½æ·»åŠ ä¸€æ¬¡ï¼Œç„¶åŽæ£€æŸ¥collectionçš„lengthå±žæ€§æ˜¯å¦ç¬¦åˆæœŸæœ›å€¼ï¼š
 
 ```javascript
 describe('Tests for TodoList', function() {
@@ -557,7 +557,7 @@ describe('Tests for TodoList', function() {
 ...
 ```
 
-¸úmodelµÄÊôÐÔÒ»Ñù£¬²âÊÔcollectionsµÄÊôÐÔÒ²·Ç³£¼òµ¥¡£ÏÂÃæÊÇÒ»¸ö¼òµ¥µÄ²âÊÔcollection.urlµÄspecÀý×Ó£º
+è·Ÿmodelçš„å±žæ€§ä¸€æ ·ï¼Œæµ‹è¯•collectionsçš„å±žæ€§ä¹Ÿéžå¸¸ç®€å•ã€‚ä¸‹é¢æ˜¯ä¸€ä¸ªç®€å•çš„æµ‹è¯•collection.urlçš„specä¾‹å­ï¼š
 
 ```javascript
 it('Can have a url property to define the basic url structure for all contained models.', function() {
@@ -569,9 +569,9 @@ it('Can have a url property to define the basic url structure for all contained 
 
 ```
 
-¶ÔÓÚµÚÈý¸öspec£¬collection»áÊµÏÖ``done()```ºÍ```remaining()```·½·¨£¬·Ö±ð¹ýÂËÒÑÍê³ÉTodoÏîºÍÎ´Íê³ÉÏî¡£±àÐ´Ò»¸öspec£¬´´½¨Ò»¸öcollection£¬Ìí¼ÓÒ»¸ö```done```×´Ì¬ÎªÎª```true```µÄmodel£¬2¸ö```done```×´Ì¬Îª```false```µÄmodel¡£È»ºó²âÊÔµ÷ÓÃ```done()```ºÍ```remaining()```·½·¨·µ»ØµÄ½á¹ûµÄlength£¬¿´ÊÇ·ñÕý³£¡£
+å¯¹äºŽç¬¬ä¸‰ä¸ªspecï¼Œcollectionä¼šå®žçŽ°``done()```å’Œ```remaining()```æ–¹æ³•ï¼Œåˆ†åˆ«è¿‡æ»¤å·²å®ŒæˆTodoé¡¹å’Œæœªå®Œæˆé¡¹ã€‚ç¼–å†™ä¸€ä¸ªspecï¼Œåˆ›å»ºä¸€ä¸ªcollectionï¼Œæ·»åŠ ä¸€ä¸ª```done```çŠ¶æ€ä¸ºä¸º```true```çš„modelï¼Œ2ä¸ª```done```çŠ¶æ€ä¸º```false```çš„modelã€‚ç„¶åŽæµ‹è¯•è°ƒç”¨```done()```å’Œ```remaining()```æ–¹æ³•è¿”å›žçš„ç»“æžœçš„lengthï¼Œçœ‹æ˜¯å¦æ­£å¸¸ã€‚
 
-TodoList collectionÊµÏÖ´úÂë¿ÉÒÔÏñÏÂÃæÕâÑù£º
+TodoList collectionå®žçŽ°ä»£ç å¯ä»¥åƒä¸‹é¢è¿™æ ·ï¼š
 
 
 ```javascript
@@ -607,33 +607,33 @@ TodoList collectionÊµÏÖ´úÂë¿ÉÒÔÏñÏÂÃæÕâÑù£º
 
 ## Views
 
-ÔÚ¿ªÊ¼²âÊÔBackbone viewsÇ°£¬ÏÈ¼ò¶ÌµÄÀ´¿´Ò»¸ö±àÐ´Jasmine specsµÄjQuery plugin¡£
+åœ¨å¼€å§‹æµ‹è¯•Backbone viewså‰ï¼Œå…ˆç®€çŸ­çš„æ¥çœ‹ä¸€ä¸ªç¼–å†™Jasmine specsçš„jQuery pluginã€‚
 
 **The Jasmine jQuery Plugin**
 
-Todo applicationÊ¹ÓÃjQueryÀ´×öDOM²Ù×÷£¬ÓÐÒ»¸ö[jasmine-jquery](https://github.com/velesin/jasmine-jquery) ²å¼þ¿ÉÒÔ°ïÖú¼ò»¯BDD²âÊÔview´´½¨µÄÔªËØ¡£
+Todo applicationä½¿ç”¨jQueryæ¥åšDOMæ“ä½œï¼Œæœ‰ä¸€ä¸ª[jasmine-jquery](https://github.com/velesin/jasmine-jquery) æ’ä»¶å¯ä»¥å¸®åŠ©ç®€åŒ–BDDæµ‹è¯•viewåˆ›å»ºçš„å…ƒç´ ã€‚
 
 
-Õâ¸ö²å¼þÌá¹©ÁËºÜ¶à¶îÍâµÄJasmine [matchers](https://github.com/pivotal/jasmine/wiki/Matchers) ÒÔ°ïÖú²âÊÔjQuery°ü×°µÄsets£º
+è¿™ä¸ªæ’ä»¶æä¾›äº†å¾ˆå¤šé¢å¤–çš„Jasmine [matchers](https://github.com/pivotal/jasmine/wiki/Matchers) ä»¥å¸®åŠ©æµ‹è¯•jQueryåŒ…è£…çš„setsï¼š
 
-* ```toBe(jQuerySelector)```Ê¾Àý £º ```expect($('<div id="some-id"></div>')).toBe('div#some-id')```
-* ```toBeChecked()``` Ê¾Àý£º```expect($('<input type="checkbox" checked="checked"/>')).toBeChecked()```
-* ```toBeSelected()``` Ê¾Àý ```expect($('<option selected="selected"></option>')).toBeSelected()```
+* ```toBe(jQuerySelector)```ç¤ºä¾‹ ï¼š ```expect($('<div id="some-id"></div>')).toBe('div#some-id')```
+* ```toBeChecked()``` ç¤ºä¾‹ï¼š```expect($('<input type="checkbox" checked="checked"/>')).toBeChecked()```
+* ```toBeSelected()``` ç¤ºä¾‹ ```expect($('<option selected="selected"></option>')).toBeSelected()```
 
-¸ü¶à¿ÉÒÔ²Î¿´ [ÕâÀï](https://github.com/velesin/jasmine-jquery)¡£ËüÖ§³ÖµÄÍêÕûmatchers¿ÉÒÔÔÚÏîÄ¿Ö÷Ò³ÉÏÕÒµ½¡£Ëü¸ú±ê×¼µÄJasmine matchersÀàËÆ£¬ÉÏÃæµÄmatchers¿ÉÒÔ¼Ó.notÇ°×º·´¹ýÀ´Ê¹ÓÃ(±ÈÈç```expect(x).not.toBe(y)```)£º
+æ›´å¤šå¯ä»¥å‚çœ‹ [è¿™é‡Œ](https://github.com/velesin/jasmine-jquery)ã€‚å®ƒæ”¯æŒçš„å®Œæ•´matcherså¯ä»¥åœ¨é¡¹ç›®ä¸»é¡µä¸Šæ‰¾åˆ°ã€‚å®ƒè·Ÿæ ‡å‡†çš„Jasmine matchersç±»ä¼¼ï¼Œä¸Šé¢çš„matcherså¯ä»¥åŠ .notå‰ç¼€åè¿‡æ¥ä½¿ç”¨(æ¯”å¦‚```expect(x).not.toBe(y)```)ï¼š
 
 ```javascript
 expect($('<div>I am an example</div>')).not.toHaveText(/other/)
 ```
 
-jasmine-jqueryÍ¬Ê±°üº¬Ò»¸ö¹Ì¶¨×°ÖÃÄ£ÐÍ(fixtures model)£¬¿ÉÒÔ¼ÓÔØÈÎÒâHTMLÄÚÈÝµ½Ê±ºò¡£¿ÉÒÔÏñÏÂÃæÕâÑùÊ¹ÓÃ£º
+jasmine-jqueryåŒæ—¶åŒ…å«ä¸€ä¸ªå›ºå®šè£…ç½®æ¨¡åž‹(fixtures model)ï¼Œå¯ä»¥åŠ è½½ä»»æ„HTMLå†…å®¹åˆ°æ—¶å€™ã€‚å¯ä»¥åƒä¸‹é¢è¿™æ ·ä½¿ç”¨ï¼š
 
-ÔÚÒ»¸öÍâ²¿ÎÄ¼þÖÐ°üº¬Ò»¶ÎHTML£º
+åœ¨ä¸€ä¸ªå¤–éƒ¨æ–‡ä»¶ä¸­åŒ…å«ä¸€æ®µHTMLï¼š
 
 some.fixture.html:
 ```<div id="sample-fixture">some HTML content</div>```
 
-È»ºó£¬Êµ¼Ê²âÊÔÊ±ÏëÏÂÃæÕâÑùÔØÈë£º
+ç„¶åŽï¼Œå®žé™…æµ‹è¯•æ—¶æƒ³ä¸‹é¢è¿™æ ·è½½å…¥ï¼š
 
 ```javascript
 loadFixtures('some.fixture.html')
@@ -641,9 +641,9 @@ $('some-fixture').myTestedPlugin();
 expect($('#some-fixture')).to<the rest of your matcher would go here>
 ```
 
-jasmine-jquery²å¼þÄ¬ÈÏ»á´ÓÒ»¸öÌØ¶¨Ä¿Â¼¼ÓÔØfixtures£ºspec/javascripts/fixtures¡£Èç¹ûÏëÅäÖÃÕâ¸öÂ·¾¶µÄ»°ÔÚ³õÊ¼»¯ÉèÖÃÖÐ```jasmine.getFixtures().fixturesPath = 'your custom path'```¡£
+jasmine-jqueryæ’ä»¶é»˜è®¤ä¼šä»Žä¸€ä¸ªç‰¹å®šç›®å½•åŠ è½½fixturesï¼šspec/javascripts/fixturesã€‚å¦‚æžœæƒ³é…ç½®è¿™ä¸ªè·¯å¾„çš„è¯åœ¨åˆå§‹åŒ–è®¾ç½®ä¸­```jasmine.getFixtures().fixturesPath = 'your custom path'```ã€‚
 
-×îºó£¬jasmine-jquery°üº¬¶ÔjQueryÊÂ¼þspyingµÄÖ§³Ö£¬¶øÇÒ²»ÐèÒªÊ²Ã´¶îÍâµÄ¹¤×÷¡£¿ÉÊ¹ÓÃ```spyOnEvent()```ºÍ```assert(eventName).toHaveBeenTriggered(selector)```·½·¨À´Íê³É¡£ÏÂÃæÊÇÒ»¸öÊ¾Àý£º
+æœ€åŽï¼Œjasmine-jqueryåŒ…å«å¯¹jQueryäº‹ä»¶spyingçš„æ”¯æŒï¼Œè€Œä¸”ä¸éœ€è¦ä»€ä¹ˆé¢å¤–çš„å·¥ä½œã€‚å¯ä½¿ç”¨```spyOnEvent()```å’Œ```assert(eventName).toHaveBeenTriggered(selector)```æ–¹æ³•æ¥å®Œæˆã€‚ä¸‹é¢æ˜¯ä¸€ä¸ªç¤ºä¾‹ï¼š
 
 ```javascript
 spyOnEvent($('#el'), 'click');
@@ -652,15 +652,15 @@ expect('click').toHaveBeenTriggeredOn($('#el'));
 ```
 
 
-### View²âÊÔ
+### Viewæµ‹è¯•
 
-ÕâÒ»Ð¡½ÚÎÒÃÇ´ÓÈý¸öÎ¬¶ÈÀ´¿´ÏÂ±àÐ´Backbone ViewsµÄspecs£º³õÊ¼»¯£¬viewäÖÈ¾ºÍÄ£°åÉú³É¡£ºóÁ½¸ö¸úÍ¨³£µÄ²âÊÔ²î²»¶à£¬²»¹ýÎÒ»á¼ò¶ÌµÄËµÏÂÎªÊ²Ã´¶ÔviewsµÄ³õÊ¼»¯±àÐ´specsÒ²ÊÇÓÐºÃ´¦µÄ¡£
+è¿™ä¸€å°èŠ‚æˆ‘ä»¬ä»Žä¸‰ä¸ªç»´åº¦æ¥çœ‹ä¸‹ç¼–å†™Backbone Viewsçš„specsï¼šåˆå§‹åŒ–ï¼Œviewæ¸²æŸ“å’Œæ¨¡æ¿ç”Ÿæˆã€‚åŽä¸¤ä¸ªè·Ÿé€šå¸¸çš„æµ‹è¯•å·®ä¸å¤šï¼Œä¸è¿‡æˆ‘ä¼šç®€çŸ­çš„è¯´ä¸‹ä¸ºä»€ä¹ˆå¯¹viewsçš„åˆå§‹åŒ–ç¼–å†™specsä¹Ÿæ˜¯æœ‰å¥½å¤„çš„ã€‚
 
-#### ³õÊ¼»¯
+#### åˆå§‹åŒ–
 
-×î»ù±¾µÄ£¬ÎªBackbone viewsÐ´µÄspecsÐèÒªÑéÖ¤view±»ÕýÈ·µÄ°ó¶¨µ½Ö¸¶¨µÄDOMÔªËØ£¬±»ÓÐÐ§µÄÊý¾ÝmodelÖ§³Ö¡£¿¼ÂÇÕâÑù×öµÄÔ­ÒòÊÇ£¬Èç¹ûÕâÐ©specsÊ§°ÜµÄ»°»áµ¼ÖÂºóÃæÒ»Ð©¸ü¸´ÔÓµÄ²âÊÔÒ²Ê§°Ü£¬¶øÇÒÕâÐ©specsÐ´ÆðÀ´±È½Ï¼òµ¥£¬¿ÉÒÔÌá¹©Ò»¸öÕûÌåµÄ¼ÛÖµ¡£
+æœ€åŸºæœ¬çš„ï¼Œä¸ºBackbone viewså†™çš„specséœ€è¦éªŒè¯viewè¢«æ­£ç¡®çš„ç»‘å®šåˆ°æŒ‡å®šçš„DOMå…ƒç´ ï¼Œè¢«æœ‰æ•ˆçš„æ•°æ®modelæ”¯æŒã€‚è€ƒè™‘è¿™æ ·åšçš„åŽŸå› æ˜¯ï¼Œå¦‚æžœè¿™äº›specså¤±è´¥çš„è¯ä¼šå¯¼è‡´åŽé¢ä¸€äº›æ›´å¤æ‚çš„æµ‹è¯•ä¹Ÿå¤±è´¥ï¼Œè€Œä¸”è¿™äº›specså†™èµ·æ¥æ¯”è¾ƒç®€å•ï¼Œå¯ä»¥æä¾›ä¸€ä¸ªæ•´ä½“çš„ä»·å€¼ã€‚
 
-ÎªÈ·±£Ò»ÖÂµÄ²âÊÔÅäÖÃÌõ¼þ£¬Ê¹ÓÃ```beforeEach()```×·¼ÓÒ»¸ö¿ÕµÄ```UL``` (#todoList)µ½DOM²¢ÇÒÓÃÒ»¸ö¿ÕµÄTodo model³õÊ¼»¯Ò»¸öTodoViewÊµÀý¡£ÔÚ```afterEach()```ÖÐÒÆ³ýÇ°ÃæµÄ#todoList  ```UL```ºÍviewÊµÀý¡£
+ä¸ºç¡®ä¿ä¸€è‡´çš„æµ‹è¯•é…ç½®æ¡ä»¶ï¼Œä½¿ç”¨```beforeEach()```è¿½åŠ ä¸€ä¸ªç©ºçš„```UL``` (#todoList)åˆ°DOMå¹¶ä¸”ç”¨ä¸€ä¸ªç©ºçš„Todo modelåˆå§‹åŒ–ä¸€ä¸ªTodoViewå®žä¾‹ã€‚åœ¨```afterEach()```ä¸­ç§»é™¤å‰é¢çš„#todoList  ```UL```å’Œviewå®žä¾‹ã€‚
 
 ```javascript
 describe('Tests for TodoView', function() {
@@ -679,9 +679,9 @@ describe('Tests for TodoView', function() {
 ...
 ```
 
-µÚÒ»¸öspec¾ÍÊÇ¼ì²éÎÒÃÇ´´½¨µÄTodoViewÊ¹ÓÃÁËÕýÈ·µÄ```tagName```(ÔªËØ»òÕßclassName)¡£Ä¿µÄ¾ÍÊÇÈ·±£´´½¨Ê±ÕýÈ·µÄ°ó¶¨µ½DOMÔªËØ¡£
+ç¬¬ä¸€ä¸ªspecå°±æ˜¯æ£€æŸ¥æˆ‘ä»¬åˆ›å»ºçš„TodoViewä½¿ç”¨äº†æ­£ç¡®çš„```tagName```(å…ƒç´ æˆ–è€…className)ã€‚ç›®çš„å°±æ˜¯ç¡®ä¿åˆ›å»ºæ—¶æ­£ç¡®çš„ç»‘å®šåˆ°DOMå…ƒç´ ã€‚
 
-Backbone viewsÍ¨³£Ò»µ©³õÊ¼»¯»á´´½¨Ò»Ð©¿ÕµÄDOMÔªËØ£¬²»¹ýÕâÐ©ÔªËØ²»»á¸½¼Óµ½¿É¼ûµÄDOMÖÐ£¬ Ä¿µÄÊÇÔÚ²»Ó°ÏìÐÔÄÜºÍäÖÈ¾µÄÇé¿öÏÂÈÃËûÃÇ¹¹½¨³öÀ´¡£
+Backbone viewsé€šå¸¸ä¸€æ—¦åˆå§‹åŒ–ä¼šåˆ›å»ºä¸€äº›ç©ºçš„DOMå…ƒç´ ï¼Œä¸è¿‡è¿™äº›å…ƒç´ ä¸ä¼šé™„åŠ åˆ°å¯è§çš„DOMä¸­ï¼Œ ç›®çš„æ˜¯åœ¨ä¸å½±å“æ€§èƒ½å’Œæ¸²æŸ“çš„æƒ…å†µä¸‹è®©ä»–ä»¬æž„å»ºå‡ºæ¥ã€‚
 
 ```javascript
 it('Should be tied to a DOM element when created, based off the property provided.', function() {
@@ -690,7 +690,7 @@ it('Should be tied to a DOM element when created, based off the property provide
 });
 ```
 
-Èç¹ûTodoView»¹Ã»±àÐ´ºÃµÄ»°£¬specs¾Í»áÊ§°Ü¡£Í¨¹ýÖ¸¶¨```tagName```´´½¨Ò»¸öBackbone.View¡£
+å¦‚æžœTodoViewè¿˜æ²¡ç¼–å†™å¥½çš„è¯ï¼Œspecså°±ä¼šå¤±è´¥ã€‚é€šè¿‡æŒ‡å®š```tagName```åˆ›å»ºä¸€ä¸ªBackbone.Viewã€‚
 
 ```javascript
 var todoView = Backbone.View.extend({
@@ -698,7 +698,7 @@ var todoView = Backbone.View.extend({
 });
 ```
 
-Ò²¿ÉÒÔÍ¨¹ý²âÊÔclassNameÀ´Ìæ´ú```tagName```£¬¿ÉÒÔÊ¹ÓÃ¸ü¸ß¼¶µÄjasmine-jquery matcher ```toHaveClass()```À´Íê³É¡£
+ä¹Ÿå¯ä»¥é€šè¿‡æµ‹è¯•classNameæ¥æ›¿ä»£```tagName```ï¼Œå¯ä»¥ä½¿ç”¨æ›´é«˜çº§çš„jasmine-jquery matcher ```toHaveClass()```æ¥å®Œæˆã€‚
 
 ```
 it('Should have a class of "todos"'), function(){
@@ -706,9 +706,9 @@ it('Should have a class of "todos"'), function(){
 });
 ```
 
-```toHaveClass()``` matcher¶ÔjQuery²Ù×÷£¬¶øÇÒÈç¹ûÃ»ÓÐÊ¹ÓÃÕâ¸ö²å¼þµÄ»°¾Í»áÒý·¢Òì³£(Èç¹ûÃ»ÓÐÊ¹ÓÃjasmine-jquery²å¼þÒ²¿ÉÍ¨¹ý»ñÈ¡el.classNameÀ´ÅÐ¶Ï)¡£
+```toHaveClass()``` matcherå¯¹jQueryæ“ä½œï¼Œè€Œä¸”å¦‚æžœæ²¡æœ‰ä½¿ç”¨è¿™ä¸ªæ’ä»¶çš„è¯å°±ä¼šå¼•å‘å¼‚å¸¸(å¦‚æžœæ²¡æœ‰ä½¿ç”¨jasmine-jqueryæ’ä»¶ä¹Ÿå¯é€šè¿‡èŽ·å–el.classNameæ¥åˆ¤æ–­)ã€‚
 
-Äã¿ÉÄÜ×¢Òâµ½```beforeEach()```ÖÐÎÒÃÇ´«ÈëÀïÒ»¸öÐÂ´´½¨µÄTodo¸øview¡£ViewsÓ¦¸Ã»ùÓÚÒ»¸öÓÐÊý¾ÝµÄmodelÊµÀý¡£ÒòÎªËü¶ÔviewµÄ¹¦ÄÜ·Ç³£ÖØÒª£¬ÎÒÃÇ¿ÉÒÔÐ´Ò»¸öspecÀ´È·±£modelÊÇÒ»¶¨Òå(Ê¹ÓÃ```toBeDefined()``` matcher) ²¢ÇÒ²âÊÔmodelÓÐÄ¬ÈÏÊôÐÔ£¬¶øÇÒÊÇÎÒÃÇÆÚÍûµÄÖµ¡£
+ä½ å¯èƒ½æ³¨æ„åˆ°```beforeEach()```ä¸­æˆ‘ä»¬ä¼ å…¥é‡Œä¸€ä¸ªæ–°åˆ›å»ºçš„Todoç»™viewã€‚Viewsåº”è¯¥åŸºäºŽä¸€ä¸ªæœ‰æ•°æ®çš„modelå®žä¾‹ã€‚å› ä¸ºå®ƒå¯¹viewçš„åŠŸèƒ½éžå¸¸é‡è¦ï¼Œæˆ‘ä»¬å¯ä»¥å†™ä¸€ä¸ªspecæ¥ç¡®ä¿modelæ˜¯ä¸€å®šä¹‰(ä½¿ç”¨```toBeDefined()``` matcher) å¹¶ä¸”æµ‹è¯•modelæœ‰é»˜è®¤å±žæ€§ï¼Œè€Œä¸”æ˜¯æˆ‘ä»¬æœŸæœ›çš„å€¼ã€‚
 
 ```javascript
 it('Is backed by a model instance, which provides the data.', function() {
@@ -721,16 +721,16 @@ it('Is backed by a model instance, which provides the data.', function() {
 ```
 
 
-#### ViewäÖÈ¾
+#### Viewæ¸²æŸ“
 
 
-½ÓÏÂÀ´¿´ÏÂ¸øviewäÖÈ¾±àÐ´specs¡£ÌØ±ðÊÇ£¬ÎÒÃÇÏë²âÊÔÏÂTodoViewÊµ¼Ê±»äÖÈ¾³öÀ´µÄÔªËØÊÇ·ñ·ûºÏÆÚÍû¡£
+æŽ¥ä¸‹æ¥çœ‹ä¸‹ç»™viewæ¸²æŸ“ç¼–å†™specsã€‚ç‰¹åˆ«æ˜¯ï¼Œæˆ‘ä»¬æƒ³æµ‹è¯•ä¸‹TodoViewå®žé™…è¢«æ¸²æŸ“å‡ºæ¥çš„å…ƒç´ æ˜¯å¦ç¬¦åˆæœŸæœ›ã€‚
 
-¶ÔÓÚÐ¡µÄ¶îapplications£¬ÓÐÐ©BDDÐÂÊÖÈÏÎªÊÓ¾õÉÏÈ·ÈÏviewµÄäÖÈ¾¿ÉÒÔÌæ´úviewµÄµ¥Ôª²âÊÔ¡£Êµ¼ÊÉÏ£¬¿ª·¢µÄÓ¦ÓÃ¿ÉÄÜ±ä³É¶àÊÓ¸öviewÊ±£¬Í¨³£´Ó¿ª¶Ë¾Í¾¢Á¿ÈÃÕâ¸ö¹ý³Ì×Ô¶¯»¯¡£Í¬ÑùÒ²ÓÐaspectsÀ´ÑéÖ¤ÆÁÄ»ÉÏËù¿´µ½µÄäÖÈ¾Ð§¹û¡£
+å¯¹äºŽå°çš„é¢applicationsï¼Œæœ‰äº›BDDæ–°æ‰‹è®¤ä¸ºè§†è§‰ä¸Šç¡®è®¤viewçš„æ¸²æŸ“å¯ä»¥æ›¿ä»£viewçš„å•å…ƒæµ‹è¯•ã€‚å®žé™…ä¸Šï¼Œå¼€å‘çš„åº”ç”¨å¯èƒ½å˜æˆå¤šè§†ä¸ªviewæ—¶ï¼Œé€šå¸¸ä»Žå¼€ç«¯å°±åŠ²é‡è®©è¿™ä¸ªè¿‡ç¨‹è‡ªåŠ¨åŒ–ã€‚åŒæ ·ä¹Ÿæœ‰aspectsæ¥éªŒè¯å±å¹•ä¸Šæ‰€çœ‹åˆ°çš„æ¸²æŸ“æ•ˆæžœã€‚
 
-ÎÒÃÇ±àÐ´Á½¸öspecÀ´²âÊÔview¡£µÚÒ»¸ö²âÊÔ¼ì³µviewµÄ```render()```·½·¨ÕýÈ·µÄ·µ»ØviewÊµÀý£¬¿ÉÒÔÓÃÓÚÁ´Ê½µ÷ÓÃ¡£µÚ¶þ¸ö²âÊÔ¼ì²éÉú³ÉµÄHTMLÊÇ»ùÓÚTodoViewÏà¹ØÁªµÄmodeÊµÀýµÄÊôÐÔËùÆÚÍûµÄ½á¹û¡£
+æˆ‘ä»¬ç¼–å†™ä¸¤ä¸ªspecæ¥æµ‹è¯•viewã€‚ç¬¬ä¸€ä¸ªæµ‹è¯•æ£€è½¦viewçš„```render()```æ–¹æ³•æ­£ç¡®çš„è¿”å›žviewå®žä¾‹ï¼Œå¯ä»¥ç”¨äºŽé“¾å¼è°ƒç”¨ã€‚ç¬¬äºŒä¸ªæµ‹è¯•æ£€æŸ¥ç”Ÿæˆçš„HTMLæ˜¯åŸºäºŽTodoViewç›¸å…³è”çš„modeå®žä¾‹çš„å±žæ€§æ‰€æœŸæœ›çš„ç»“æžœã€‚
 
-²»Í¬ÓÚÇ°ÃæÎÒÃÇÐ´µÄspecs£¬ÕâÒ»½ÚÎÒÃÇ»á´óÁ¿Ê¹ÓÃ```beforeEach()```ÕÃÏÔÈçºÎÊ¹ÓÃÇ¶Ì×µÄsuites£¬ÒÔ¼°È·±£specsµÄÌõ¼þÒ»ÖÂ¡£µÚÒ»¸öTodoViewµÄspec£¬½«´´½¨Ò»¸ö¼òµ¥µÄmodel (»ùÓÚTodo)£¬È»ºóÓÃÕâ¸ömodel³õÊ¼»¯Ò»¸öTodoView¡£
+ä¸åŒäºŽå‰é¢æˆ‘ä»¬å†™çš„specsï¼Œè¿™ä¸€èŠ‚æˆ‘ä»¬ä¼šå¤§é‡ä½¿ç”¨```beforeEach()```å½°æ˜¾å¦‚ä½•ä½¿ç”¨åµŒå¥—çš„suitesï¼Œä»¥åŠç¡®ä¿specsçš„æ¡ä»¶ä¸€è‡´ã€‚ç¬¬ä¸€ä¸ªTodoViewçš„specï¼Œå°†åˆ›å»ºä¸€ä¸ªç®€å•çš„model (åŸºäºŽTodo)ï¼Œç„¶åŽç”¨è¿™ä¸ªmodelåˆå§‹åŒ–ä¸€ä¸ªTodoViewã€‚
 
 ```javascript
 describe("TodoView", function() {
@@ -764,9 +764,9 @@ describe("TodoView", function() {
 });
 ```
 
-ÕâÐ©specsÒ»µ©ÔËÐÐ£¬Ö»ÓÐµÚ¶þ¸ö('produces the correct HTML')Ê§°Ü¡£µÚÒ»¸öspec ('returns the view object')£¬²âÊÔ```render()```·µ»ØµÄTodoViewÊµÀý£¬ ¿ÉÒÔÍ¨¹ýÒòÎªÕâÊÇBackboneµÄÄ¬ÈÏÐÐÎª¡£ÎÒÃÇ²¢Ã»ÓÐÖØÐ´```render()```·½·¨¡£
+è¿™äº›specsä¸€æ—¦è¿è¡Œï¼Œåªæœ‰ç¬¬äºŒä¸ª('produces the correct HTML')å¤±è´¥ã€‚ç¬¬ä¸€ä¸ªspec ('returns the view object')ï¼Œæµ‹è¯•```render()```è¿”å›žçš„TodoViewå®žä¾‹ï¼Œ å¯ä»¥é€šè¿‡å› ä¸ºè¿™æ˜¯Backboneçš„é»˜è®¤è¡Œä¸ºã€‚æˆ‘ä»¬å¹¶æ²¡æœ‰é‡å†™```render()```æ–¹æ³•ã€‚
 
-**ÌáÊ¾£º** ÎªÁËÎ¬»¤¿É¶ÁÐÔ£¬ÕâÒ»½ÚÖÐËùÓÐµÄÄ£°åÀý×Ó¶¼½«Ê¹ÓÃÏÂÃæÕâ¸ö×îÐ¡»¯°æ±¾µÄTodo viewÄ£°å¡£ÐèÒªÊ¹ÓÃÊ±¿ÉÒÔ·µ»ØÀ´²é¿´£º
+**æç¤ºï¼š** ä¸ºäº†ç»´æŠ¤å¯è¯»æ€§ï¼Œè¿™ä¸€èŠ‚ä¸­æ‰€æœ‰çš„æ¨¡æ¿ä¾‹å­éƒ½å°†ä½¿ç”¨ä¸‹é¢è¿™ä¸ªæœ€å°åŒ–ç‰ˆæœ¬çš„Todo viewæ¨¡æ¿ã€‚éœ€è¦ä½¿ç”¨æ—¶å¯ä»¥è¿”å›žæ¥æŸ¥çœ‹ï¼š
 
 	<div class="todo <%= done ? 'done' : '' %>">
 	        <div class="display">
@@ -781,11 +781,11 @@ describe("TodoView", function() {
 
 
 
-µÚ¶þ¸öspecÊ§°Ü»áÓÐÏÂÃæÕâ¶ÎÌáÊ¾£º
+ç¬¬äºŒä¸ªspecå¤±è´¥ä¼šæœ‰ä¸‹é¢è¿™æ®µæç¤ºï¼š
 
 ```Expected '' to contain '<label class="todo-content">My Todo</label>'.```
 
-Ô­ÒòÊÇrender()µÄÄ¬ÈÏÐÐÎª²»´´½¨ÈÎºÎ±êÇ©¡£ÎÒÃÇÀ´±àÐ´Ò»¸öÌæ´úµÄrender()À´½â¾öËü£º
+åŽŸå› æ˜¯render()çš„é»˜è®¤è¡Œä¸ºä¸åˆ›å»ºä»»ä½•æ ‡ç­¾ã€‚æˆ‘ä»¬æ¥ç¼–å†™ä¸€ä¸ªæ›¿ä»£çš„render()æ¥è§£å†³å®ƒï¼š
 
 ```javascript
 render: function() {
@@ -797,9 +797,9 @@ render: function() {
 }
 ```
 
-ÉÏÃæÖ¸¶¨ÁËÒ»ÐÐÄ£°å×Ö·û´®£¬È»ºóÓÃmodel¶ÔÓ¦µÄÊôÐÔÖµÌæ»»"<% %>"ÇøÓòÄÚµÄÄÚÈÝ¡£Í¬Ê±Ò²·µ»ØTodoViewÊµÀý£¬ËùÒÔµÚÒ»¸öspecÒ²¿ÉÒÔÍ¨¹ý¡£ÏñÕâÑùÔÚspecÖÐÊ¹ÓÃHTML×Ö·û´®À´½øÐÐ²âÊÔÓÐ·Ç³£´óµÄÈ±µã¡£¼´±ãÊÇÄ£°åÎ¢Ð¡µÄ±ä»¯(Ò»¸ötab»òÕß¿Õ¸ñ·û)¾Í»áµ¼ÖÂspecÊ§°Ü£¬¼´±ãäÖÈ¾½á¹ûÊÇÒ»ÑùµÄ¡£Êµ¼ÊÓ¦ÓÃÖÐÄ£°åÒ²»á¸ü¸´ÔÓ£¬½«ºÄ·Ñ¸ü¶àµÄÊ±¼äÈ¥Î¬»¤¡£¸üºÃµÄ²âÊÔäÖÈ¾Êä³ö½á¹ûµÄ·½·¨ÊÇÊ¹ÓÃjQueryÀ´Ñ¡ÔñºÍ¼ì²é¡£
+ä¸Šé¢æŒ‡å®šäº†ä¸€è¡Œæ¨¡æ¿å­—ç¬¦ä¸²ï¼Œç„¶åŽç”¨modelå¯¹åº”çš„å±žæ€§å€¼æ›¿æ¢"<% %>"åŒºåŸŸå†…çš„å†…å®¹ã€‚åŒæ—¶ä¹Ÿè¿”å›žTodoViewå®žä¾‹ï¼Œæ‰€ä»¥ç¬¬ä¸€ä¸ªspecä¹Ÿå¯ä»¥é€šè¿‡ã€‚åƒè¿™æ ·åœ¨specä¸­ä½¿ç”¨HTMLå­—ç¬¦ä¸²æ¥è¿›è¡Œæµ‹è¯•æœ‰éžå¸¸å¤§çš„ç¼ºç‚¹ã€‚å³ä¾¿æ˜¯æ¨¡æ¿å¾®å°çš„å˜åŒ–(ä¸€ä¸ªtabæˆ–è€…ç©ºæ ¼ç¬¦)å°±ä¼šå¯¼è‡´specå¤±è´¥ï¼Œå³ä¾¿æ¸²æŸ“ç»“æžœæ˜¯ä¸€æ ·çš„ã€‚å®žé™…åº”ç”¨ä¸­æ¨¡æ¿ä¹Ÿä¼šæ›´å¤æ‚ï¼Œå°†è€—è´¹æ›´å¤šçš„æ—¶é—´åŽ»ç»´æŠ¤ã€‚æ›´å¥½çš„æµ‹è¯•æ¸²æŸ“è¾“å‡ºç»“æžœçš„æ–¹æ³•æ˜¯ä½¿ç”¨jQueryæ¥é€‰æ‹©å’Œæ£€æŸ¥ã€‚
 
-»ùÓÚÕâ¸öË¼Ïë£¬ÎÒÃÇÀ´ÖØÐ´Õâ¸öspec£¬Ê¹ÓÃjasmine-jqueryÌá¹©µÄ×Ô¶¨Òåmatchers£º
+åŸºäºŽè¿™ä¸ªæ€æƒ³ï¼Œæˆ‘ä»¬æ¥é‡å†™è¿™ä¸ªspecï¼Œä½¿ç”¨jasmine-jqueryæä¾›çš„è‡ªå®šä¹‰matchersï¼š
 
 
 ```javascript
@@ -817,9 +817,9 @@ describe("Template", function() {
 });
 ```
 
-ÌÖÂÛµ¥Ôª²âÊÔ²»Ìáµ½fixturesÊÇ²»¿ÉÄÜµÄ¡£FixturesÍ¨³£°üº¬µ¥Ôª²âÊÔµ±ÐèÒªÊ±(¿ÉÒÔÊÇ±¾µØ»òÕß´ÓÍâ²¿ÎÄ¼þ)ÔØÈëµÄ²âÊÔÊý¾Ý(±ÈÈçHTML)¡£ Ò»Ö±ÒÔÀ´ÎÒÃÇ¶¼ÊÇ°ÑjQueryµÄÆÚÍû½¨Á¢ÔÚviewµÄelÊôÐÔÉÏ¡£´ó²¿·ÖÇé¿öÕâÊÇÓÐÐ§µÄ£¬²»¹ý£¬ÓÐÊ±ÎÒÃÇÐèÒª°Ñ±êÇ©äÖÈ¾µ½document¡£ÔÙspecsÖÐ´¦ÀíÕâ¸öÎÊÌâµÄ×îÀíÏë·½Ê½¾ÍÊÇÊ¹ÓÃfixtures (jasmine-jquery²å¼þ´ø¸øÎÒÃÇµÄÁíÍâÒ»¸öÌØÐÔ)¡£
+è®¨è®ºå•å…ƒæµ‹è¯•ä¸æåˆ°fixturesæ˜¯ä¸å¯èƒ½çš„ã€‚Fixturesé€šå¸¸åŒ…å«å•å…ƒæµ‹è¯•å½“éœ€è¦æ—¶(å¯ä»¥æ˜¯æœ¬åœ°æˆ–è€…ä»Žå¤–éƒ¨æ–‡ä»¶)è½½å…¥çš„æµ‹è¯•æ•°æ®(æ¯”å¦‚HTML)ã€‚ ä¸€ç›´ä»¥æ¥æˆ‘ä»¬éƒ½æ˜¯æŠŠjQueryçš„æœŸæœ›å»ºç«‹åœ¨viewçš„elå±žæ€§ä¸Šã€‚å¤§éƒ¨åˆ†æƒ…å†µè¿™æ˜¯æœ‰æ•ˆçš„ï¼Œä¸è¿‡ï¼Œæœ‰æ—¶æˆ‘ä»¬éœ€è¦æŠŠæ ‡ç­¾æ¸²æŸ“åˆ°documentã€‚å†specsä¸­å¤„ç†è¿™ä¸ªé—®é¢˜çš„æœ€ç†æƒ³æ–¹å¼å°±æ˜¯ä½¿ç”¨fixtures (jasmine-jqueryæ’ä»¶å¸¦ç»™æˆ‘ä»¬çš„å¦å¤–ä¸€ä¸ªç‰¹æ€§)ã€‚
 
-Ê¹ÓÃfixturesÖØÐ´ÉÏÃæÕâ¸öspec£º
+ä½¿ç”¨fixturesé‡å†™ä¸Šé¢è¿™ä¸ªspecï¼š
 
 
 ```javascript
@@ -848,13 +848,13 @@ describe("TodoView", function() {
 });
 ```
 
-ÔÚÉÏÃæÕâ¸öspecÖÐ£¬°ÑäÖÈ¾µÄtodoÔªËØappendµ½fixture¡£È»ºó¶ÔÕâ¸öfixtureÉèÖÃÆÚÍû£¬µ±view¶ÔÓ¦µ½Ò»¸öÒÑ¾­´æÔÚµÄDOMÔªËØÖ®ºóµÄÒ»Ð©desirable¡£ÓÐ±ØÒªÌá¹©fixtureºÍ²âÊÔµ±view³õÊ¼»¯µÄÊ±ºò```el```ÊôÐÔÊÇ·ñÖ¸ÏòÕýÈ·µÄÔªËØ¡£
+åœ¨ä¸Šé¢è¿™ä¸ªspecä¸­ï¼ŒæŠŠæ¸²æŸ“çš„todoå…ƒç´ appendåˆ°fixtureã€‚ç„¶åŽå¯¹è¿™ä¸ªfixtureè®¾ç½®æœŸæœ›ï¼Œå½“viewå¯¹åº”åˆ°ä¸€ä¸ªå·²ç»å­˜åœ¨çš„DOMå…ƒç´ ä¹‹åŽçš„ä¸€äº›desirableã€‚æœ‰å¿…è¦æä¾›fixtureå’Œæµ‹è¯•å½“viewåˆå§‹åŒ–çš„æ—¶å€™```el```å±žæ€§æ˜¯å¦æŒ‡å‘æ­£ç¡®çš„å…ƒç´ ã€‚
 
 
-#### Ê¹ÓÃÄ£°åÏµÍ³½øÐÐäÖÈ¾
+#### ä½¿ç”¨æ¨¡æ¿ç³»ç»Ÿè¿›è¡Œæ¸²æŸ“
 
 
-µ±Ò»¸öÓÃ»§ÉèÖÃÒ»¸öToodÏîÎªÍê³É(done)ÊÇ£¬ÎÒÃÇÆÚÍû¸øËûÒ»µãÊÓ¾õÉÏµÄ·´À¡(±ÈÈçÎÄ±¾ÉÏ¼ÓÒ»ÌõºáÏß)ÒÔÇø·ÖÆäÓàµÄµÄÏî¡£¿ÉÒÔÍ¨¹ý¸øÕâ¸öÏî¸½¼ÓÒ»¸öclassÀ´ÊµÏÖ¡£ÏÂÃæ¿ªÊ¼±àÐ´²âÊÔ£º
+å½“ä¸€ä¸ªç”¨æˆ·è®¾ç½®ä¸€ä¸ªToodé¡¹ä¸ºå®Œæˆ(done)æ˜¯ï¼Œæˆ‘ä»¬æœŸæœ›ç»™ä»–ä¸€ç‚¹è§†è§‰ä¸Šçš„åé¦ˆ(æ¯”å¦‚æ–‡æœ¬ä¸ŠåŠ ä¸€æ¡æ¨ªçº¿)ä»¥åŒºåˆ†å…¶ä½™çš„çš„é¡¹ã€‚å¯ä»¥é€šè¿‡ç»™è¿™ä¸ªé¡¹é™„åŠ ä¸€ä¸ªclassæ¥å®žçŽ°ã€‚ä¸‹é¢å¼€å§‹ç¼–å†™æµ‹è¯•ï¼š
 
 
 ```javascript
@@ -873,14 +873,14 @@ describe('When a todo is done', function() {
 });
 ```
 
-ÕâÑù»áÊ§°Ü£¬²¢Òý·¢ÏÂÃæÏûÏ¢£º
+è¿™æ ·ä¼šå¤±è´¥ï¼Œå¹¶å¼•å‘ä¸‹é¢æ¶ˆæ¯ï¼š
 
 ```Expected '<label class="todo-content">My Todo</label>'
 to have class 'done'.
 ```
 
 
-¿ÉÒÔÔÚrender()·½·¨ÖÐ½â¾ö£º
+å¯ä»¥åœ¨render()æ–¹æ³•ä¸­è§£å†³ï¼š
 
 
 ```javascript
@@ -897,13 +897,13 @@ render: function() {
 }
 ```
 
-²»¹ý£¬ºÜ¿ìËü¾Í»á±äµÃ²»ÄÇÃ´·½±ãÁË¡£Ëæ×ÅÄ£°åÖÐÂß¼­µÄÔö¼Ó£¬Ëü¾Í»á±äµÃÔ½¸´ÔÓ¡£ÎÒÃÇ¿ÉÒÔÍ¨¹ýÊ¹ÓÃÄ£°å¿âÇáÒ×µÄ½â¾öÕâ¸öÎÊÌâ¡£ÓÐÐí¶àÄ£°å¿âÒ²ÄÜºÜºÃµÄÓë²âÊÔ·½°¸Ò»ÆðÅäºÏµÄºÜºÃ£¬±ÈÈçJasmine¡£
+ä¸è¿‡ï¼Œå¾ˆå¿«å®ƒå°±ä¼šå˜å¾—ä¸é‚£ä¹ˆæ–¹ä¾¿äº†ã€‚éšç€æ¨¡æ¿ä¸­é€»è¾‘çš„å¢žåŠ ï¼Œå®ƒå°±ä¼šå˜å¾—è¶Šå¤æ‚ã€‚æˆ‘ä»¬å¯ä»¥é€šè¿‡ä½¿ç”¨æ¨¡æ¿åº“è½»æ˜“çš„è§£å†³è¿™ä¸ªé—®é¢˜ã€‚æœ‰è®¸å¤šæ¨¡æ¿åº“ä¹Ÿèƒ½å¾ˆå¥½çš„ä¸Žæµ‹è¯•æ–¹æ¡ˆä¸€èµ·é…åˆçš„å¾ˆå¥½ï¼Œæ¯”å¦‚Jasmineã€‚
 
-JavaScriptÄ£°åÏµÍ³(±ÈÈçHandlebars, Mustache ÒÔ¼°UnderscoreµÄMicro-templating)ÔÚÄ£°å×Ö·û´®ÖÐÖ§³ÖÌõ¼þÂß¼­¡£Õâ¾ÍÒâÎ¶×ÅÎÒÃÇ¿ÉÒÔÒ»ÐÐ×Ö·û´®ÄÚÊ¹ÓÃif/else/ÈýÔª±íµ¥Ê±£¬¿ÉÒÔ¹¹½¨¸üÇ¿´óµÄÄ£°å¡£
+JavaScriptæ¨¡æ¿ç³»ç»Ÿ(æ¯”å¦‚Handlebars, Mustache ä»¥åŠUnderscoreçš„Micro-templating)åœ¨æ¨¡æ¿å­—ç¬¦ä¸²ä¸­æ”¯æŒæ¡ä»¶é€»è¾‘ã€‚è¿™å°±æ„å‘³ç€æˆ‘ä»¬å¯ä»¥ä¸€è¡Œå­—ç¬¦ä¸²å†…ä½¿ç”¨if/else/ä¸‰å…ƒè¡¨å•æ—¶ï¼Œå¯ä»¥æž„å»ºæ›´å¼ºå¤§çš„æ¨¡æ¿ã€‚
 
-ÔÚÎÒÃÇµÄ°¸ÀýÖÐ£¬ÕâÀïÎÒÃÇÑ¡ÔñUnderscoreÄÚÖÃµÄMicrotemplating£¬²»ÐèÒªÌí¼Ó¶îÍâ¶îÎÄ¼þ£¬¶øÇÒ¶ÔÏÖÓÐspecsÒ²²»ÐèÒª×öÌ«¶àµÄÐÞ¸Ä¡£
+åœ¨æˆ‘ä»¬çš„æ¡ˆä¾‹ä¸­ï¼Œè¿™é‡Œæˆ‘ä»¬é€‰æ‹©Underscoreå†…ç½®çš„Microtemplatingï¼Œä¸éœ€è¦æ·»åŠ é¢å¤–é¢æ–‡ä»¶ï¼Œè€Œä¸”å¯¹çŽ°æœ‰specsä¹Ÿä¸éœ€è¦åšå¤ªå¤šçš„ä¿®æ”¹ã€‚
 
-¼ÙÉèÄ£°å¶¨ÒåÔÚID `myTemplate`µÄscript±êÇ©ÖÐ:
+å‡è®¾æ¨¡æ¿å®šä¹‰åœ¨ID `myTemplate`çš„scriptæ ‡ç­¾ä¸­:
 
 ```
 <script type="text/template" id="myTemplate">
@@ -920,7 +920,7 @@ JavaScriptÄ£°åÏµÍ³(±ÈÈçHandlebars, Mustache ÒÔ¼°UnderscoreµÄMicro-templating)ÔÚÄ
 </script>
 ```
 
-TodoView¿ÉÒÔÊ¹ÓÃUnderscoreÄ£°åÐÞ¸Ä³ÉÏÂÃæÕâÑù:
+TodoViewå¯ä»¥ä½¿ç”¨Underscoreæ¨¡æ¿ä¿®æ”¹æˆä¸‹é¢è¿™æ ·:
 
 ```javascript
 var TodoView = Backbone.View.extend({
@@ -995,16 +995,16 @@ beforeEach(function() {
 This will now also pass without any issues, however as mentioned, this last approach probably only makes sense if you're working with smaller, highly dynamic templates. 
 
 
-## ×Ü½á
+## æ€»ç»“
 
-ÏÖÔÚÎÒÃÇÒÑ¾­ÌÖÂÛÈçºÎÎªBackbone.jsÓ¦ÓÃÖÐµÄmodels, viewsºÍcollections±àÐ´Jasmine²âÊÔ¡£ËäÈ»²âÊÔÂ·ÓÉ(routing)ÓÐÊ±ÊÇ¿ÉÈ¡µÄ£¬ÓÐÐ©¿ª·¢ÕßÈÏÎªËü¿ÉÒÔÓÉµÚÈý·½¹¤¾ß¸üºÃµÄÍê³É±ÈÈçSelenium£¬ËùÒÔÇë¼Ç×¡Õâµã¡£
+çŽ°åœ¨æˆ‘ä»¬å·²ç»è®¨è®ºå¦‚ä½•ä¸ºBackbone.jsåº”ç”¨ä¸­çš„models, viewså’Œcollectionsç¼–å†™Jasmineæµ‹è¯•ã€‚è™½ç„¶æµ‹è¯•è·¯ç”±(routing)æœ‰æ—¶æ˜¯å¯å–çš„ï¼Œæœ‰äº›å¼€å‘è€…è®¤ä¸ºå®ƒå¯ä»¥ç”±ç¬¬ä¸‰æ–¹å·¥å…·æ›´å¥½çš„å®Œæˆæ¯”å¦‚Seleniumï¼Œæ‰€ä»¥è¯·è®°ä½è¿™ç‚¹ã€‚
 
-## Á·Ï°
+## ç»ƒä¹ 
 
-A×÷ÎªÁ·Ï°£¬ÍÆ¼ö´ó¼Ò³¢ÊÔÏÂJasmine Koans£¬ÔÚ`practicals\jasmine-joans`Ä¿Â¼ÏÂ£¬È»ºó³¢ÊÔfixÒ»Ð©ÀïÃæÓÐÒâÌá¹©µÄÊ§°ÜµÄ²âÊÔ¡£ÕâÊÇÒ»ÖÖºÜºÃµÄÁË½âJasmine specs ºÍ suites¹¤×÷Ô­ÀíºÍÑ§Ï°Backbone¼¼ÇÉµÄ·½Ê½¡£
+Aä½œä¸ºç»ƒä¹ ï¼ŒæŽ¨èå¤§å®¶å°è¯•ä¸‹Jasmine Koansï¼Œåœ¨`practicals\jasmine-joans`ç›®å½•ä¸‹ï¼Œç„¶åŽå°è¯•fixä¸€äº›é‡Œé¢æœ‰æ„æä¾›çš„å¤±è´¥çš„æµ‹è¯•ã€‚è¿™æ˜¯ä¸€ç§å¾ˆå¥½çš„äº†è§£Jasmine specs å’Œ suiteså·¥ä½œåŽŸç†å’Œå­¦ä¹ BackboneæŠ€å·§çš„æ–¹å¼ã€‚
 
 
-## À©Õ¹ÔÄ¶Á
+## æ‰©å±•é˜…è¯»
 * [Testing Backbone Apps With SinonJS](http://tinnedfruit.com/2011/04/26/testing-backbone-apps-with-jasmine-sinon-3.html) by James Newbry
 * [Jasmine + Backbone Revisited](http://japhr.blogspot.com/2011/11/jasmine-backbonejs-revisited.html)
 * [Backbone, PhantomJS and Jasmine](http://japhr.blogspot.com/2011/12/phantomjs-and-backbonejs-and-requirejs.html)

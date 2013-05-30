@@ -2,7 +2,7 @@
 * [Introduction](chapters/01-introduction.md)
 * [Fundamentals](chapters/02-fundamentals.md)
 * [The Internals](chapters/03-internals.md)
-* [Exercise 1: Todos - Your First Backbone.js App](chapters/04-exercise-1.md)
+* [Exercise 1: Todos - Your First Backbone.js App](chapters/04-exercise-1.md) 
 * [Exercise 2: Book Library - Your first RESTful Backbone.js app](chapters/05-exercise-2.md)
 * [Backbone Boilerplate And Grunt-BBB](chapters/06-bbb.md)
 * [Common Problems & Solutions](chapters/07-common-problems.md)

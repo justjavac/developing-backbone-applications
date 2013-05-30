@@ -26,49 +26,49 @@ Smalltalk-80实现的MVC把这个概念贯彻的更深入，而且有目的性�
 
 Martin Fowler在过去的些年中在写关于MVC起源[origins](http://martinfowler.com/eaaDev/uiArchs.html) 方面做了很多杰出的工作。如果你有兴趣了解更多关于Smalltalk-80 MVC的信息，推荐你阅读他的相关成果。
 
-### MVC Applied To The Web
+### MVC应用于Web
 
-The web heavily relies on the HTTP protocol, which is stateless. This means that there is not a constantly open connection between the browser and server; each request instantiates a new communication channel between the two. Once the request initiator (e.g. a browser) gets a response the connection is closed. This fact creates a completely different context when compared to the one of the operating systems on which many of the original MVC ideas were developed. The MVC implementation has to conform to the web context. 
+web严重依赖于HTTP协议，它是无状态的。意思就是说在浏览器和服务器之间没有不间断打开的连接；每个请求都在它们两者之间建立一个新的通讯信道。一旦请求的发起者(例如一个浏览器)获取到了响应连接就关闭。事实上，与许多基于原来的MVC思想开发出来的操作系统中的任何一个相比，这创建了一个完全不同的上下文。MVC的实现需要符合web的上下文。
 
-An example of a server-side web application framework which tries to apply MVC to the web context is [Ruby On Rails](http://guides.rubyonrails.org/). 
+一个尝试应用MVC到web上下文的服务器端web应用框架的例子是[Ruby On Rails](http://guides.rubyonrails.org/). 
 
 ![](img/rails_mvc.png)
 
-At it's core are the three MVC components we would expect - the Model, View and Controller architecture. In Rails:
+它的核心就是我们预期的三个MVC组件——Model, View和Controller体系。在Rails中：
 
-* Models represent the data in an application and are typically used to manage rules for interacting with a specific database table. You generally have one table corresponding to one model with much of your application's business logic living within these models. 
-* Views represent your user interface, often taking the form of HTML that will be sent down to the browser. They're used to present application data to anything making requests from your application. 
-* Controllers offer the glue between models and views. Their responsibility is to process requests from the browser, ask your models for data and then supply this data to views so that they may be presented to the browser. 
+* Models负责应用中的数据，通常用于管理与特定数据库表交互的规则。通常一张表对应一个model，这些models中包含应用的业务逻辑。
+* Views负责用户接口，通常采用发送给浏览器的HTML的方式。它们用于发起应用数据的请求。
+* Controllers提供models和views之间的连接。它们的职责是处理来自浏览器的请求，从models拿取数据，然后把这些数据提供给views， views再把这些数据展现到浏览器。
 
-Although there's a clear separation of concerns that is MVC-like in Rails, it is actually using a different pattern called [Model2](http://en.wikipedia.org/wiki/Model2). Justifications for this include that Rails does not notify views from the model and controllers just pass model data directly to the view.
+虽然在Rails中这种类MVC有清晰的分离，实际上它使用了一种不同的模式[Model2](http://en.wikipedia.org/wiki/Model2)。有一条可以证明，Rails不是从model和controllers通知views，而是直接把model数据传递给view。
 
-That said, even for the server-side workflow of receiving a request from a URL, baking out an HTML page as a response and separating your business logic from your interface has many benefits. In the same way that keeping your UI cleanly separate from your database records is useful in server-side frameworks, it's equally as useful to keep your UI cleanly separated from your data models in JavaScript (as we will read more about shortly).
+就是说，即便是对于从一个URL接受请求的服务器端工作流而言，生成HTML页面作为响应并且从界面分离业务逻辑有非常多的好处。同样道理，在服务器端框架中让UI清晰地与数据记录分离是非常有用的，同样在JavaScript中让UI清晰的与数据模型(models)相分离也非常有用。(后面会提到更多)。
 
-Other server-side implementations of MVC (such as the PHP [Zend](http://zend.com) framework) also implement the [Front Controller](http://en.wikipedia.org/wiki/Front_Controller_pattern) design pattern. This pattern layers an MVC stack behind a single point of entry. This single point of entry means that all HTTP requests (e.g., `http://www.example.com`, `http://www.example.com/whichever-page/`, etc.) are routed by the server's configuration to the same handler, independent of the URI.
+其它服务器端的MVC(比如PHP [Zend](http://zend.com) )实现同样实现了前端控制器([Front Controller](http://en.wikipedia.org/wiki/Front_Controller_pattern))设计模式。这种模式把MVC堆栈层叠在一个单一入口背后。单一入口就是说所有HTTP请求(例如，`http://www.example.com`，`http://www.example.com/whichever-page/`等)更具服务器配置被路由到同一个处理器，不依赖于URL。
 
-When the Front Controller receives an HTTP request it analyzes it and decides which class (Controller) and method (Action) to invoke.  The selected Controller Action takes over and interacts with the appropriate Model to fulfill the request. The Controller receives data back from the Model, loads an appropriate View, injects the Model data into it, and returns the response to the browser.
+当前端控制器接受到一个HTTP请求它会分析然后决定调用哪个类(Controller)和方法(Action)。被选中的Controller Action接管进行处理和与对应的Model交互然后完成这个请求。Controller接受从Model返回的数据，载入对应的View，注入Model数据到View中，然后把响应返回给浏览器。
 
-For example, let's say we have our blog on `www.example.com` and we want to edit an article (with `id=43`) and request `http://www.example.com/article/edit/43`:
+比如说，我们有一个blog，`www.example.com`，想要编辑一篇文章(通过`id=43`)，就请求`http://www.example.com/article/edit/43`:
 
-On the server side, the Front Controller would analyze the URL and invoke the Article Controller (corresponding to the `/article/` part of the URI) and its Edit Action (corresponding to the `/edit/` part of the URI). Within the Action there would be a call to, let's say, the Articles Model and its `Articles::getEntry(43)` method (43 corresponding to the `/43` at the end of the URI). This would return the blog article data from the database for edit. The Article Controller would then load the (`article/edit`) View which would include logic for injecting the article's data into a form suitable for editing its content, title, and other (meta) data. Finally, the resulting HTML response would be returned to the browser.
+在服务器端，前端控制器将分析URL然后调用Article Controller(对应到URL `/article/`的部分)及它的Edit Action(对应到URL的`/edit/`部分)。在Action中有一个调用，Articles Model和它的`Articles::getEntry(43)`方法(43对应到URI的`/43`部分)。它会从数据库返回blog文章的数据用于编辑。然后Article Controller会加载(`article/edit`) View， 它包含注入文章数据到编辑文章内容，标题和其它(元)数据表单的逻辑。最后，HTML的响应结果将返回给浏览器。
 
-As you can imagine, a similar flow is necessary with POST requests after we press a save button in a form. The POST action URI would look like `/article/save/43`. The request would go through the same Controller, but this time the Save Action would be invoked (due to the `/save/` URI chunk), the Articles Model would save the edited article to the database with `Articles::saveEntry(43)`, and the browser would be redirected to the `/article/edit/43` URI for further editing.
+正如你想象的，当我们触发表单中的一个保存按钮时需要类似的流程来处理POST请求。POST action的URI可能类似于`/article/save/43`。请求会经过同样的Controller, 不过这次Save Action会调用(取决于`/save/` URI块)，文章的Model将调用`Articles::saveEntry(43)`把编辑的文章保存到数据库，并且浏览器会被重定向到`/article/edit/43`URI以便进一步编辑。
 
-Finally, if the user requested `http://www.example.com/` the Front Controller would invoke the default Controller and Action; e.g., the Index Controller and its Index action. Within Index Action there would be a call to the Articles model and its `Articles::getLastEntries(10)` method which would return the last 10 blog posts. The Controller would load the blog/index View which would have basic logic for listing the blog posts.
+最后，如果用户请求`http://www.example.com/`，前端控制器将调用默认的Controller和Action；比如，Index Controller和它的Index action。在Index Action中有对Articles model的调用，其`Articles::getLastEntries(10)`方法会返回最新的10条blog文章。同时Controller也会加载blog/index View, 它包基本的列举blog文章的逻辑。
 
-The picture below shows this typical HTTP request/response lifecycle for server-side MVC:
+下面这张图展示了这种典型的服务器端MVC HTTP request/response生命周期：
 
 ![](img/webmvcflow_bacic.png)
 
-The Server receives an HTTP request and routes it through a single entry point. At that entry point, the Front Controller analyzes the request and based on it invokes an Action of the appropriate Controller. This process is called routing. The Action Model is asked to return and/or save submitted data. The Model communicates with the data source (e.g., database or API). Once the Model completes its work it returns data to the Controller which then loads the appropriate View. The View executes presentation logic (loops through articles and prints titles, content, etc.) using the supplied data. In the end, an HTTP response is returned to the browser.
+服务器端接收一个HTTP请求然后路由到一个单一入口。在入口点，前端控制器分析这个请求并且基于它调用对应Controller的Action。这个过程叫路由选择。Action Model则被要求返回或者保存提交的数据。Model与数据源通讯(例如，数据库或者API)。一旦Model完成它的工作就返回数据给Controller, Controller然后加载对应的View。View使用提供的数据执行表示逻辑(遍历文章，输出标题，内容等) 。最后HTTP响应返回给浏览器。
 
-### Client-Side MVC & Single Page Apps
+### 客户端(Client-Side) MVC 和单页应用
 
-Several [studies](http://radar.oreilly.com/2009/07/velocity-making-your-site-fast.html) have confirmed that improvements to latency can have a positive impact on the usage and user engagement of sites and apps. This is at odds with the traditional approach to web app development which is very server-centric, requiring a complete page reload to move from one page to the next. Even with heavy caching in place, the browser still has to parse the CSS, JavaScript, and HTML and render the interface to the screen.
+一些[研究](http://radar.oreilly.com/2009/07/velocity-making-your-site-fast.html)表明改善延迟对于网站和app的使用有非常积极的影响。这与传统的以服务器为中心，从一个页面跳转到另一个页面需要全部重新载入的web app开发方式是相违背的。即便是有到位的缓存，浏览器仍然需要解析CSS，JavaScript, HTML并且渲染界面。
 
-In addition to resulting in a great deal of duplicated content being served back to the user, this approach affects both latency and the general responsiveness of the user experience. A trend to improve perceived latency in the past few years has been to move towards building Single Page Applications (SPAs) - apps which after an initial page load are able to handle subsequent navigations and requests for data without the need for a complete reload. 
+除了会返回给用户较多重复内容之外，这种方法也会影响延迟和一般的响应性的用户体验。在过去几年中改善这种延迟的趋势都朝着构建单页应(Single Page Applications——SPAs)的方向走——应用在载入一个初始化页面之后能够处理后续哦导航和数据请求，而不需要整个页面的重新载入。
 
-When a user navigates to a new view, additional content required for the view is requested using an XHR (XMLHttpRequest), typically communicating with a server-side REST API or endpoint. [Ajax](https://en.wikipedia.org/wiki/Ajax_(programming))(Asynchronous JavaScript and XML) makes communication with the server asynchronous so that data is transferred and processed in the background, allowing the user to work on other parts of a page without interaction. This improves usability and responsiveness.
+当用户浏览到一个新的view时，view的附加内容需要通过XHR (XMLHttpRequest)去请求，通常与服务器端的REST API或端点通讯。[Ajax](https://en.wikipedia.org/wiki/Ajax_(programming))(Asynchronous JavaScript and XML) 可以异步与服务端通讯，所以数据可以在背后传输和处理，可以让用户不间断的与页面的其它部分交互。它提高了可用性和响应能力。
 
 SPAs can also take advantage of browser features like the [History API](http://diveintohtml5.info/history.html) to update the address seen in the location bar when moving from one view to another. These URLs also make it possible to bookmark and share a particular application state, without the need to navigate to completely new pages.
 
