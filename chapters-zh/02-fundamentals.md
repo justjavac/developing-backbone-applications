@@ -191,9 +191,9 @@ var TodoView = Backbone.View.extend({
 var todoView = new TodoView({model: myTodo});
 ```
 
-TodoView通过扩展自Backbone.View来定义并且使用一个对应的Model进行初始化。In our example, the ```render()``` method uses a template to construct the HTML for the Todo item which is placed inside a li element. Each call to ```render()``` will replace the content of the li element using the current Model data. Thus, a View instance renders the content of a DOM element using the attributes of an associated Model. Later we will see how a View can bind its ```render()``` method to Model change events, causing the View to re-render whenever the Model changes.
+TodoView通过扩展自Backbone.View来定义并且使用一个对应的Model进行初始化。例子中，```render()```方法用了一个模板来构建Todo项的HTML存放到一个li元素内。每次```render()```调用都会使用当前的Model数据替换li的内容。因此，一个View实例使用对应的Model的属性来渲染DOM元素的内容。后面我们会讲到一个View可以把它的```render()```方法绑定到Model的change事件，当Model改变的时候就会触发View的重新渲染。
 
-So far, we have seen that Backbone.Model implements the Model aspect of MVC and Backbone.View implements the View. However, as we noted earlier, Backbone departs from traditional MVC when it comes to Controllers - there is no Backbone.Controller!
+现在，我们已经看到了Backbone.Model实现了MVC的Model，Backbone.View实现了View。不过，正如我们前面提到的，对于Controllers，Backbone跟传统的MVC是不相同的——因为根本没有Backbone.Controller!
 
 Instead, the Controller responsibility is addressed within the View. Recall that Controllers respond to requests and perform appropriate actions which may result in changes to the Model and updates to the View. In a single-page application, rather than having requests in the traditional sense, we have events. Events can be traditional browser DOM events (e.g., clicks) or internal application events such as Model changes. 
 
