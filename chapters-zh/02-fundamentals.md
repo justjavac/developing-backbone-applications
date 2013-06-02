@@ -221,30 +221,30 @@ URL路由，DOM事件(比如，鼠标点击)，以及Model事件(比如，属性
 
 * 一个model有可能会有多个views来观察它的变化。*观察*意思是View注册了一个当Model有任何改变时的消息通知。这可以让View确保显示在频幕上的东西与model的数据保持一致。根据你的需求，你可能会创建单个View来显示所有的Model属性，或者创建单独的Views来显示不同的属性。重点是Model并不关心这些Views是如何组织的，它只是在必要的时候简单的更新它的数据并且通过框架的事件系统来通知更新。
 
-* It is not uncommon for modern MVC/MV* frameworks to provide a means of grouping Models together. In Backbone, these groups are called Collections. Managing Models in groups allows us to write application logic based on notifications from the group when a Model within the group changes. This avoids the need to manually observe individual Model instances. We'll see this in action later in the book. Collections are also useful for performing any aggregate computations across more than one model.
+* 对于现代MVC/MV*框架，提供一种模型组合的方法并不常见。在Backbone中，这些组合叫"Collections"(集合)。把模型组合来管理可以让我们编写应用逻辑时基于一个组合来通知，它包含了任何一个model的改变。这样也避免了手动去观察单个的model实例。后面我们会提到。Collections在执行夸多个model的计算时也非常有用。
 
 
-#### Views
+#### 视图(Views)
 
-* Users interact with Views, which usually means reading and editing Model data. For example, in our Todo application, Todo Model viewing happens in the user interface in the list of all Todo items. Within it, each Todo is rendered with its title and completed checkbox. Model editing is done through an "edit" View where a user who has selected a specific Todo edits its title in a form.
+* 用户与view进行交互，通常就是阅读或者编辑model的数据。 比如，在我们的这个todo应用案例中，todo model的视图展现发生在显示所有todo项列表的界面里。每个tod都用一个标题和完成复选框渲染。Model的编辑发生在“编辑”界面，用户选中一个特定的todo可以在form表单中编辑它的title。
 
-* We define a ```render()``` utility within our View which is responsible for rendering the contents of the ```Model``` using a JavaScript templating engine (provided by Underscore.js) and updating the contents of our View, referenced by ```this.el```.
+* 在view里定义了一个```render()```方法，用JavaScript模板引擎 ([Underscore](http://underscorejs.org "Underscore.js")渲染和更新```this.el```引用的视图内容。
 
-* We then add our ```render()``` callback as a Model subscriber, so the View can be triggered to update when the Model changes.
+* 然后添加```render()```的回调作为Model的订阅者(subscribers)，这样view就可以在model改变的时候触发更新。
 
-* You may wonder where user interaction comes into play here. When users click on a Todo element within the View, it's not the View's responsibility to know what to do next. A Controller makes this decision. In Backbone, this is achieved by adding an event listener to the Todo's element which delegates handling of the click to an event handler.
+* 你可能想知道对用户交互行为这里是如何处理的。当用户点击view中的一个Todo项时，接下来该做什么并不是由view决定的，而是由Controller决定的。在Backbone里，通过添加一个事件监听到Todo元素，把点击的处理委托给一个事件处理器。
 
-**Templating**
+**模板(Templating)**
 
-In the context of JavaScript frameworks that support MVC/MV*, it is worth looking more closely at JavaScript templating and its relationship to Views.
+在支持MVC/MV*的JavaScript框架北京下，非常值得近距离的去审视下JavaScript模板和View之间的关系。
 
-It has long been considered bad practice (and computationally expensive) to manually create large blocks of HTML markup in-memory through string concatenation. Developers using this technique often find themselves iterating through their data, wrapping it in nested divs and using outdated techniques such as ```document.write``` to inject the 'template' into the DOM. This approach often means keeping scripted markup inline with standard markup, which can quickly become difficult to read and maintain, especially when building large applications.
+长期实践证明通过手工拼接字符串来创建大块的HTML片段是非常低效的。使用这种方式的开发者们经常会发现，他们遍历自己的数据，包裹在嵌套的div里面，然后使用过时的技术，比如```document.write```把所谓的'template'插入到DOM中。这种方式意味着必须使用标准的标签，脚本代码要放在页面内，而且很快就会变得难以阅读和维护，特别是对于构建大的应用来说。
 
-JavaScript templating libraries (such as Mustache or Handlebars.js) are often used to define templates for Views as HTML markup containing template variables. These template blocks can be either stored externally or within script tags with a custom type (e.g 'text/template'). Variables are delimited using a variable syntax (e.g `<%= title %>` for Underscore and `{{title}}` for Handlebars).
+JavaScript模板库(比如Handlebars.js or Mustache)通常用于view中定义模板，在HMTL标签中包含了一些模板变量。这些模板块可以保存在外部也可以保存在自定义类型(比如'text/template')的script标签里。变量通过变量语法(比如Underscore里的`<%= title %>`，Underscore里的`{{title}}`)来定义。
 
-JavaScript template libraries typically accept data in a number of formats, including JSON; a serialisation format that is always a string. The grunt work of populating templates with data is generally taken care of by the framework itself. This has several benefits, particularly when opting to store templates externally which enables applications to load templates dynamically on an as-needed basis.
+Javascript 模板库通常接受很多种格式的数据，包括JSON；序列化的格式始终是字符串。往模板中填充数据这种繁重的工作也由框架自身来完成。使用模板库有非常多的好处，特别是当模板存在在外部时，应用可以根据需要动态的加载模板。
 
-Let's compare two examples of HTML templates. One is implemented using the popular Handlebars.js library, and the other uses Underscore's 'microtemplates'.
+让我们来比较下2个HTML模板的列子。一个使用流行的Handlebars.js库实现，另一个使用Underscore的'microtemplates'。
 
 **Handlebars.js:**
 
@@ -268,20 +268,19 @@ Let's compare two examples of HTML templates. One is implemented using the popul
 <input class="edit" value="<%= title %>">
 ```
 
-You may also use double curly brackets (i.e ```{{}}```) (or any other tag you feel comfortable with) in Microtemplates. In the case of curly brackets, this can be done by setting the Underscore ```templateSettings``` attribute as follows:
+在Microtemplates中，你也可以使用双大括号(比如```{{}}```) (或者其它你认为爽的字符)。使用大括号的话，可以向下面这样设置Underscore的```templateSettings``` 属性:
 
 ```javascript
 _.templateSettings = { interpolate : /\{\{(.+?)\}\}/g };
 ```
 
-**A note on Navigation and State**
+**关于导航和状态的注意事项**
 
-It is also worth noting that in classical web development, navigating between independent views required the use of a page refresh. In single-page JavaScript applications, however, once data is fetched from a server via Ajax, it can be dynamically rendered in a new view within the same page. Since this doesn't automatically update the URL, the role of navigation thus falls to a "router", which assists in managing application state (e.g., allowing users to bookmark a particular view they have navigated to). As routers are neither a part of MVC nor present in every MVC-like framework, I will not be going into them in greater detail in this section.
+值得关注的是，在传统web开发中，在独立的view之间导航需要刷新页面。而在单页应用中，通过ajax从服务器端获取数据，可以在同一个页面里动态的渲染一个新的view，因为不会自动更新URL，导航的角色就落到了"router"(路由)的身上，路由独立的管理应用状态(比如允许用户收藏一个他们浏览过的view)。然而，路由并不是MVC或者类MVC框架的一部分，所以在这部分我并不打算介绍更多的细节。
 
-#### Controllers
+#### 控制器(Controllers)
 
-
-In our Todo application, a Controller would be responsible for handling changes the user made in the edit View for a particular Todo, updating a specific Todo Model when a user has finished editing.
+在我们的Todo应用中，Controller负责处理在编辑View中用户对指定Todo的改变，当用户完成编辑时更新指定的Todo Model。
 
 It's with Controllers that most JavaScript MVC frameworks depart from the traditional interpretation of the MVC pattern. The reasons for this vary, but in my opinion, Javascript framework authors likely initially looked at server-side interpretations of MVC (such as Ruby on Rails), realized that the approach didn't translate 1:1 on the client-side, and so re-interpreted the C in MVC to solve their state management problem. This was a clever approach, but it can make it hard for developers coming to MVC for the first time to understand both the classical MVC pattern and the "proper" role of Controllers in other JavaScript frameworks.
 

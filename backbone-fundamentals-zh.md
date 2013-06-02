@@ -255,18 +255,18 @@ SPAs同样也可以使用浏览器的高级特性，比如当用户从一个view
 
 ![](img/wireframe_e_commerce.png)
 
-The basket and its data are presented in HTML. The data and its associated View in HTML changes over time. There was a time when we used jQuery (or a similar DOM manipulation library) and a bunch of Ajax calls and callbacks to keep the two in sync. That often produced code that was not well-structured or easy to maintain. Bugs were frequent and perhaps even unavoidable.
+购物篮和它的数据呈现在HTML中。数据和它在HTML中关联的View会随着一起变化。曾经我们使用jQuery (或者类似的DOM操作库),一堆的Ajax调用和回调来保持他们两者的同步。那样经常产生结构不好，不易维护的代码。Bug频繁出现或不可避免。
 
-The need for fast, complex, and responsive Ajax-powered web applications demands replication of a lot of this logic on the client side, dramatically increasing the size and complexity of the code residing there. Eventually this has brought us to the point where we need MVC (or a similar architecture) implemented on the client side to better structure the code and make it easier to maintain and further extend during the application life-cycle.
+对于需要快速，复杂和响应的Ajax支持的web应用复制了很多这样的逻辑在客户端上，极大的提高了代码的规模和复杂性。最终，把我们带向需要在客户端上实现MVC(或类似的架构)，以便更好的构建代码，在应用生命周期里更容易维护和扩展。
 
-Through evolution and trial and error, JavaScript developers have harnessed the power of the traditional MVC pattern, leading to the development of several MVC-inspired JavaScript frameworks, such as Backbone.js.
+经过反复的尝试也演变，JavaScript开发者利用传统MVC模式的力量，开发出一些受MVC启发的JavaScript框架，比如Backbone.js。
 
 
-### Client-Side MVC - Backbone Style
+### 客户端MVC - Backbone风格
 
-Let's take our first look at how Backbone.js brings the benefits of MVC to client-side development using a Todo application as our example. We will build on this example in the coming chapters when we explore Backbone's features but for now we will just focus on the core components' relationships to MVC.
+我们通过一Todo应用示例来看下Backbone.js如何带来客户端MVC开发的好处。后面的章节我们会基于这个例子来探索Backbone的特性，不过目前我们只需要关心核心组件与MVC之间的联系。
 
-Our example will need a div element to which we can attach a list of Todo's. It will also need an HTML template containing a placeholder for a Todo item title and a completion checkbox which can be instantiated for Todo item instances. These are provided by the following HTML:
+示例中需要div元素来展现一个Todo列表。同时需要一个HTML模板，包含Todo标题，完成复选框的占位符，用于实例化一个Todo项实例。下面是相关的HTML：
 
 ```html
 <!doctype html>
@@ -293,8 +293,7 @@ Our example will need a div element to which we can attach a list of Todo's. It 
 </html>
 ```
 
-In our Todo application (demo.js), Backbone Model instances are used to hold the data for each Todo item:
-
+在Todo application (demo.js)中, Backbone Model 实例用于持有每个Todo项的数据：
 ```javascript
 // Define a Todo Model
 var Todo = Backbone.Model.extend({
@@ -312,9 +311,9 @@ var myTodo = new Todo({
 });
 ```
 
-Our Todo Model extends Backbone.Model and simply defines default values for two data attributes. As you will discover in the upcoming chapters, Backbone Models provide many more features but this simple Model illustrates that first and foremost a Model is a data container.
+Todo Model扩展自Backbone.Model，简单的定义了默认的两个数据属性。接下来的章节中你会发现Backbone Model提供了很多特性，不过这个简单的Model只是为了说明， 首先最重要的是Model是一个数据容器。
 
-Each Todo instance will be rendered on the page by a TodoView:
+每个Todo实例都会通过TodoView渲染到页面上：
 
 ```javascript
 var TodoView = Backbone.View.extend({
@@ -371,60 +370,60 @@ var TodoView = Backbone.View.extend({
 var todoView = new TodoView({model: myTodo});
 ```
 
-TodoView is defined by extending Backbone.View and is instantiated with an associated Model. In our example, the ```render()``` method uses a template to construct the HTML for the Todo item which is placed inside a li element. Each call to ```render()``` will replace the content of the li element using the current Model data. Thus, a View instance renders the content of a DOM element using the attributes of an associated Model. Later we will see how a View can bind its ```render()``` method to Model change events, causing the View to re-render whenever the Model changes.
+TodoView通过扩展自Backbone.View来定义并且使用一个对应的Model进行初始化。例子中，```render()```方法用了一个模板来构建Todo项的HTML存放到一个li元素内。每次```render()```调用都会使用当前的Model数据替换li的内容。因此，一个View实例使用对应的Model的属性来渲染DOM元素的内容。后面我们会讲到一个View可以把它的```render()```方法绑定到Model的change事件，当Model改变的时候就会触发View的重新渲染。
 
-So far, we have seen that Backbone.Model implements the Model aspect of MVC and Backbone.View implements the View. However, as we noted earlier, Backbone departs from traditional MVC when it comes to Controllers - there is no Backbone.Controller!
+现在，我们已经看到了Backbone.Model实现了MVC的Model，Backbone.View实现了View。不过，正如我们前面提到的，对于Controllers，Backbone跟传统的MVC是不相同的——因为根本没有Backbone.Controller!
 
-Instead, the Controller responsibility is addressed within the View. Recall that Controllers respond to requests and perform appropriate actions which may result in changes to the Model and updates to the View. In a single-page application, rather than having requests in the traditional sense, we have events. Events can be traditional browser DOM events (e.g., clicks) or internal application events such as Model changes. 
+不过，Controller的功能已经包含在View里。回想一下，Controllers响应请求并且执行相应的事件，事件则有可能触发Model的改变并更新到View。在单页应用中，不同于传统意义上的请求，我们有事件。事件可以是传统的浏览器事件(比如，click)或者内部的应用事件比如Model changes。 
 
-In our TodoView, the ```events``` attribute fulfills the role of the Controller configuration, defining how events occurring within the View's DOM element are to be routed to event-handling methods defined in the View.
+在我们的这个TodoView种，```events```属性就扮演了Controller配置的角色，定义了View的DOM元素内触发的事件如何路由到View内定义的事件处理方法。
 
-While in this instance events help us relate Backbone to the MVC pattern, we will see them playing a much larger role in our SPA applications. Backbone.Event is a fundamental Backbone component which is mixed into both Backbone.Model and Backbone.View, providing them with rich event management capabilities. Note that the traditional controller role (Smalltalk-80 style) is performed by the template, not by the Backbone.View.
+在这个示例中events帮我们把Backbone关联到MVC模式，我们将会看到它们在SPA应用中扮演强大的角色。Backbone.Event是Backbone中一个基本的组件，混入到在Backbone.Model和Backbone.View之中，为它们提供丰富的事件管理功能。注意，传统的controller角色(Smalltalk-80风格)是由模板(template)执行的，而不是Backbone.View。
 
-This completes our first encounter with Backbone.js. The remainder of this book will explore the many features of the framework which build on these simple constructs. Before moving on, let's take a look at common features of JavaScript MV* frameworks.
+到这里我们就完成了与Backbone.js初次相遇。在这本书的后面部分我们将会探索这个框架在这些简单的结构基础之上的许多特性。不过，在此之前我们来看下JavaScript MV*框架的通用特性。
 
-### Implementation Specifics
+### 实现细节
 
-An SPA is loaded into the browser using a normal HTTP request and response. The page may simply be an HTML file, as in our example above, or it could be a view constructed by a server-side MVC implementation.
+一个SPA通过一个普通的HTTP请求和响应载入到浏览器。页面可能是一个简单的HTML文件，正如我们上面的例子一样，或者是一个由服务器端MVC构建的View。
 
-Once loaded, a client-side Router intercepts URLs and invokes client-side logic in place of sending a new request to the server. The picture below shows typical request handling for client-side MVC as implemented by Backbone:
+一旦载入，客户端的Router就会拦截URLs并且触发客户端的逻辑，以替代发送一个新的请求道服务器端。下面这张图显示了Backbone实现的客户端MVC中典型的请求处理:
 
 ![](img/backbone_mvc.png)
 
-URL routing, DOM events (e.g., mouse clicks), and Model events (e.g., attribute changes) all trigger handling logic in the View. The handlers update the DOM and Models, which may trigger additional events. Models are synced with Data Sources which may involve communicating with back-end servers.
+URL路由，DOM事件(比如，鼠标点击)，以及Model事件(比如，属性changes)在View中所有触发器的处理逻辑(handling logic)。handlers会更新DOM和 Models，这有也可能触发其它事件。Models与数据源同步时有可能带来与后端服务器的通讯。
 
-#### Models
+#### 模型(Models)
 
-* The built-in capabilities of Models vary across frameworks; however, it's common for them to support validation of attributes, where attributes represent the properties of the Model, such as a Model identifier.
+* Models的内置功能不同的框架会有所不同；不过，它们都共同支持属性验证，attributes代表Model的属性，比如Model的id标识。
 
-* When using Models in real-world applications we generally also need a way of persisting Models. Persistence allows us to edit and update Models with the knowledge that their most recent states will be saved somewhere, for example in a web browser's localStorage data-store or synchronized with a database.
+* 在实际应用中使用model的时候通常我们还需要一种方式对model进行持久化。持久化保存可以让我们在对model进行编辑和更新的时候保存它的最新状态。比如在浏览器中使用本地存储，或者与数据库同步。
 
-* A Model may have multiple Views observing it for changes. By *observing* we mean that a View has registered an interest in being informed whenever an update is made to the Model. This allows the View to ensure that what is displayed on screen is kept in sync with the data contained in the model. Depending on your requirements, you might create a single View displaying all Model attributes, or create separate Views displaying different attributes. The important point is that the Model doesn't care how these Views are organized, it simply announces updates to its data as necessary through the framework's event system.
+* 一个model有可能会有多个views来观察它的变化。*观察*意思是View注册了一个当Model有任何改变时的消息通知。这可以让View确保显示在频幕上的东西与model的数据保持一致。根据你的需求，你可能会创建单个View来显示所有的Model属性，或者创建单独的Views来显示不同的属性。重点是Model并不关心这些Views是如何组织的，它只是在必要的时候简单的更新它的数据并且通过框架的事件系统来通知更新。
 
-* It is not uncommon for modern MVC/MV* frameworks to provide a means of grouping Models together. In Backbone, these groups are called Collections. Managing Models in groups allows us to write application logic based on notifications from the group when a Model within the group changes. This avoids the need to manually observe individual Model instances. We'll see this in action later in the book. Collections are also useful for performing any aggregate computations across more than one model.
+* 对于现代MVC/MV*框架，提供一种模型组合的方法并不常见。在Backbone中，这些组合叫"Collections"(集合)。把模型组合来管理可以让我们编写应用逻辑时基于一个组合来通知，它包含了任何一个model的改变。这样也避免了手动去观察单个的model实例。后面我们会提到。Collections在执行夸多个model的计算时也非常有用。
 
 
-#### Views
+#### 视图(Views)
 
-* Users interact with Views, which usually means reading and editing Model data. For example, in our Todo application, Todo Model viewing happens in the user interface in the list of all Todo items. Within it, each Todo is rendered with its title and completed checkbox. Model editing is done through an "edit" View where a user who has selected a specific Todo edits its title in a form.
+* 用户与view进行交互，通常就是阅读或者编辑model的数据。 比如，在我们的这个todo应用案例中，todo model的视图展现发生在显示所有todo项列表的界面里。每个tod都用一个标题和完成复选框渲染。Model的编辑发生在“编辑”界面，用户选中一个特定的todo可以在form表单中编辑它的title。
 
-* We define a ```render()``` utility within our View which is responsible for rendering the contents of the ```Model``` using a JavaScript templating engine (provided by Underscore.js) and updating the contents of our View, referenced by ```this.el```.
+* 在view里定义了一个```render()```方法，用JavaScript模板引擎 ([Underscore](http://underscorejs.org "Underscore.js")渲染和更新```this.el```引用的视图内容。
 
-* We then add our ```render()``` callback as a Model subscriber, so the View can be triggered to update when the Model changes.
+* 然后添加```render()```的回调作为Model的订阅者(subscribers)，这样view就可以在model改变的时候触发更新。
 
-* You may wonder where user interaction comes into play here. When users click on a Todo element within the View, it's not the View's responsibility to know what to do next. A Controller makes this decision. In Backbone, this is achieved by adding an event listener to the Todo's element which delegates handling of the click to an event handler.
+* 你可能想知道对用户交互行为这里是如何处理的。当用户点击view中的一个Todo项时，接下来该做什么并不是由view决定的，而是由Controller决定的。在Backbone里，通过添加一个事件监听到Todo元素，把点击的处理委托给一个事件处理器。
 
-**Templating**
+**模板(Templating)**
 
-In the context of JavaScript frameworks that support MVC/MV*, it is worth looking more closely at JavaScript templating and its relationship to Views.
+在支持MVC/MV*的JavaScript框架北京下，非常值得近距离的去审视下JavaScript模板和View之间的关系。
 
-It has long been considered bad practice (and computationally expensive) to manually create large blocks of HTML markup in-memory through string concatenation. Developers using this technique often find themselves iterating through their data, wrapping it in nested divs and using outdated techniques such as ```document.write``` to inject the 'template' into the DOM. This approach often means keeping scripted markup inline with standard markup, which can quickly become difficult to read and maintain, especially when building large applications.
+长期实践证明通过手工拼接字符串来创建大块的HTML片段是非常低效的。使用这种方式的开发者们经常会发现，他们遍历自己的数据，包裹在嵌套的div里面，然后使用过时的技术，比如```document.write```把所谓的'template'插入到DOM中。这种方式意味着必须使用标准的标签，脚本代码要放在页面内，而且很快就会变得难以阅读和维护，特别是对于构建大的应用来说。
 
-JavaScript templating libraries (such as Mustache or Handlebars.js) are often used to define templates for Views as HTML markup containing template variables. These template blocks can be either stored externally or within script tags with a custom type (e.g 'text/template'). Variables are delimited using a variable syntax (e.g `<%= title %>` for Underscore and `{{title}}` for Handlebars).
+JavaScript模板库(比如Handlebars.js or Mustache)通常用于view中定义模板，在HMTL标签中包含了一些模板变量。这些模板块可以保存在外部也可以保存在自定义类型(比如'text/template')的script标签里。变量通过变量语法(比如Underscore里的`<%= title %>`，Underscore里的`{{title}}`)来定义。
 
-JavaScript template libraries typically accept data in a number of formats, including JSON; a serialisation format that is always a string. The grunt work of populating templates with data is generally taken care of by the framework itself. This has several benefits, particularly when opting to store templates externally which enables applications to load templates dynamically on an as-needed basis.
+Javascript 模板库通常接受很多种格式的数据，包括JSON；序列化的格式始终是字符串。往模板中填充数据这种繁重的工作也由框架自身来完成。使用模板库有非常多的好处，特别是当模板存在在外部时，应用可以根据需要动态的加载模板。
 
-Let's compare two examples of HTML templates. One is implemented using the popular Handlebars.js library, and the other uses Underscore's 'microtemplates'.
+让我们来比较下2个HTML模板的列子。一个使用流行的Handlebars.js库实现，另一个使用Underscore的'microtemplates'。
 
 **Handlebars.js:**
 
@@ -448,20 +447,19 @@ Let's compare two examples of HTML templates. One is implemented using the popul
 <input class="edit" value="<%= title %>">
 ```
 
-You may also use double curly brackets (i.e ```{{}}```) (or any other tag you feel comfortable with) in Microtemplates. In the case of curly brackets, this can be done by setting the Underscore ```templateSettings``` attribute as follows:
+在Microtemplates中，你也可以使用双大括号(比如```{{}}```) (或者其它你认为爽的字符)。使用大括号的话，可以向下面这样设置Underscore的```templateSettings``` 属性:
 
 ```javascript
 _.templateSettings = { interpolate : /\{\{(.+?)\}\}/g };
 ```
 
-**A note on Navigation and State**
+**关于导航和状态的注意事项**
 
-It is also worth noting that in classical web development, navigating between independent views required the use of a page refresh. In single-page JavaScript applications, however, once data is fetched from a server via Ajax, it can be dynamically rendered in a new view within the same page. Since this doesn't automatically update the URL, the role of navigation thus falls to a "router", which assists in managing application state (e.g., allowing users to bookmark a particular view they have navigated to). As routers are neither a part of MVC nor present in every MVC-like framework, I will not be going into them in greater detail in this section.
+值得关注的是，在传统web开发中，在独立的view之间导航需要刷新页面。而在单页应用中，通过ajax从服务器端获取数据，可以在同一个页面里动态的渲染一个新的view，因为不会自动更新URL，导航的角色就落到了"router"(路由)的身上，路由独立的管理应用状态(比如允许用户收藏一个他们浏览过的view)。然而，路由并不是MVC或者类MVC框架的一部分，所以在这部分我并不打算介绍更多的细节。
 
-#### Controllers
+#### 控制器(Controllers)
 
-
-In our Todo application, a Controller would be responsible for handling changes the user made in the edit View for a particular Todo, updating a specific Todo Model when a user has finished editing.
+在我们的Todo应用中，Controller负责处理在编辑View中用户对指定Todo的改变，当用户完成编辑时更新指定的Todo Model。
 
 It's with Controllers that most JavaScript MVC frameworks depart from the traditional interpretation of the MVC pattern. The reasons for this vary, but in my opinion, Javascript framework authors likely initially looked at server-side interpretations of MVC (such as Ruby on Rails), realized that the approach didn't translate 1:1 on the client-side, and so re-interpreted the C in MVC to solve their state management problem. This was a clever approach, but it can make it hard for developers coming to MVC for the first time to understand both the classical MVC pattern and the "proper" role of Controllers in other JavaScript frameworks.
 
