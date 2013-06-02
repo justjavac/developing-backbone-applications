@@ -205,21 +205,21 @@ TodoView通过扩展自Backbone.View来定义并且使用一个对应的Model进
 
 ### 实现细节
 
-An SPA is loaded into the browser using a normal HTTP request and response. The page may simply be an HTML file, as in our example above, or it could be a view constructed by a server-side MVC implementation.
+一个SPA通过一个普通的HTTP请求和响应载入到浏览器。页面可能是一个简单的HTML文件，正如我们上面的例子一样，或者是一个由服务器端MVC构建的View。
 
-Once loaded, a client-side Router intercepts URLs and invokes client-side logic in place of sending a new request to the server. The picture below shows typical request handling for client-side MVC as implemented by Backbone:
+一旦载入，客户端的Router就会拦截URLs并且触发客户端的逻辑，以替代发送一个新的请求道服务器端。下面这张图显示了Backbone实现的客户端MVC中典型的请求处理:
 
 ![](img/backbone_mvc.png)
 
-URL routing, DOM events (e.g., mouse clicks), and Model events (e.g., attribute changes) all trigger handling logic in the View. The handlers update the DOM and Models, which may trigger additional events. Models are synced with Data Sources which may involve communicating with back-end servers.
+URL路由，DOM事件(比如，鼠标点击)，以及Model事件(比如，属性changes)在View中所有触发器的处理逻辑(handling logic)。handlers会更新DOM和 Models，这有也可能触发其它事件。Models与数据源同步时有可能带来与后端服务器的通讯。
 
-#### Models
+#### 模型(Models)
 
-* The built-in capabilities of Models vary across frameworks; however, it's common for them to support validation of attributes, where attributes represent the properties of the Model, such as a Model identifier.
+* Models的内置功能不同的框架会有所不同；不过，它们都共同支持属性验证，attributes代表Model的属性，比如Model的id标识。
 
-* When using Models in real-world applications we generally also need a way of persisting Models. Persistence allows us to edit and update Models with the knowledge that their most recent states will be saved somewhere, for example in a web browser's localStorage data-store or synchronized with a database.
+* 在实际应用中使用model的时候通常我们还需要一种方式对model进行持久化。持久化保存可以让我们在对model进行编辑和更新的时候保存它的最新状态。比如在浏览器中使用本地存储，或者与数据库同步。
 
-* A Model may have multiple Views observing it for changes. By *observing* we mean that a View has registered an interest in being informed whenever an update is made to the Model. This allows the View to ensure that what is displayed on screen is kept in sync with the data contained in the model. Depending on your requirements, you might create a single View displaying all Model attributes, or create separate Views displaying different attributes. The important point is that the Model doesn't care how these Views are organized, it simply announces updates to its data as necessary through the framework's event system.
+* 一个model有可能会有多个views来观察它的变化。*观察*意思是View注册了一个当Model有任何改变时的消息通知。这可以让View确保显示在频幕上的东西与model的数据保持一致。根据你的需求，你可能会创建单个View来显示所有的Model属性，或者创建单独的Views来显示不同的属性。重点是Model并不关心这些Views是如何组织的，它只是在必要的时候简单的更新它的数据并且通过框架的事件系统来通知更新。
 
 * It is not uncommon for modern MVC/MV* frameworks to provide a means of grouping Models together. In Backbone, these groups are called Collections. Managing Models in groups allows us to write application logic based on notifications from the group when a Model within the group changes. This avoids the need to manually observe individual Model instances. We'll see this in action later in the book. Collections are also useful for performing any aggregate computations across more than one model.
 
