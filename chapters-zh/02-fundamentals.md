@@ -195,15 +195,15 @@ TodoView通过扩展自Backbone.View来定义并且使用一个对应的Model进
 
 现在，我们已经看到了Backbone.Model实现了MVC的Model，Backbone.View实现了View。不过，正如我们前面提到的，对于Controllers，Backbone跟传统的MVC是不相同的——因为根本没有Backbone.Controller!
 
-Instead, the Controller responsibility is addressed within the View. Recall that Controllers respond to requests and perform appropriate actions which may result in changes to the Model and updates to the View. In a single-page application, rather than having requests in the traditional sense, we have events. Events can be traditional browser DOM events (e.g., clicks) or internal application events such as Model changes. 
+不过，Controller的功能已经包含在View里。回想一下，Controllers响应请求并且执行相应的事件，事件则有可能触发Model的改变并更新到View。在单页应用中，不同于传统意义上的请求，我们有事件。事件可以是传统的浏览器事件(比如，click)或者内部的应用事件比如Model changes。 
 
-In our TodoView, the ```events``` attribute fulfills the role of the Controller configuration, defining how events occurring within the View's DOM element are to be routed to event-handling methods defined in the View.
+在我们的这个TodoView种，```events```属性就扮演了Controller配置的角色，定义了View的DOM元素内触发的事件如何路由到View内定义的事件处理方法。
 
-While in this instance events help us relate Backbone to the MVC pattern, we will see them playing a much larger role in our SPA applications. Backbone.Event is a fundamental Backbone component which is mixed into both Backbone.Model and Backbone.View, providing them with rich event management capabilities. Note that the traditional controller role (Smalltalk-80 style) is performed by the template, not by the Backbone.View.
+在这个示例中events帮我们把Backbone关联到MVC模式，我们将会看到它们在SPA应用中扮演强大的角色。Backbone.Event是Backbone中一个基本的组件，混入到在Backbone.Model和Backbone.View之中，为它们提供丰富的事件管理功能。注意，传统的controller角色(Smalltalk-80风格)是由模板(template)执行的，而不是Backbone.View。
 
-This completes our first encounter with Backbone.js. The remainder of this book will explore the many features of the framework which build on these simple constructs. Before moving on, let's take a look at common features of JavaScript MV* frameworks.
+到这里我们就完成了与Backbone.js初次相遇。在这本书的后面部分我们将会探索这个框架在这些简单的结构基础之上的许多特性。不过，在此之前我们来看下JavaScript MV*框架的通用特性。
 
-### Implementation Specifics
+### 实现细节
 
 An SPA is loaded into the browser using a normal HTTP request and response. The page may simply be an HTML file, as in our example above, or it could be a view constructed by a server-side MVC implementation.
 
