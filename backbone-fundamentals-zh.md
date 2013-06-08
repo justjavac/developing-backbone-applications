@@ -461,88 +461,90 @@ _.templateSettings = { interpolate : /\{\{(.+?)\}\}/g };
 
 在我们的Todo应用中，Controller负责处理在编辑View中用户对指定Todo的改变，当用户完成编辑时更新指定的Todo Model。
 
-It's with Controllers that most JavaScript MVC frameworks depart from the traditional interpretation of the MVC pattern. The reasons for this vary, but in my opinion, Javascript framework authors likely initially looked at server-side interpretations of MVC (such as Ruby on Rails), realized that the approach didn't translate 1:1 on the client-side, and so re-interpreted the C in MVC to solve their state management problem. This was a clever approach, but it can make it hard for developers coming to MVC for the first time to understand both the classical MVC pattern and the "proper" role of Controllers in other JavaScript frameworks.
+大部分JavaScript MVC框架可通过Controllers与传统MVC模式的说法区分开来。在我看来，这种变化的原因，可能Javascript框架作者最初参照了服务端MVC的观念(比如Ruby on Rails)。认识到这种方式跟服务器端的并不完全一样，而且MVC中的C在服务器端也不是用于解决管理状态问题。这是一个非常聪明的途径，但对于初学者来说更难以理解传统MVC模式和无Javascript框架中controller的特定意义。
 
-So does Backbone.js have Controllers? Not really. Backbone's Views typically contain "Controller" logic, and Routers are used to help manage application state, but neither are true Controllers according to classical MVC.
+那Backbone.js有Controller吗?并不真正有。Backbone的Views通常包含了"controller"的逻辑，而且Routers(后面会讨论)也用于帮助管理应用状态，但这两者都不是传统MVC模式中真正意义上的控制器。
 
-In this respect, contrary to what might be mentioned in the official documentation or in blog posts, Backbone isn't truly an MVC framework. It's in fact better to see it a member of the MV* family which approaches architecture in its own way. There is of course nothing wrong with this, but it is important to distinguish between classical MVC and MV* should you be relying on discussions of MVC to help with your Backbone projects.
+在这方面，与官方文档或者网络博客中描述的相反，Backbone并不是正真的MVC框架。事实上，它更适合归类到MV*家族中，它有自己的实现架构。当然这并没有什么不对，只是帮助你区分和理解传统MVC与你在Backbone项目中的MV*。
 
-## What does MVC give us?
 
-To summarize, the MVC pattern helps you keep your application logic separate from your user interface, making it easier to change and maintain both. Thanks to this separation of logic, it is more clear where changes to your data, interface, or business logic need to be made and for what your unit tests should be written. 
+## MVC给我们带来了什么?
 
-### Delving Deeper into MVC
+总的来说，MVC模式可以帮助我们把应用的逻辑从界面中分离，使它们更容易修改和维护。基于这种分离的逻辑，对于数据的变化，用户界面，或者业务逻辑以及需要编写的单元测试都将非常的清晰。
 
-Right now, you likely have a basic understanding of what the MVC pattern provides, but for the curious, we'll explore it a little further.
+### 深入探索MVC
 
-The GoF (Gang of Four) do not refer to MVC as a design pattern, but rather consider it a "set of classes to build a user interface." In their view, it's actually a variation of three other classical design patterns: the Observer (Publish/Subscribe), Strategy, and Composite patterns. Depending on how MVC has been implemented in a framework, it may also use the Factory and Decorator patterns. I've covered some of these patterns in my other free book, "JavaScript Design Patterns For Beginners" if you would like to read about them further.
+现在，相信你对MVC模式已经有基本的了解了。为了满足大家的求知欲，这里我们将探索的更深入一点。
 
-As we've discussed, Models represent application data, while Views handle what the user is presented on screen. As such, MVC relies on Publish/Subscribe for some of its core communication (something that surprisingly isn't covered in many articles about the MVC pattern). When a Model is changed it "publishes" to the rest of the application that it has been updated. The "subscriber," generally a Controller, then updates the View accordingly. The observer-viewer nature of this relationship is what facilitates multiple Views being attached to the same Model.
+GoF (Gang of Four，四人组，　《Design Patterns: Elements of Reusable Object-Oriented Software》/《设计模式》一书的作者：Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides)并没有把MVC提及为一种设计模式，而是把它当做"一组用于构建用户界面的类集合"。在他们看来，它其实是其它三个经典的设计模式的演变：观察者模式(Observer)(Pub/Sub), 策略模式(Strategy)和组合模式(Composite)。根据MVC在框架中的实现不同可能还会用到工厂模式(Factory)和装饰器(Decorator)模式。我在另一本免费的书"JavaScript Design Patterns For Beginners"中讲述了这些模式，如果你有兴趣可以阅读更多信息。
 
-For developers interested in knowing more about the decoupled nature of MVC (once again, depending on the implementation), one of the goals of the pattern is to help define one-to-many relationships between a topic and its observers. When a topic changes, its observers are updated. Views and Controllers have a slightly different relationship. Controllers facilitate Views' responses to different user input and are an example of the Strategy pattern.
+正如我们所讨论的，models表示应用的数据，而views处理屏幕上展现给用户的内容。为此，MVC在核心通讯上基于推送/订阅模型(惊讶的是在很多关于MVC的文章中并没有提及到)。当一个model变化时它对应用其它模块发出更新通知("publishes")，订阅者(subscriber)——通常是一个Controller，然后更新对应的view。观察者——这种自然的观察关系促进了多个view关联到同一个model。
 
-### Summary
+对于感兴趣的开发人员想更多的了解解耦性的MVC(根据不同的实现)，这种模式的目标之一就是在一个主题和它的观察者之间建立一对多的关系。当这个主题改变的时候，它的观察者也会得到更新。Views和controllers的关系稍微有点不同。Controllers帮助views对不同用户的输入做不同的响应，是一个非常好的策略模式列子。
 
-Having reviewed the classical MVC pattern, you should now understand how it allows developers to cleanly separate concerns in an application. You should also now appreciate how JavaScript MVC frameworks may differ in their interpretation of MVC, and how they share some of the fundamental concepts of the original pattern.
 
-When reviewing a new JavaScript MVC/MV* framework, remember - it can be useful to step back and consider how it's opted to approach Models, Views, Controllers or other alternatives, as this can better help you understand how the framework is intended to be used.
+### 总结
 
-### Further reading
+已经回顾了经典的MVC模式，你现在应该明白了它是如何让开发者将一个应用清晰的分离开来。你应该也能区分出JavaScript MVC框架可能在实现上与原有模式的相似与不同。
 
-If you are interested in learning more about the variation of MVC which Backbone.js uses, please see the MVP (Model-View-Presenter) section in the appendix.
+当评定一个新的JavaScript MVC/MV*框架时，请记住——可以退一步想，看看它是如何实现Models, Views, Controllers或者其它备选方案，这样或许更能帮助你理解这个框架。
+
+### 进一步阅读
+
+如果你对Backbone.js使用的MVC变异模式感兴趣的话，可以阅读附录的MVP (Model-View-Presenter)章节。
 
 ## Fast facts
 
 ### Backbone.js
 
-* Core components: Model, View, Collection, Router. Enforces its own flavor of MV*
-* Event-driven communication between Views and Models. As we'll see, it's relatively straight-forward to add event listeners to any attribute in a Model, giving developers fine-grained control over what changes in the View
-* Supports data bindings through manual events or a separate Key-value observing (KVO) library
-* Support for RESTful interfaces out of the box, so Models can be easily tied to a backend
-* Extensive eventing system. It's [trivial](http://lostechies.com/derickbailey/2011/07/19/references-routing-and-the-event-aggregator-coordinating-views-in-backbone-js/) to add support for pub/sub in Backbone
-* Prototypes are instantiated with the ```new``` keyword, which some developers prefer
-* Agnostic about templating frameworks, however Underscore's micro-templating is available by default. 
-* Clear and flexible conventions for structuring applications. Backbone doesn't force usage of all of its components and can work with only those needed.
+* 核心组件：Model, View, Collection, Router。采用自己的MV*风格。
+* views与models之间基于事件驱动通讯。正如我们所看到的，它直接给每个mode每个属性添加事件监听，可以让开发者更细粒度的控制view的改变。
+* 支持通过自定义事件，或者单独的Key-value observing (KVO) 库进行数据绑定。
+* 支持RESTful接口，所以models可以轻易的与后端关联。
+* 可扩展的事件系统。在Backbone中可以非常[精细](http://lostechies.com/derickbailey/2011/07/19/references-routing-and-the-event-aggregator-coordinating-views-in-backbone-js/)的支持pub/sub。
+* 原型通过```new```关键字来实例化，很多开发者更喜欢这种方式。
+* 模板框架无关性，不过默认提供了Underscore的micro-templating。Backbone可以与其他模板框架一起使用比如Handlebars。
+* 为构建应用提供清晰和灵活的约定。Backbone不强制使用它的所有组件，有必须的组件就能正常工作。
 
-### Used by
+### 被这些应用所使用
 
 *Disqus*
 
-Disqus chose Backbone.js to power the latest version of their commenting widget. They felt it was the right choice for their distributed web app, given Backbone's small footprint and ease of extensibility.
+Disqus选择Backbone.js来够坚挺他们的commenting widget。他们认为这对他们分布式web app的正确选择，Backbone体积小而且容易扩展。
 
 ![](img/disqus.png)
 
 
 *Khan Academy*
 
-Offering a web app that aims to provide free world-class education to anyone anywhere, Khan use Backbone to keep their frontend code both modular and organized.
+提供可在任何地方都能使用的世界一流的免费教育，Khan使用Backbone来保持他们前端代码的模块化和有组织化。
 
 ![](img/khan-academy.png)
 
 
 *MetaLab*
 
-MetaLab created Flow, a task management app for teams using Backbone. Their workspace uses Backbone to create task views, activities, accounts, tags and more.
+MetaLab使用Backbone为团队提供流程创建，任务管理的app。他们的工作空间使用Backbone创建任务的views，活动，账户，标签等等。
 
 ![](img/flow.png)
 
 *Walmart Mobile*
 
-Walmart chose Backbone to power their mobile web applications, creating two new extension frameworks in the process - Thorax and Lumbar. We'll be discussing both of these later in the book.
+Walmart选择Backbone来构建他们的移动web应用，在这个过程中创建了2个新的扩展框架——Thorax和Lumbar。本书的后面我么会讲到这两个框架。
 
 ![](img/walmart-mobile.png)
 
 
 *AirBnb*
 
-Airbnb developed their mobile web app using Backbone and now use it across many of their products.
+Airbnb使用Backbone开发他们的移动web app，并且在很多产品中使用Backbone。
 
 ![](img/airbnb.png)
 
 
 *Code School*
 
-Code School's course challenge app is built from the ground up using Backbone, taking advantage of all the pieces it has to offer: routers, collections, models and complex event handling.
+Code School的课程挑战app从一开始就使用Backbone，利用了它提供的所有能力：routers, collections, models 以及复杂的事件处理。
 
 ![](img/code-school.png)
 
@@ -551,11 +553,11 @@ Code School's course challenge app is built from the ground up using Backbone, t
 
 在这一章中，你将学习到Backbone的基本元素，models、views、collections和routers。这并不是说这些内容就替代的官方文档，这会在你开始使用它构建应用前帮助你理解Backbone背后的一些核心观念。
 
-### Getting setup
+### 开始
 
-Before we dive into more code examples, let's define some boilerplate markup you can use to specify the dependencies Backbone requires. This boilerplate can be reused in many ways with little to no alteration and will allow you to run code from examples with ease.
+在投入代码示例前，我们先来定义一些样板标签，可以指定Backbone的依赖项。这些样板可以无需修改标题就能在很多情况下复用，而且可以帮你轻松的运行示例代码。
 
-You can paste the following into your text editor of choice, replacing the commented line between the script tags with the JavaScript from any given example:
+你可以选择把下面代码复制到你的编辑器中，把script标签里的注释替换成任何想要运行的示例代码就可以了：
 
 ```html
 <!DOCTYPE HTML>
@@ -576,15 +578,11 @@ You can paste the following into your text editor of choice, replacing the comme
 </html>
 ```
 
-You can then save and run the file in our browser of choice, such as Chrome or Firefox. Alternatively, if you prefer working with an online code editor, [jsFiddle](http://jsfiddle.net/jnf8B/) and [jsBin](http://jsbin.com/iwiwox/1/edit) versions of this boilerplate are also available.
+你可以保存文件后在浏览器中浏览你的页面。不过，如果你更喜欢使用在线编辑器的话，[jsFiddle](http://jsfiddle.net/jnf8B/)或者[jsBin](http://jsbin.com/iwiwox/1/edit)，上面的样板代码也同样可用。
 
-Most examples can also be run directly from within the console in your browser's developer tools, assuming you've loaded the boilerplate HTML page so that Backbone and it's dependencies are available for use.
-
-For Chrome, you can open up the DevTools via the Chrome menu in the top right hand corner: select "Tools > Developer Tools" or alternatively use the Control + Shift + I shortcut on Windows/Linux or Command + Option + I on Mac. 
+大部分示例都可以直接在浏览器developer tools的console中运行，如果你加载了上面的样板HTML页面的话，这样Backbone的依赖项才是可用。 
 
 ![](img/devtools.png)
-
-Next, switch to the Console tab, from where you can enter in and run any piece of JavaScript code by hitting the return key. You can also use the Console as a multi-line editor using the Ctrl + Enter shortcut to move from the end of one line to the start of another.
  
 
 ## 模型(Models)
@@ -751,13 +749,13 @@ console.log('Todo title: ' + myTodo.get('title')); // Todo title: Both attribute
 console.log('Completed: ' + myTodo.get('completed')); // Completed: true
 ```
 
-**Direct access**
+**直接访问**
 
-Models expose an `.attributes` attribute which represents an internal hash containing the state of that model. This is generally in the form of a JSON object similar to the model data you might find on the server but can take other forms.
+Models提供了一个`.attributes`属性，是包含model内部状态的一个hash。通常是以JSON对象的形式，与在服务器端的model数据基本相似，不过也可以是其它形式。
 
-Setting values through the `.attributes` attribute on a model bypasses triggers bound to the model.
+通过`.attributes`属性来给model设置值会绕过绑定在model上的触发器(triggers或者说事件)。
 
-Passing `{silent:true}` on change doesn't delay individual `"change:attr"` events, instead they are silenced entirely:
+改变model属性的时候传入`{silent:true}`并不会避免特定的`"change:attr"`事件，而是完全沉默：
 
 ```javascript
 var Person = new Backbone.Model();
@@ -769,7 +767,7 @@ console.log(!Person.hasChanged(''));
 // true
 ```
 
-Remember where possible it is best practice to use `Model.set()`, or direct instantiation as explained earlier.
+请记住，最好使用`Model.set()`或者像前面一样直接实例化来设置model的属性。
 
 #### 监听model的变化
 
@@ -813,7 +811,7 @@ myTodo.set({
 // - Values for this model have changed.
 ```
 
-You can also listen for changes to individual attributes in a Backbone model. In the following example, we log a message whenever a specific attribute (the title of our Todo model) is altered.
+在Backbone model中也可以监听个别的属性变化。下面这个示例，当指定属性(Todo model的title)修改时打印日志。
 
 ```javascript
 var Todo = Backbone.Model.extend({
@@ -877,16 +875,16 @@ Person.unset('name', {validate: true});
 // false
 ```
 
-Above, we also make sure of the `unset()` method, which removes an attribute by deleting it from the internal model attributes hash.
+上面，我们同样在unset()`方法时做验证，它可以从内部model的hash中删除一个属性。
 
-Validation functions can be as simple or complex as necessary. If the attributes provided are valid, nothing should be returned from `.validate()`. If they are invalid, an error value should be returned instead. 
+验证函数可以简单也可以看需要而极为复杂。如果属性值验证通过，`.validate()`方法可以不返回任何值。如果验证失败，需要返回一个自定义错误(error)。
 
-Should an error be returned:
+如果返回error：
 
-* An `invalid` event will triggered, setting the `validationError` property on the model with the value which is returned by this method. 
-* `.save()` will not continue and the attributes of the model will not be modified on the server
+* 将触发一个`invalid`事件，model的`validationError`属性被设置成`.validate()`返回的值。
+* `.save()`将不会继续，服务器端的model属性页不会被修改。
 
-A more complete validation example can be seen below:
+下面是一个更复杂点的验证的例子：
 
 ```javascript
 var Todo = Backbone.Model.extend({
@@ -913,19 +911,19 @@ myTodo.set('completed', true, {validate: true}); // logs: Remember to set a titl
 console.log('completed: ' + myTodo.get('completed')); // completed: false
 ```
 
-**Note**: the `attributes` object passed to the `validate` function represents what the attributes would be after completing the current `set()` or `save()`. This object is distinct from the current attributes of the model and from the parameters passed to the operation. Since it is created by shallow copy, it is not possible to change any Number, String, or Boolean attribute of the input within the function, but it *is* possible to change attributes in nested objects.
+**提示**: 传递给`validate`函数的`attributes`对象表示完成当前的`set()`或者`save()`之后的属性。这个对象与当前的model属性和传递给这个操作的参数都是不同的。因为它是浅拷贝，所以在该函数内不会修改传入的Number, String, 或者Boolean类型的值，但是可以改变嵌套对象的属性值。
 
-An example of this (by @fivetanley) is available [here](http://jsfiddle.net/2NdDY/7/).
+这里有一个相关的[例子](http://jsfiddle.net/2NdDY/7/)(by @fivetanley)。
 
 
 ## 视图(Views)
 
-Views in Backbone don't contain the HTML markup for your application; they contain the logic behind the presentation of the model's data to the user. This is usually achieved using JavaScript templating (e.g., Underscore Microtemplates, Mustache, jQuery-tmpl, etc.). A view's `render()` method can be bound to a model's `change()` event, enabling the view to instantly reflect model changes without requiring a full page refresh.
+Backbone中的Views不包含应用中的标记，但是它们定义models如何呈现给用户的逻辑。通常通过JavaScript模板来完成(比如：Mustache, jQuery-tmpl等)。view的`render()`方法可以绑定到model的`change()`事件上,这样view就可以保持更新而不用刷新整个页面。
 
 
-#### Creating new views
+#### 创建一个views
 
-Creating a new view is relatively straight-forward and similar to creating new models. To create a new View, simply extend `Backbone.View`. We introduced the sample TodoView below in the previous chapter; now let's take a closer look at how it works.
+创建一个view跟前面创建一个model一样类似的简单。 通过扩展自`Backbone.View`创建一个view。在前面的章节中，我们介绍了下面的这个TodoView示例；现在我们进一步的来看下它是如何工作的。
 
 ```javascript
 var TodoView = Backbone.View.extend({
@@ -968,17 +966,18 @@ var todoView = new TodoView();
 console.log(todoView.el); // logs <li></li>
 ```
 
-#### What is `el`?
+#### 什么是el?
 
-The central property of a view is `el` (the value logged in the last statement of the example). What is `el` and how is it defined? 
+`el`(上面例子中最后一行打印的值)是view的一个核心属性。那什么是`el`，它是如何定义的？
 
-`el` is basically a reference to a DOM element and all views must have one. Views can use `el` to compose their element's content and then insert it into the DOM all at once, which makes for faster rendering because the browser performs the minimum required number of reflows and repaints.
+`el`通常是DOM元素的引用，所有views都必须有一个。所有view的内容都一次性插入这个DOM，可以让让浏览器执行最小化的重绘，渲染更快。
 
-There are two ways to associate a DOM element with a view: a new element can be created for the view and subsequently added to the DOM or a reference can be made to an element which already exists in the page.
+有2种方式给view指定一个DOM元素：元素在页面中已存在，或者一个新创建的元素，开发者手动添加。
+如果元素已经存在，你可以设置`el`为一个css选择器或者直接对DOM的引用。
 
-If you want to create a new element for your view, set any combination of the following properties on the view: `tagName`, `id`, and `className`. A new element will be created for you by the framework and a reference to it will be available at the `el` property. If nothing is specified `tagName` defaults to `div`.
+如果要给view创建一个新的元素，设置view属性的任意组合：`tagName`, `id`和`className`。框架会为你创建一个新的元素，并且可以通过`el`属性来引用这个元素。如果没有指定`tagName`的值，默认会是`div`。
 
-In the example above, `tagName` is set to 'li', resulting in creation of an li element. The following example creates a ul element with id and class attributes:
+上面这个例子中，`tagName`设为'li'，就会创建一个li元素。下面这个例子会创建一个ul元素，并且包含id和class属性:
 
 ```javascript
 var TodosView = Backbone.View.extend({
@@ -991,35 +990,34 @@ var todosView = new TodosView();
 console.log(todosView.el); // logs <ul id="todos" class="container"></ul>
 ```
 
-The above code creates the DOM element below but doesn't append it to the DOM.
+上面的代码创建下面的DOM元素，但不会添加到DOM中。
 
 ```html
 <ul id="todos" class="container"></ul>
 ```
-
-If the element already exists in the page, you can set `el` as a CSS selector that matches the element.
+如果这个元素已经存在页面中，你可以把`el`设为匹配该元素的CSS选择器。
 
 ```javascript
 el: '#footer'
 ```
 
-Alternatively, you can set `el` to an existing element when creating the view:
+当创建view时`el`设置为一个存在的元素：
 
 ```javascript
 var todosView = new TodosView({el: $('#footer')});
 ```
 
-Note: When declaring a View, `options`, `el`, `tagName`, `id` and `className` may be defined as functions, if you want their values to be determined at runtime.
+提示: 当声明View时，`options`, `el`, `tagName`, `id`和`className`都可以定义成函数，如果你期望它们在运行时返回特定的值。
 
-**$el and $()**
+**$el和$()**
 
-View logic often needs to invoke jQuery or Zepto functions on the `el` element and elements nested within it. Backbone makes it easy to do so by defining the `$el` property and `$()` function. The `view.$el` property is equivalent to `$(view.el)` and `view.$(selector)` is equivalent to `$(view.el).find(selector)`. In our TodosView example's render method, we see `this.$el` used to set the HTML of the element and `this.$()` used to find subelements of class 'edit'.
+View的逻辑通常要在`el`和它嵌套的元素上调用jQuery和Zepto的函数。Backbone通过定义的`$el`属性和`$()`函数可以很容易的做到这点。`view.$el`属性等同于`$(view.el)` ，`view.$(selector)`等同于`$(view.el).find(selector)`。TodosView例子的render方法就看到`this.$el`用于设置元素的HTML，`this.$()`用于查找具有'edit'class名称的子元素。
 
 **setElement**
 
-If you need to apply an existing Backbone view to a different DOM element `setElement` can be used for this purpose. Overriding this.el needs to both change the DOM reference and re-bind events to the new element (and unbind from the old). 
+如果你想把一个已有的Backbone view应用到一个不同的DOM元素上，可以使用`setElement`覆盖this.el需要改变DOM的引用，重新绑定事件到新的元素(并且从老的元素上解除事件绑定)。 
 
-`setElement` will create a cached `$el` reference for you, moving the delegated events for a view from the old element to the new one.
+`setElement` 会为你创建缓存的`$el`引用， 把事件委托从老的元素上转移到新的元素上。
 
 ```javascript
 
@@ -1048,20 +1046,19 @@ button1.trigger('click');
 button2.trigger('click'); // returns true
 ```
 
-The "el" property represents the markup portion of the view that will be rendered; to get the view to actually render to the page, you need to add it as a new element or append it to an existing element.
+"el"属性表示view将会渲染到的其中的标签；要让view最终渲染到页面，需要把它作为一个新元素添加或者追加到一个已有的元素中去。
 
 ```javascript
 
-// We can also provide raw markup to setElement
-// as follows (just to demonstrate it can be done):
+// 我们也可以像下面这样给setElement提供一行的标签(仅仅为了演示它是可以的):
 var view = new Backbone.View;
 view.setElement('<p><a><b>test</b></a></p>');
-view.$('a b').html(); // outputs "test"
+view.$('a b').html(); // 输出"test"
 ```
 
-**Understanding `render()`**
+**理解 `render()`**
 
-`render()` is an optional function that defines the logic for rendering a template. We'll use Underscore's micro-templating in these examples, but remember you can use other templating frameworks if you prefer. Our example will reference the following HTML markup:
+`render()`是一个可选方法，定义模板的渲染逻辑。在这里示例中我们会用Underscore的micro-templating，但是你要记得，你也可以使用其它的模板框架。示例中将使用下面的HTML标签：
 
 ```html
 <!doctype html>
@@ -1088,20 +1085,19 @@ view.$('a b').html(); // outputs "test"
 </html>
 ```
 
-The `_.template` method in Underscore compiles JavaScript templates into functions which can be evaluated for rendering. In the TodoView, I'm passing the markup from the template with id `item-template` to `_.template()` to be compiled and stored in the todoTpl property when the view is created.
+Underscore的`_.template`方法把JavaScript模板编译成方法， 在渲染的时候执行。在上面这个view中，通过ID `item-template`获取模板标记，传给`_.template()`去编译，并且当view创建时保存在todoTpl属性上。
 
-The `render()` method uses this template by passing it the `toJSON()` encoding of the attributes of the model associated with the view. The template returns its markup after using the model's title and completed flag to evaluate the expressions containing them. I then set this markup as the HTML content of the `el` DOM element using the `$el` property.
+`render()`方法中，`toJSON()`方法把model的属性进行编码，然后传给模板。模板返回使用model的title,completed数据对表达式进行计算之后的结果标签。然后把结果设为`el`($el访问)元素HTML内容。
 
-Presto! This populates the template, giving you a data-complete set of markup in just a few short lines of code.
+转眼间!在短短几行代码之内，填充模板，给你一个完成数据填充的标签集合。
 
 
+Backbone通用的惯例是在`render()`末尾返回`this`。这有很多好处：
 
-A common Backbone convention is to return `this` at the end of `render()`. This is useful for a number of reasons, including:
+* 可以让views轻易的在其它父views中重复使用
+* 创建一个元素列表而不用单独每个渲染和绘制，只渲染一次填充整个列表。
 
-* Making views easily reusable in other parent views
-* Creating a list of elements without rendering and painting each of them individually, only to be drawn once the entire list is populated.
-
-Let's try to implement the latter of these. The `render`method of a simple ListView which doesn't use an ItemView for each item could be written:
+后面我们会尝试实现它。一个最简单的没有使用ItemView的ListView，其`render`方法可以这样：
 
 ```javascript
 
@@ -1112,7 +1108,7 @@ var ListView = Backbone.View.extend({
 });
 ```
 
-Simple enough. Let's now assume a decision is made to construct the items using an ItemView to provide enhanced behaviour to our list. The ItemView could be written:
+已足够简单了。现在，假定我们要使用ItemView来构建真个items，加强list行为。ItemView可以像下面这样：
 
 ```javascript
 
@@ -1125,39 +1121,34 @@ var ItemView = Backbone.View.extend({
 });
 
 ```
-
-Note the usage of `return this;` at the end of `render`. This common pattern enables us to reuse the view as a sub-view. We can also use it to pre-render the view prior to rendering. Using this requires that we make a change to our ListView's `render` method as follows:
+注意`render`末尾`return this;`的用处。这中普通的模式可以让我们把它作为子view重复使用。我们也可以利用它在呈现之前做预渲染(pre-render)。需要对ListView的`render`方法做些修改:
 
 ```javascript
 
 var ListView = Backbone.View.extend({
   render: function(){
 
-    // Assume our model exposes the items we will
-    // display in our list
+    // 假定items是model暴露的需要呈现的list
     var items = this.model.get('items');
 
     // Loop through each our items using the Underscore
     // _.each iterator
     _.each(items, function(item){
 
-      // Create a new instance of the ItemView, passing 
-      // it a specific model item
+      // 创建一个新的ItemView实例，传入指定的model项
       var itemView = new ItemView({ model: item });
-      // The itemView's DOM element is appended after it
-      // has been rendered. Here, the 'return this' is helpful
-      // as the itemView renders its model. Later, we ask for 
-      // it's output ("el")
+      // itemView的DOM元素渲染之后追加到ListView的el中。
+	  // 这里'return this'可帮助在render之后访问到它的输出("el")
       this.$el.append( itemView.render().el );
     }, this);
   }
 });
 ```
 
-**The `events` hash**
+**`events` hash**
 
 
-The Backbone `events` hash allows us to attach event listeners to either `el`-relative custom selectors, or directly to `el` if no selector is provided. An event takes the form of a key-value pair `'eventName selector': 'callbackFunction'` and a number of DOM event-types are supported, including `click`, `submit`, `mouseover`, `dblclick` and more.
+Backbone `events` hash可以允许我们添加事件监听到`el`——用户自定义的选择器，或者未指定选择器的时直接监听到`el`。事件以`{"事件名称 选择器": "回调函数"}`的格式表示，支持大量的DOM事件，包括`click`, `submit`, `mouseover`, `dblclick` 还有更多。
 
 ```javascript
 
@@ -1175,13 +1166,13 @@ var TodoView = Backbone.View.extend({
   },
 ```
 
-What isn't instantly obvious is that while Backbone uses jQuery's `.delegate()` underneath, it goes further by extending it so that `this` always refers to the current view object within callback functions. The only thing to really keep in mind is that any string callback supplied to the events attribute must have a corresponding function with the same name within the scope of your view. 
+不是特别明显的是，Backbone用jQuery的`.delegate()`来提供事件代理的支持，但有些改进，`this`始终指向当前的view对象。需要记住的是，events属性中指定的回调函数名称必须在view范围内有一个对应函数。
 
-The declarative, delegated jQuery events means that you don't have to worry about whether a particular element has been rendered to the DOM yet or not. Usually with jQuery you have to worry about "presence or absence in the DOM" all the time when binding events.
+需要声明的是，委托jQuery事件意味着你不需要担心特定的元素是否已经渲染到DOM。通常使用jQuery绑定事件时你需要担心元素是否一直存在DOM中。
 
-In our TodoView example, the edit callback is invoked when the user double-clicks a label element within the `el` element, updateOnEnter is called for each keypress in an element with class 'edit', and close executes when an element with class 'edit' loses focus. Each of these callback functions can use `this` to refer to the TodoView object.
+TodoView示例中，edit回调当用户双击`el`元素内的label元素时触发，updateOnEnter在每个'edit'类元素keypress时调用，close在'edit'类元素失去焦点时执行。每个回调函数内都可以使用`this`来引用TodoView对象。
 
-Note that you can also bind methods yourself using `_.bind(this.viewEvent, this)`, which is effectively what the value in each event's key-value pair is doing. Below we use `_.bind` to re-render our view when a model changes.
+你也可以自己使用`_.bind(this.viewEvent, this)`来绑定方法，实际上跟在events key-value对立面做的是一样的。下面使用`_.bind`当model change的时候重新渲染view。
 
 ```javascript
 
@@ -1192,12 +1183,12 @@ var TodoView = Backbone.View.extend({
 });
 ```
 
-`_.bind` only works on one method at a time, but supports currying and as it returns the bound function means that you can use `_.bind` on an anonymous function.
+`_.bind`一次只能指定一个方法，但是支持返回作为绑定函数，意思是说可以在匿名函数上使用`_.bind`。
 
 
-## Collections
+## 集合(Collections)
 
-Collections are sets of Models and are created by extending `Backbone.Collection`.
+Collections是Models的集合，通过扩展自`Backbone.Collection`来创建。
 
 Normally, when creating a collection you'll also want to define a property specifying the type of model that your collection will contain, along with any instance properties required.
 
