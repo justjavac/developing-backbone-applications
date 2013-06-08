@@ -282,88 +282,90 @@ _.templateSettings = { interpolate : /\{\{(.+?)\}\}/g };
 
 在我们的Todo应用中，Controller负责处理在编辑View中用户对指定Todo的改变，当用户完成编辑时更新指定的Todo Model。
 
-It's with Controllers that most JavaScript MVC frameworks depart from the traditional interpretation of the MVC pattern. The reasons for this vary, but in my opinion, Javascript framework authors likely initially looked at server-side interpretations of MVC (such as Ruby on Rails), realized that the approach didn't translate 1:1 on the client-side, and so re-interpreted the C in MVC to solve their state management problem. This was a clever approach, but it can make it hard for developers coming to MVC for the first time to understand both the classical MVC pattern and the "proper" role of Controllers in other JavaScript frameworks.
+大部分JavaScript MVC框架可通过Controllers与传统MVC模式的说法区分开来。在我看来，这种变化的原因，可能Javascript框架作者最初参照了服务端MVC的观念(比如Ruby on Rails)。认识到这种方式跟服务器端的并不完全一样，而且MVC中的C在服务器端也不是用于解决管理状态问题。这是一个非常聪明的途径，但对于初学者来说更难以理解传统MVC模式和无Javascript框架中controller的特定意义。
 
-So does Backbone.js have Controllers? Not really. Backbone's Views typically contain "Controller" logic, and Routers are used to help manage application state, but neither are true Controllers according to classical MVC.
+那Backbone.js有Controller吗?并不真正有。Backbone的Views通常包含了"controller"的逻辑，而且Routers(后面会讨论)也用于帮助管理应用状态，但这两者都不是传统MVC模式中真正意义上的控制器。
 
-In this respect, contrary to what might be mentioned in the official documentation or in blog posts, Backbone isn't truly an MVC framework. It's in fact better to see it a member of the MV* family which approaches architecture in its own way. There is of course nothing wrong with this, but it is important to distinguish between classical MVC and MV* should you be relying on discussions of MVC to help with your Backbone projects.
+在这方面，与官方文档或者网络博客中描述的相反，Backbone并不是正真的MVC框架。事实上，它更适合归类到MV*家族中，它有自己的实现架构。当然这并没有什么不对，只是帮助你区分和理解传统MVC与你在Backbone项目中的MV*。
 
-## What does MVC give us?
 
-To summarize, the MVC pattern helps you keep your application logic separate from your user interface, making it easier to change and maintain both. Thanks to this separation of logic, it is more clear where changes to your data, interface, or business logic need to be made and for what your unit tests should be written. 
+## MVC给我们带来了什么?
 
-### Delving Deeper into MVC
+总的来说，MVC模式可以帮助我们把应用的逻辑从界面中分离，使它们更容易修改和维护。基于这种分离的逻辑，对于数据的变化，用户界面，或者业务逻辑以及需要编写的单元测试都将非常的清晰。
 
-Right now, you likely have a basic understanding of what the MVC pattern provides, but for the curious, we'll explore it a little further.
+### 深入探索MVC
 
-The GoF (Gang of Four) do not refer to MVC as a design pattern, but rather consider it a "set of classes to build a user interface." In their view, it's actually a variation of three other classical design patterns: the Observer (Publish/Subscribe), Strategy, and Composite patterns. Depending on how MVC has been implemented in a framework, it may also use the Factory and Decorator patterns. I've covered some of these patterns in my other free book, "JavaScript Design Patterns For Beginners" if you would like to read about them further.
+现在，相信你对MVC模式已经有基本的了解了。为了满足大家的求知欲，这里我们将探索的更深入一点。
 
-As we've discussed, Models represent application data, while Views handle what the user is presented on screen. As such, MVC relies on Publish/Subscribe for some of its core communication (something that surprisingly isn't covered in many articles about the MVC pattern). When a Model is changed it "publishes" to the rest of the application that it has been updated. The "subscriber," generally a Controller, then updates the View accordingly. The observer-viewer nature of this relationship is what facilitates multiple Views being attached to the same Model.
+GoF (Gang of Four，四人组，　《Design Patterns: Elements of Reusable Object-Oriented Software》/《设计模式》一书的作者：Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides)并没有把MVC提及为一种设计模式，而是把它当做"一组用于构建用户界面的类集合"。在他们看来，它其实是其它三个经典的设计模式的演变：观察者模式(Observer)(Pub/Sub), 策略模式(Strategy)和组合模式(Composite)。根据MVC在框架中的实现不同可能还会用到工厂模式(Factory)和装饰器(Decorator)模式。我在另一本免费的书"JavaScript Design Patterns For Beginners"中讲述了这些模式，如果你有兴趣可以阅读更多信息。
 
-For developers interested in knowing more about the decoupled nature of MVC (once again, depending on the implementation), one of the goals of the pattern is to help define one-to-many relationships between a topic and its observers. When a topic changes, its observers are updated. Views and Controllers have a slightly different relationship. Controllers facilitate Views' responses to different user input and are an example of the Strategy pattern.
+正如我们所讨论的，models表示应用的数据，而views处理屏幕上展现给用户的内容。为此，MVC在核心通讯上基于推送/订阅模型(惊讶的是在很多关于MVC的文章中并没有提及到)。当一个model变化时它对应用其它模块发出更新通知("publishes")，订阅者(subscriber)——通常是一个Controller，然后更新对应的view。观察者——这种自然的观察关系促进了多个view关联到同一个model。
 
-### Summary
+对于感兴趣的开发人员想更多的了解解耦性的MVC(根据不同的实现)，这种模式的目标之一就是在一个主题和它的观察者之间建立一对多的关系。当这个主题改变的时候，它的观察者也会得到更新。Views和controllers的关系稍微有点不同。Controllers帮助views对不同用户的输入做不同的响应，是一个非常好的策略模式列子。
 
-Having reviewed the classical MVC pattern, you should now understand how it allows developers to cleanly separate concerns in an application. You should also now appreciate how JavaScript MVC frameworks may differ in their interpretation of MVC, and how they share some of the fundamental concepts of the original pattern.
 
-When reviewing a new JavaScript MVC/MV* framework, remember - it can be useful to step back and consider how it's opted to approach Models, Views, Controllers or other alternatives, as this can better help you understand how the framework is intended to be used.
+### 总结
 
-### Further reading
+已经回顾了经典的MVC模式，你现在应该明白了它是如何让开发者将一个应用清晰的分离开来。你应该也能区分出JavaScript MVC框架可能在实现上与原有模式的相似与不同。
 
-If you are interested in learning more about the variation of MVC which Backbone.js uses, please see the MVP (Model-View-Presenter) section in the appendix.
+当评定一个新的JavaScript MVC/MV*框架时，请记住——可以退一步想，看看它是如何实现Models, Views, Controllers或者其它备选方案，这样或许更能帮助你理解这个框架。
+
+### 进一步阅读
+
+如果你对Backbone.js使用的MVC变异模式感兴趣的话，可以阅读附录的MVP (Model-View-Presenter)章节。
 
 ## Fast facts
 
 ### Backbone.js
 
-* Core components: Model, View, Collection, Router. Enforces its own flavor of MV*
-* Event-driven communication between Views and Models. As we'll see, it's relatively straight-forward to add event listeners to any attribute in a Model, giving developers fine-grained control over what changes in the View
-* Supports data bindings through manual events or a separate Key-value observing (KVO) library
-* Support for RESTful interfaces out of the box, so Models can be easily tied to a backend
-* Extensive eventing system. It's [trivial](http://lostechies.com/derickbailey/2011/07/19/references-routing-and-the-event-aggregator-coordinating-views-in-backbone-js/) to add support for pub/sub in Backbone
-* Prototypes are instantiated with the ```new``` keyword, which some developers prefer
-* Agnostic about templating frameworks, however Underscore's micro-templating is available by default. 
-* Clear and flexible conventions for structuring applications. Backbone doesn't force usage of all of its components and can work with only those needed.
+* 核心组件：Model, View, Collection, Router。采用自己的MV*风格。
+* views与models之间基于事件驱动通讯。正如我们所看到的，它直接给每个mode每个属性添加事件监听，可以让开发者更细粒度的控制view的改变。
+* 支持通过自定义事件，或者单独的Key-value observing (KVO) 库进行数据绑定。
+* 支持RESTful接口，所以models可以轻易的与后端关联。
+* 可扩展的事件系统。在Backbone中可以非常[精细](http://lostechies.com/derickbailey/2011/07/19/references-routing-and-the-event-aggregator-coordinating-views-in-backbone-js/)的支持pub/sub。
+* 原型通过```new```关键字来实例化，很多开发者更喜欢这种方式。
+* 模板框架无关性，不过默认提供了Underscore的micro-templating。Backbone可以与其他模板框架一起使用比如Handlebars。
+* 为构建应用提供清晰和灵活的约定。Backbone不强制使用它的所有组件，有必须的组件就能正常工作。
 
-### Used by
+### 被这些应用所使用
 
 *Disqus*
 
-Disqus chose Backbone.js to power the latest version of their commenting widget. They felt it was the right choice for their distributed web app, given Backbone's small footprint and ease of extensibility.
+Disqus选择Backbone.js来够坚挺他们的commenting widget。他们认为这对他们分布式web app的正确选择，Backbone体积小而且容易扩展。
 
 ![](img/disqus.png)
 
 
 *Khan Academy*
 
-Offering a web app that aims to provide free world-class education to anyone anywhere, Khan use Backbone to keep their frontend code both modular and organized.
+提供可在任何地方都能使用的世界一流的免费教育，Khan使用Backbone来保持他们前端代码的模块化和有组织化。
 
 ![](img/khan-academy.png)
 
 
 *MetaLab*
 
-MetaLab created Flow, a task management app for teams using Backbone. Their workspace uses Backbone to create task views, activities, accounts, tags and more.
+MetaLab使用Backbone为团队提供流程创建，任务管理的app。他们的工作空间使用Backbone创建任务的views，活动，账户，标签等等。
 
 ![](img/flow.png)
 
 *Walmart Mobile*
 
-Walmart chose Backbone to power their mobile web applications, creating two new extension frameworks in the process - Thorax and Lumbar. We'll be discussing both of these later in the book.
+Walmart选择Backbone来构建他们的移动web应用，在这个过程中创建了2个新的扩展框架——Thorax和Lumbar。本书的后面我么会讲到这两个框架。
 
 ![](img/walmart-mobile.png)
 
 
 *AirBnb*
 
-Airbnb developed their mobile web app using Backbone and now use it across many of their products.
+Airbnb使用Backbone开发他们的移动web app，并且在很多产品中使用Backbone。
 
 ![](img/airbnb.png)
 
 
 *Code School*
 
-Code School's course challenge app is built from the ground up using Backbone, taking advantage of all the pieces it has to offer: routers, collections, models and complex event handling.
+Code School的课程挑战app从一开始就使用Backbone，利用了它提供的所有能力：routers, collections, models 以及复杂的事件处理。
 
 ![](img/code-school.png)
 
